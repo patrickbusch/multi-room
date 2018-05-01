@@ -9,19 +9,22 @@ import Cocoa
 
 class ModuleLoader {
 
-    func getModules() -> [SHModule] {
-        
-        return [SHModule]()
-    }
+    var modules: [SHModule] = [SHModule]()
+    var updateMenus: (([SHMenuItem]) -> ())?
+    var updateViews: (([SHPopoverView]) -> ())?
     
-    func getMenu() -> NSMenu {
-        let menu = NSMenu()
+    func loadModules() {
+        self.modules = [TestModule()]
         
-        //        menu.addItem(NSMenuItem(title: NSLocalizedString("Do something", comment: ""), action: #selector(AppDelegate.doSomething(_:)), keyEquivalent: ""))
-        //        menu.addItem(NSMenuItem.separator())
+        var menuItems = [SHMenuItem]()
+        var views = [SHPopoverView]()
         
-        menu.addItem(NSMenuItem(title: NSLocalizedString("Quit application", comment: ""), action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
+        self.modules.forEach { (module) in
+            menuItems.append(contentsOf: module.menuItems)
+            views.append(contentsOf: module.views)
+        }
         
-        return menu
+        self.updateMenus?(menuItems)
+        self.updateViews?(views)
     }
 }

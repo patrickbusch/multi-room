@@ -11,7 +11,7 @@ protocol SHModule {
 
     var identifier: String {get}
     var menuItems: [SHMenuItem] {get}
-    var views: [SHPopupView] {get}
+    var views: [SHPopoverView] {get}
 }
 
 protocol SHMenuItem {
@@ -20,7 +20,7 @@ protocol SHMenuItem {
     var action: () -> () {get}
 }
 
-protocol SHPopupView {
+protocol SHPopoverView {
     
     var view: NSView {get}
 }

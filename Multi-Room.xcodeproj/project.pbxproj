@@ -16,6 +16,10 @@
 		1D62532B2098B4ED004573FD /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D62532A2098B4ED004573FD /* PopupViewController.swift */; };
 		1D62532D2098B7EF004573FD /* SHModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D62532C2098B7EF004573FD /* SHModule.swift */; };
 		1D62532F2098BA4A004573FD /* PopoverHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D62532E2098BA4A004573FD /* PopoverHandler.swift */; };
+		1D6253322098C33A004573FD /* TestModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6253312098C33A004573FD /* TestModule.swift */; };
+		1D6253342098C396004573FD /* TestMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6253332098C396004573FD /* TestMenuItem.swift */; };
+		1D6253362098C3CB004573FD /* TestPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6253352098C3CB004573FD /* TestPopoverView.swift */; };
+		1DB10FF62098CD5100133D2B /* MenuHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB10FF52098CD5100133D2B /* MenuHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +35,10 @@
 		1D62532A2098B4ED004573FD /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		1D62532C2098B7EF004573FD /* SHModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHModule.swift; sourceTree = "<group>"; };
 		1D62532E2098BA4A004573FD /* PopoverHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverHandler.swift; sourceTree = "<group>"; };
+		1D6253312098C33A004573FD /* TestModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModule.swift; sourceTree = "<group>"; };
+		1D6253332098C396004573FD /* TestMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMenuItem.swift; sourceTree = "<group>"; };
+		1D6253352098C3CB004573FD /* TestPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPopoverView.swift; sourceTree = "<group>"; };
+		1DB10FF52098CD5100133D2B /* MenuHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,10 +71,12 @@
 		1D625308209859B3004573FD /* Multi-Room */ = {
 			isa = PBXGroup;
 			children = (
+				1D6253302098C31F004573FD /* TestModule */,
 				1D625309209859B3004573FD /* AppDelegate.swift */,
 				1D6253262098AD97004573FD /* EventMonitor.swift */,
 				1D62532C2098B7EF004573FD /* SHModule.swift */,
 				1D6253282098B489004573FD /* ModuleLoader.swift */,
+				1DB10FF52098CD5100133D2B /* MenuHandler.swift */,
 				1D62532E2098BA4A004573FD /* PopoverHandler.swift */,
 				1D62532A2098B4ED004573FD /* PopupViewController.swift */,
 				1D62530D209859B3004573FD /* Assets.xcassets */,
@@ -76,6 +86,16 @@
 				1D6253222098AA68004573FD /* Localizable.strings */,
 			);
 			path = "Multi-Room";
+			sourceTree = "<group>";
+		};
+		1D6253302098C31F004573FD /* TestModule */ = {
+			isa = PBXGroup;
+			children = (
+				1D6253312098C33A004573FD /* TestModule.swift */,
+				1D6253332098C396004573FD /* TestMenuItem.swift */,
+				1D6253352098C3CB004573FD /* TestPopoverView.swift */,
+			);
+			path = TestModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,11 +170,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D62532F2098BA4A004573FD /* PopoverHandler.swift in Sources */,
+				1D6253342098C396004573FD /* TestMenuItem.swift in Sources */,
 				1D6253292098B489004573FD /* ModuleLoader.swift in Sources */,
 				1D62530A209859B3004573FD /* AppDelegate.swift in Sources */,
 				1D6253272098AD97004573FD /* EventMonitor.swift in Sources */,
+				1D6253322098C33A004573FD /* TestModule.swift in Sources */,
 				1D62532D2098B7EF004573FD /* SHModule.swift in Sources */,
+				1D6253362098C3CB004573FD /* TestPopoverView.swift in Sources */,
 				1D62532B2098B4ED004573FD /* PopupViewController.swift in Sources */,
+				1DB10FF62098CD5100133D2B /* MenuHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +322,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.trickbusch.Multi-Room";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -314,6 +339,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.trickbusch.Multi-Room";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

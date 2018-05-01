@@ -11,6 +11,7 @@ class PopoverHandler {
     
     let popover = NSPopover()
     var eventMonitor: EventMonitor?
+//    var viewsLoaded: ((NSView) -> ())?
     
     init() {
         self.eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [weak self] event in
@@ -29,7 +30,7 @@ class PopoverHandler {
         }
     }
     
-    func showPopover(sender: Any?, statusBarButton: NSStatusBarButton?) {
+    private func showPopover(sender: Any?, statusBarButton: NSStatusBarButton?) {
         if let button = statusBarButton {
             self.popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
         }
@@ -37,9 +38,13 @@ class PopoverHandler {
         self.eventMonitor?.start()
     }
     
-    func closePopover(sender: Any?) {
+    private func closePopover(sender: Any?) {
         self.popover.performClose(sender)
         
         self.eventMonitor?.stop()
+    }
+    
+    func updateViews(_ views: [SHPopoverView]) {
+        print("not yet implemented")
     }
 }

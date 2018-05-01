@@ -20,7 +20,6 @@ class PopupViewController: NSViewController {
 
 extension PopupViewController {
     
-    // MARK: Storyboard instantiation
     static func freshController() -> PopupViewController {
         //1.
         let storyboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
