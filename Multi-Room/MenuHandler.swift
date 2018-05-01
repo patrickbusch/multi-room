@@ -40,7 +40,12 @@ class MenuHandler {
         let menu = NSMenu()
         var menuActions = [MenuAction]()
         
+        var lastType: SHMenuItem.Type?
+        
         menuItems.forEach { (menuItem) in
+            print(type(of: menuItem))
+            let currentType = type(of: menuItem)
+            
             let menuAction = MenuAction(action: menuItem.action)
             let newMenuItem = NSMenuItem(title: NSLocalizedString(menuItem.name, comment: ""), action: #selector(MenuAction.doAction), keyEquivalent: "")
             
@@ -48,6 +53,15 @@ class MenuHandler {
             
             menuActions.append(menuAction)
             menu.addItem(newMenuItem)
+            
+            if lastType != nil && lastType != currentType {
+                menu.addItem(NSMenuItem.separator())
+            }
+            lastType = currentType
+        }
+        
+        if (menuItems.count > 0) {
+            menu.addItem(NSMenuItem.separator())
         }
         
         menu.addItem(NSMenuItem(title: NSLocalizedString("Quit application", comment: ""), action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))

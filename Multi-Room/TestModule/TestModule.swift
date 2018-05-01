@@ -18,7 +18,9 @@ class TestModule: NSObject, SHModule {
     var menuItems: [SHMenuItem] {
         get {
             return [
-                TestMenuItem(name: "XXX", action: { () in print("XXX pressed") } )
+                TestMenuItem(name: "XXX", action: { () in print("XXX pressed")}),
+                TestMenuItem(name: "YYY", action: { () in print("YYY pressed")}),
+                TestMenuItem(name: "ZZZ", action: { () in print("ZZZ pressed")})
             ]
         }
     }
