@@ -19,6 +19,7 @@
 		1D6253322098C33A004573FD /* TestModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6253312098C33A004573FD /* TestModule.swift */; };
 		1D6253342098C396004573FD /* TestMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6253332098C396004573FD /* TestMenuItem.swift */; };
 		1D6253362098C3CB004573FD /* TestPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6253352098C3CB004573FD /* TestPopoverView.swift */; };
+		1D7AA4B82098E9630069FD9D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D7AA4BA2098E9630069FD9D /* Localizable.strings */; };
 		1DB10FF62098CD5100133D2B /* MenuHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB10FF52098CD5100133D2B /* MenuHandler.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		1D6253312098C33A004573FD /* TestModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModule.swift; sourceTree = "<group>"; };
 		1D6253332098C396004573FD /* TestMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMenuItem.swift; sourceTree = "<group>"; };
 		1D6253352098C3CB004573FD /* TestPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPopoverView.swift; sourceTree = "<group>"; };
+		1D7AA4B92098E9630069FD9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1DB10FF52098CD5100133D2B /* MenuHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +96,7 @@
 				1D6253312098C33A004573FD /* TestModule.swift */,
 				1D6253332098C396004573FD /* TestMenuItem.swift */,
 				1D6253352098C3CB004573FD /* TestPopoverView.swift */,
+				1D7AA4BA2098E9630069FD9D /* Localizable.strings */,
 			);
 			path = TestModule;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D62530E209859B3004573FD /* Assets.xcassets in Resources */,
+				1D7AA4B82098E9630069FD9D /* Localizable.strings in Resources */,
 				1D6253202098AA68004573FD /* Localizable.strings in Resources */,
 				1D625311209859B3004573FD /* Main.storyboard in Resources */,
 			);
@@ -197,6 +201,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				1D6253212098AA68004573FD /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		1D7AA4BA2098E9630069FD9D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1D7AA4B92098E9630069FD9D /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
