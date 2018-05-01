@@ -17,8 +17,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         if let button = statusItem.button {
             button.image = NSImage(named:NSImage.Name("Audio"))
-            button.action = #selector(doSomething(_:))
+//            button.action = #selector(doSomething(_:))
         }
+        
+        self.constructMenu()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -28,6 +30,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @objc func doSomething(_ sender: Any?) {
         print("Button pressed")
+    }
+    
+    func constructMenu() {
+        let menu = NSMenu()
+        
+        menu.addItem(NSMenuItem(title: NSLocalizedString("Do something", comment: ""), action: #selector(AppDelegate.doSomething(_:)), keyEquivalent: "P"))
+        menu.addItem(NSMenuItem.separator())
+        menu.addItem(NSMenuItem(title: NSLocalizedString("Quit application", comment: ""), action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
+        
+        statusItem.menu = menu
     }
 }
 
