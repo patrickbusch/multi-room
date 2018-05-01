@@ -13,6 +13,7 @@
 		1D625311209859B3004573FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D62530F209859B3004573FD /* Main.storyboard */; };
 		1D6253202098AA68004573FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D6253222098AA68004573FD /* Localizable.strings */; };
 		1D6253242098ABB4004573FD /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6253232098ABB4004573FD /* TestViewController.swift */; };
+		1D6253272098AD97004573FD /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6253262098AD97004573FD /* EventMonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		1D625313209859B3004573FD /* Multi_Room.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Multi_Room.entitlements; sourceTree = "<group>"; };
 		1D6253212098AA68004573FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1D6253232098ABB4004573FD /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		1D6253262098AD97004573FD /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			children = (
 				1D6253252098ABB9004573FD /* Test */,
 				1D625309209859B3004573FD /* AppDelegate.swift */,
+				1D6253262098AD97004573FD /* EventMonitor.swift */,
 				1D62530B209859B3004573FD /* ViewController.swift */,
 				1D62530D209859B3004573FD /* Assets.xcassets */,
 				1D62530F209859B3004573FD /* Main.storyboard */,
@@ -152,6 +155,7 @@
 				1D62530C209859B3004573FD /* ViewController.swift in Sources */,
 				1D6253242098ABB4004573FD /* TestViewController.swift in Sources */,
 				1D62530A209859B3004573FD /* AppDelegate.swift in Sources */,
+				1D6253272098AD97004573FD /* EventMonitor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
