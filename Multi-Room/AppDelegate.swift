@@ -24,9 +24,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.sendAction(on: [.leftMouseUp, .rightMouseUp])
         }
 
-        popover.contentViewController = TestViewController.freshController()
-        
-//        self.constructMenu()
+        self.popover.contentViewController = PopupViewController.freshController()
         
         self.menu = self.constructMenu()
         
