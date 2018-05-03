@@ -7,20 +7,24 @@
 
 import Cocoa
 
-protocol SHModule {
+protocol SHModule : Identifiable {
 
-    var identifier: String {get}
     var menuItems: [SHMenuItem] {get}
     var views: [SHPopoverView] {get}
 }
 
-protocol SHMenuItem {
+protocol SHMenuItem : Identifiable {
 
     var name: String {get}
     var action: () -> () {get}
 }
 
-protocol SHPopoverView {
+protocol SHPopoverView : Identifiable {
     
     var view: NSView {get}
+}
+
+protocol Identifiable {
+    
+    var identifier: String {get}
 }

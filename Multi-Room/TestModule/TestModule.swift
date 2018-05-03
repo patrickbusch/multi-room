@@ -7,20 +7,26 @@
 
 import Cocoa
 
-class TestModule: NSObject, SHModule {
+class TestModule: SHModule {
 
+    private let _identifier: String
+    
+    init(_ identifier: String) {
+        self._identifier = identifier
+    }
+    
     var identifier: String {
         get {
-            return "Test"
+            return self._identifier
         }
     }
     
     var menuItems: [SHMenuItem] {
         get {
             return [
-                TestMenuItem(name: "XXX", action: { () in print("XXX pressed")}),
-                TestMenuItem(name: "YYY", action: { () in print("YYY pressed")}),
-                TestMenuItem(name: "ZZZ", action: { () in print("ZZZ pressed")})
+                TestMenuItem(self.identifier, name: "XXX", action: { () in print("XXX pressed in \(self.identifier)")}),
+                TestMenuItem(self.identifier, name: "YYY", action: { () in print("YYY pressed in \(self.identifier)")}),
+                TestMenuItem(self.identifier, name: "ZZZ", action: { () in print("ZZZ pressed in \(self.identifier)")})
             ]
         }
     }

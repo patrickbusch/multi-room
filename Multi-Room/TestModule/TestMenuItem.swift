@@ -9,11 +9,19 @@ import Cocoa
 
 class TestMenuItem: SHMenuItem {
     
+    private let _identifier: String
     var name: String = ""
     var action: () -> ()
     
-    init(name: String, action: @escaping () -> ()) {
+    init(_ identifier: String, name: String, action: @escaping () -> ()) {
+        self._identifier = identifier
         self.name = name
         self.action = action
+    }
+    
+    var identifier: String {
+        get {
+            return self._identifier
+        }
     }
 }

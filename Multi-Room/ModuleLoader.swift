@@ -14,7 +14,7 @@ class ModuleLoader {
     var updateViews: (([SHPopoverView]) -> ())?
     
     func loadModules() {
-        self.modules = [TestModule()]
+        self.modules = [TestModule("Test1"), TestModule("Test2")]
         
         var menuItems = [SHMenuItem]()
         var views = [SHPopoverView]()
