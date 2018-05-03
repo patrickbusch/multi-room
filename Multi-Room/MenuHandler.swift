@@ -40,11 +40,15 @@ class MenuHandler {
         let menu = NSMenu()
         var menuActions = [MenuAction]()
         
-        var lastType: SHMenuItem.Type?
+        var lastIdentifier: String?
         
         menuItems.forEach { (menuItem) in
-            print(type(of: menuItem))
-            let currentType = type(of: menuItem)
+            print(menuItem.identifier)
+            let currentIdentifier = menuItem.identifier
+            
+            if lastIdentifier != nil && lastIdentifier != currentIdentifier {
+                menu.addItem(NSMenuItem.separator())
+            }
             
             let menuAction = MenuAction(action: menuItem.action)
             let newMenuItem = NSMenuItem(title: NSLocalizedString(menuItem.name, comment: ""), action: #selector(MenuAction.doAction), keyEquivalent: "")
@@ -54,10 +58,7 @@ class MenuHandler {
             menuActions.append(menuAction)
             menu.addItem(newMenuItem)
             
-            if lastType != nil && lastType != currentType {
-                menu.addItem(NSMenuItem.separator())
-            }
-            lastType = currentType
+            lastIdentifier = currentIdentifier
         }
         
         if (menuItems.count > 0) {
