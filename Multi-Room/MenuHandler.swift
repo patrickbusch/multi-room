@@ -36,13 +36,13 @@ class MenuHandler {
     }
     
     
-    func updateMenu(_ menuItems: [Identifier: [SHMenuItem]]) {
+    func updateMenu(_ menuItems: SHMenuItemCollection) {
         let menu = NSMenu()
         var menuActions = [MenuAction]()
         
-        menuItems.keys.forEach { (identifier) in
+        menuItems.forEach { (identifier, menuItems) in
             
-            menuItems[identifier]?.forEach({ (menuItem) in
+            menuItems.forEach({ (menuItem) in
                 print("\(identifier): \(menuItem.name)")
                 
                 let menuAction = MenuAction(action: menuItem.action)

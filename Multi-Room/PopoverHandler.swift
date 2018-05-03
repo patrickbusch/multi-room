@@ -44,7 +44,7 @@ class PopoverHandler {
         self.eventMonitor?.stop()
     }
     
-    func updateViews(_ views: [Identifier: [SHPopoverView]]) {
+    func updateViews(_ views: SHPopoverViewCollection) {
         print("not yet implemented")
     }
 }
