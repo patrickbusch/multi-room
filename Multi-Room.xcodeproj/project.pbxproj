@@ -14,7 +14,7 @@
 		1D6253272098AD97004573FD /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6253262098AD97004573FD /* EventMonitor.swift */; };
 		1D6253292098B489004573FD /* ModuleLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6253282098B489004573FD /* ModuleLoader.swift */; };
 		1D62532B2098B4ED004573FD /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D62532A2098B4ED004573FD /* PopupViewController.swift */; };
-		1D62532D2098B7EF004573FD /* SHModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D62532C2098B7EF004573FD /* SHModule.swift */; };
+		1D62532D2098B7EF004573FD /* SHModuleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D62532C2098B7EF004573FD /* SHModuleAPI.swift */; };
 		1D62532F2098BA4A004573FD /* PopoverHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D62532E2098BA4A004573FD /* PopoverHandler.swift */; };
 		1D6253322098C33A004573FD /* TestModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6253312098C33A004573FD /* TestModule.swift */; };
 		1D6253342098C396004573FD /* TestMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6253332098C396004573FD /* TestMenuItem.swift */; };
@@ -34,7 +34,7 @@
 		1D6253262098AD97004573FD /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		1D6253282098B489004573FD /* ModuleLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleLoader.swift; sourceTree = "<group>"; };
 		1D62532A2098B4ED004573FD /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
-		1D62532C2098B7EF004573FD /* SHModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHModule.swift; sourceTree = "<group>"; };
+		1D62532C2098B7EF004573FD /* SHModuleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHModuleAPI.swift; sourceTree = "<group>"; };
 		1D62532E2098BA4A004573FD /* PopoverHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverHandler.swift; sourceTree = "<group>"; };
 		1D6253312098C33A004573FD /* TestModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModule.swift; sourceTree = "<group>"; };
 		1D6253332098C396004573FD /* TestMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMenuItem.swift; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 				1D6253302098C31F004573FD /* TestModule */,
 				1D625309209859B3004573FD /* AppDelegate.swift */,
 				1D6253262098AD97004573FD /* EventMonitor.swift */,
-				1D62532C2098B7EF004573FD /* SHModule.swift */,
+				1D62532C2098B7EF004573FD /* SHModuleAPI.swift */,
 				1D6253282098B489004573FD /* ModuleLoader.swift */,
 				1DB10FF52098CD5100133D2B /* MenuHandler.swift */,
 				1D62532E2098BA4A004573FD /* PopoverHandler.swift */,
@@ -179,7 +179,7 @@
 				1D62530A209859B3004573FD /* AppDelegate.swift in Sources */,
 				1D6253272098AD97004573FD /* EventMonitor.swift in Sources */,
 				1D6253322098C33A004573FD /* TestModule.swift in Sources */,
-				1D62532D2098B7EF004573FD /* SHModule.swift in Sources */,
+				1D62532D2098B7EF004573FD /* SHModuleAPI.swift in Sources */,
 				1D6253362098C3CB004573FD /* TestPopoverView.swift in Sources */,
 				1D62532B2098B4ED004573FD /* PopupViewController.swift in Sources */,
 				1DB10FF62098CD5100133D2B /* MenuHandler.swift in Sources */,

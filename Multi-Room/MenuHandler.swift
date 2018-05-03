@@ -36,29 +36,26 @@ class MenuHandler {
     }
     
     
-    func updateMenu(_ menuItems: [SHMenuItem]) {
+    func updateMenu(_ menuItems: [Identifier: [SHMenuItem]]) {
         let menu = NSMenu()
         var menuActions = [MenuAction]()
         
-        var lastIdentifier: String?
-        
-        menuItems.forEach { (menuItem) in
-            print(menuItem.identifier)
-            let currentIdentifier = menuItem.identifier
+        menuItems.keys.forEach { (identifier) in
             
-            if lastIdentifier != nil && lastIdentifier != currentIdentifier {
-                menu.addItem(NSMenuItem.separator())
-            }
+            menuItems[identifier]?.forEach({ (menuItem) in
+                print("\(identifier): \(menuItem.name)")
+                
+                let menuAction = MenuAction(action: menuItem.action)
+                let newMenuItem = NSMenuItem(title: NSLocalizedString(menuItem.name, comment: ""), action: #selector(MenuAction.doAction), keyEquivalent: "")
+                
+                newMenuItem.target = menuAction
+                
+                menuActions.append(menuAction)
+                menu.addItem(newMenuItem)
+            })
             
-            let menuAction = MenuAction(action: menuItem.action)
-            let newMenuItem = NSMenuItem(title: NSLocalizedString(menuItem.name, comment: ""), action: #selector(MenuAction.doAction), keyEquivalent: "")
+            menu.addItem(NSMenuItem.separator())
             
-            newMenuItem.target = menuAction
-            
-            menuActions.append(menuAction)
-            menu.addItem(newMenuItem)
-            
-            lastIdentifier = currentIdentifier
         }
         
         if (menuItems.count > 0) {

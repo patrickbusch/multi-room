@@ -9,15 +9,15 @@ import Cocoa
 
 class TestPopoverView: SHPopoverView {
     
-    private let _identifier: String
+    private let _identifier: Identifier
     var view: NSView
     
-    init(_ identifier: String, view: NSView) {
+    init(_ identifier: Identifier, view: NSView) {
         self._identifier = identifier
         self.view = view
     }
     
-    var identifier: String {
+    var identifier: Identifier {
         get {
             return self._identifier
         }

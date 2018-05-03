@@ -10,18 +10,19 @@ import Cocoa
 class ModuleLoader {
 
     var modules: [SHModule] = [SHModule]()
-    var updateMenus: (([SHMenuItem]) -> ())?
-    var updateViews: (([SHPopoverView]) -> ())?
+    var updateMenus: (([Identifier: [SHMenuItem]]) -> ())?
+    var updateViews: (([Identifier: [SHPopoverView]]) -> ())?
     
     func loadModules() {
-        self.modules = [TestModule("Test1"), TestModule("Test2")]
+        self.modules = [TestModule(Identifier("Test1")), TestModule(Identifier("Test2"))]
         
-        var menuItems = [SHMenuItem]()
-        var views = [SHPopoverView]()
+        var menuItems = [Identifier: [SHMenuItem]]()
+        var views = [Identifier: [SHPopoverView]]()
         
         self.modules.forEach { (module) in
-            menuItems.append(contentsOf: module.menuItems)
-            views.append(contentsOf: module.views)
+//TODO ordering
+            menuItems.updateValue(module.menuItems, forKey: module.identifier)
+            views.updateValue(module.views, forKey: module.identifier)
         }
         
         self.updateMenus?(menuItems)

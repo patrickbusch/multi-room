@@ -9,13 +9,13 @@ import Cocoa
 
 class TestModule: SHModule {
 
-    private let _identifier: String
+    private let _identifier: Identifier
     
-    init(_ identifier: String) {
+    init(_ identifier: Identifier) {
         self._identifier = identifier
     }
     
-    var identifier: String {
+    var identifier: Identifier {
         get {
             return self._identifier
         }
