@@ -22,7 +22,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         moduleLoader.updateMenus = { (menuItems) in self.menuHandler.updateMenu(menuItems) }
         moduleLoader.updateViews = { (views) in self.popoverHandler.updateViews(views) }
         menuHandler.menuLoaded = { (menu) in self.menu = menu }
-//        popoverHandler.viewsLoaded
         
         if let button = statusItem.button {
             button.image = NSImage(named:NSImage.Name("Audio"))

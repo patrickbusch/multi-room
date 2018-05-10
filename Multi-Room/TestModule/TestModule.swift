@@ -33,7 +33,9 @@ class TestModule: SHModule {
     
     var views: [SHPopoverView] {
         get {
-            return [TestPopoverView]()
+            return [
+                TestPopoverView(self.identifier, vc: TestView1())
+                ]
         }
     }
 

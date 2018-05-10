@@ -21,7 +21,10 @@ protocol SHMenuItem : Identifiable {
 
 protocol SHPopoverView : Identifiable {
     
-    var view: NSView {get}
+    var vc: SHViewController {get}
+}
+
+class SHViewController : NSViewController {
 }
 
 protocol Identifiable {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D5D98CF20A47E0D00FB58B2 /* TestView1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D5D98CE20A47E0D00FB58B2 /* TestView1.xib */; };
+		1D5D98D120A47EBF00FB58B2 /* TestView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5D98D020A47EBF00FB58B2 /* TestView1.swift */; };
 		1D62530A209859B3004573FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D625309209859B3004573FD /* AppDelegate.swift */; };
 		1D62530E209859B3004573FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D62530D209859B3004573FD /* Assets.xcassets */; };
 		1D625311209859B3004573FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D62530F209859B3004573FD /* Main.storyboard */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D5D98CE20A47E0D00FB58B2 /* TestView1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestView1.xib; sourceTree = "<group>"; };
+		1D5D98D020A47EBF00FB58B2 /* TestView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView1.swift; sourceTree = "<group>"; };
 		1D625306209859B3004573FD /* Multi-Room.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Multi-Room.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D625309209859B3004573FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D62530D209859B3004573FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 				1D6253332098C396004573FD /* TestMenuItem.swift */,
 				1D6253352098C3CB004573FD /* TestPopoverView.swift */,
 				1D7AA4BA2098E9630069FD9D /* Localizable.strings */,
+				1D5D98CE20A47E0D00FB58B2 /* TestView1.xib */,
+				1D5D98D020A47EBF00FB58B2 /* TestView1.swift */,
 			);
 			path = TestModule;
 			sourceTree = "<group>";
@@ -163,6 +169,7 @@
 				1D7AA4B82098E9630069FD9D /* Localizable.strings in Resources */,
 				1D6253202098AA68004573FD /* Localizable.strings in Resources */,
 				1D625311209859B3004573FD /* Main.storyboard in Resources */,
+				1D5D98CF20A47E0D00FB58B2 /* TestView1.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +187,7 @@
 				1D6253272098AD97004573FD /* EventMonitor.swift in Sources */,
 				1D6253322098C33A004573FD /* TestModule.swift in Sources */,
 				1D62532D2098B7EF004573FD /* SHModuleAPI.swift in Sources */,
+				1D5D98D120A47EBF00FB58B2 /* TestView1.swift in Sources */,
 				1D6253362098C3CB004573FD /* TestPopoverView.swift in Sources */,
 				1D62532B2098B4ED004573FD /* PopupViewController.swift in Sources */,
 				1DB10FF62098CD5100133D2B /* MenuHandler.swift in Sources */,

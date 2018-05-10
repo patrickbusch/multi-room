@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="TestView1" customModule="Multi_Room" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="c22-O7-iKe" id="FtC-IS-hHf"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="433" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="iNJ-lv-prM">
+                    <rect key="frame" x="0.0" y="0.0" width="433" height="100"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RvS-6F-9qW">
+                            <rect key="frame" x="-2" y="83" width="437" height="17"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Label" id="MAH-kF-yxR">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="FYg-1Q-YWP">
+                            <rect key="frame" x="192" y="-124" width="96" height="5"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        </box>
+                        <levelIndicator verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XVn-By-bgq">
+                            <rect key="frame" x="0.0" y="47" width="96" height="18"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <levelIndicatorCell key="cell" alignment="left" doubleValue="2" maxValue="2" warningValue="2" criticalValue="2" id="pME-ZO-n5H"/>
+                        </levelIndicator>
+                        <levelIndicator verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CBl-F2-5dy">
+                            <rect key="frame" x="0.0" y="1" width="96" height="18"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <levelIndicatorCell key="cell" alignment="left" doubleValue="2" maxValue="2" warningValue="2" criticalValue="2" id="ueQ-Me-5AN"/>
+                        </levelIndicator>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="0v7-SW-LYp"/>
+                        <constraint firstItem="RvS-6F-9qW" firstAttribute="top" secondItem="iNJ-lv-prM" secondAttribute="top" id="4og-3X-91J"/>
+                        <constraint firstItem="RvS-6F-9qW" firstAttribute="width" secondItem="iNJ-lv-prM" secondAttribute="width" id="W7t-bt-lsw"/>
+                        <constraint firstItem="RvS-6F-9qW" firstAttribute="leading" secondItem="iNJ-lv-prM" secondAttribute="leading" id="gCh-cD-KLB"/>
+                        <constraint firstAttribute="width" constant="433" id="tS2-JR-Fmb"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="iNJ-lv-prM" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="9rE-qG-DUH"/>
+                <constraint firstItem="iNJ-lv-prM" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="rbe-2w-2yb"/>
+            </constraints>
+        </customView>
+    </objects>
+</document>

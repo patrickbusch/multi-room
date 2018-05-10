@@ -23,7 +23,8 @@ class MenuAction {
 class MenuHandler {
 
     var menuLoaded: ((NSMenu) -> ())?
-    var menuActions: [MenuAction] = [MenuAction]()
+    private var menu: NSMenu?
+    private var menuActions: [MenuAction] = [MenuAction]()
     
     var defaultMenu: NSMenu {
         get {
@@ -65,6 +66,7 @@ class MenuHandler {
         menu.addItem(NSMenuItem(title: NSLocalizedString("Quit application", comment: ""), action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
         
         self.menuActions = menuActions
+        self.menu = menu
         self.menuLoaded?(menu)
     }
 }
