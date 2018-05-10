@@ -696,7 +696,7 @@
                                 <view translatesAutoresizingMaskIntoConstraints="NO" id="om5-kJ-5B6">
                                     <rect key="frame" x="0.0" y="-251" width="450" height="700"/>
                                     <subviews>
-                                        <stackView distribution="equalCentering" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pv0-1Q-Q03">
+                                        <stackView distribution="equalCentering" orientation="vertical" alignment="centerX" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pv0-1Q-Q03">
                                             <rect key="frame" x="0.0" y="363" width="450" height="317"/>
                                             <subviews>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="45l-Hf-Wns">

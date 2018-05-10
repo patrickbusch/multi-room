@@ -52,7 +52,6 @@ class PopoverHandler {
     }
     
     func updateViews(_ viewCollection: SHPopoverViewCollection) {
-        print("not yet implemented")
         
         var newVCs = [SHViewController]()
         

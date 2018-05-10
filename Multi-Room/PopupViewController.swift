@@ -18,6 +18,9 @@ class PopupViewController: NSViewController {
     @IBOutlet weak var popoverWidth: NSLayoutConstraint!
     @IBOutlet weak var popoverHeight: NSLayoutConstraint!
 
+    private let MAX_HEIGHT: CGFloat = 450
+    private let MAX_WIDTH: CGFloat = 450
+    
     private var vcs: [SHViewController]?
     
     override func viewDidLoad() {
@@ -25,10 +28,6 @@ class PopupViewController: NSViewController {
         // Do view setup here.
         
 
-//        let views = self.vcs?.map({ (vc) -> NSView in
-//            return vc.view
-//        })
-//        self.stackView.setViews(views!, in: NSStackView.Gravity.top)
 
         
         
@@ -39,9 +38,14 @@ class PopupViewController: NSViewController {
     }
     
     private func updateViews() {
-        self.vcs?.forEach({ (vc) in
-            self.stackView.addView(vc.view, in: .top)
+//        self.vcs?.forEach({ (vc) in
+//            self.stackView.addView(vc.view, in: .top)
+//        })
+        let views = self.vcs?.map({ (vc) -> NSView in
+            return vc.view
         })
+        self.stackView.setViews(views!, in: NSStackView.Gravity.top)
+
 
         let sumHeight = self.stackView.views.map { (view) -> CGFloat in
             return view.bounds.height
@@ -49,16 +53,13 @@ class PopupViewController: NSViewController {
         
         print(sumHeight)
         
-        self.popoverHeight.constant = 200
-        self.stackViewHeight.constant = 700
+        self.popoverHeight.constant = sumHeight
+        self.stackViewHeight.constant = sumHeight
         
-//        self.scrollView.needsDisplay = true
-//        self.scrollView.needsLayout = true
-//        self.scrollView.contentSize = NSSize(width: 450, height: 700)
-        self.scrollView.documentView?.setFrameSize(NSSize(width: 450, height: 700))
+        self.scrollView.frame = NSRect(x: 0, y: 0, width: MAX_WIDTH, height: sumHeight > MAX_HEIGHT ? MAX_HEIGHT : sumHeight)
         
-                self.scrollView.needsDisplay = true
-                self.scrollView.needsLayout = true
+//        self.scrollView.contentView.scroll(NSPoint(x: 0, y: 0))
+//        self.scrollView.documentView?.scroll(NSPoint.zero)
     }
     
     //TODO refresh
