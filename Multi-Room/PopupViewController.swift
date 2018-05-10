@@ -12,9 +12,12 @@ class PopupViewController: NSViewController {
     @IBOutlet var stackView: NSStackView!
     @IBOutlet var scrollView: NSScrollView!
     
-    @IBOutlet weak var contentViewHeight: NSLayoutConstraint!
-    @IBOutlet weak var contentViewWidth: NSLayoutConstraint!
-    
+    @IBOutlet weak var stackViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var stackViewWidth: NSLayoutConstraint!
+
+    @IBOutlet weak var popoverWidth: NSLayoutConstraint!
+    @IBOutlet weak var popoverHeight: NSLayoutConstraint!
+
     private var vcs: [SHViewController]?
     
     override func viewDidLoad() {
@@ -46,12 +49,16 @@ class PopupViewController: NSViewController {
         
         print(sumHeight)
         
-        self.contentViewHeight.constant = 700
+        self.popoverHeight.constant = 200
+        self.stackViewHeight.constant = 700
         
-        self.scrollView.needsDisplay = true
-        self.scrollView.needsLayout = true
+//        self.scrollView.needsDisplay = true
+//        self.scrollView.needsLayout = true
 //        self.scrollView.contentSize = NSSize(width: 450, height: 700)
-//        self.scrollView.documentView?.setFrameSize(NSSize(width: 450, height: 1000))
+        self.scrollView.documentView?.setFrameSize(NSSize(width: 450, height: 700))
+        
+                self.scrollView.needsDisplay = true
+                self.scrollView.needsLayout = true
     }
     
     //TODO refresh
