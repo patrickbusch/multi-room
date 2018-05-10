@@ -18,6 +18,7 @@ class ModuleLoader {
     
     func loadModules() {
         self.modules = [TestModule(Identifier("Test1")), TestModule(Identifier("Test2")), TestModule(Identifier("Test3"))]
+//        self.modules = [SHModule]()
         
         var menuItems =  SHMenuItemCollection()
         var views =  SHPopoverViewCollection()

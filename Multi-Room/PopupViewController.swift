@@ -41,15 +41,16 @@ class PopupViewController: NSViewController {
 //        self.vcs?.forEach({ (vc) in
 //            self.stackView.addView(vc.view, in: .top)
 //        })
+        
+        //TODO fix weird sizing in stack view
+        
         let views = self.vcs?.map({ (vc) -> NSView in
             return vc.view
         })
-        self.stackView.setViews(views!, in: NSStackView.Gravity.top)
-
-
-        let sumHeight = self.stackView.views.map { (view) -> CGFloat in
+        
+        let sumHeight = views?.map { (view) -> CGFloat in
             return view.bounds.height
-            }.reduce(0, +)
+            }.reduce(0, +) ?? 250
         
         print(sumHeight)
         
@@ -58,8 +59,7 @@ class PopupViewController: NSViewController {
         
         self.scrollView.frame = NSRect(x: 0, y: 0, width: MAX_WIDTH, height: sumHeight > MAX_HEIGHT ? MAX_HEIGHT : sumHeight)
         
-//        self.scrollView.contentView.scroll(NSPoint(x: 0, y: 0))
-//        self.scrollView.documentView?.scroll(NSPoint.zero)
+        self.stackView.setViews(views!, in: NSStackView.Gravity.top)
     }
     
     //TODO refresh
