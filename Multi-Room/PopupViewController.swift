@@ -48,18 +48,36 @@ class PopupViewController: NSViewController {
             return vc.view
         })
         
-        let sumHeight = views?.map { (view) -> CGFloat in
+        var sumHeight = views?.map { (view) -> CGFloat in
             return view.bounds.height
             }.reduce(0, +) ?? 250
         
+        sumHeight += (self.stackView.spacing * CGFloat((views?.count ?? 1) - 1))
         print(sumHeight)
+        print(self.stackView.spacing)
+        print(self.stackViewHeight.constant)
+        print(self.stackView.frame.height)
+        print(self.stackView.bounds.height)
         
         self.popoverHeight.constant = sumHeight
         self.stackViewHeight.constant = sumHeight
         
+//        self.stackView.frame = NSRect(x: 0, y: 0, width: MAX_WIDTH, height: sumHeight)
+        
         self.scrollView.frame = NSRect(x: 0, y: 0, width: MAX_WIDTH, height: sumHeight > MAX_HEIGHT ? MAX_HEIGHT : sumHeight)
         
         self.stackView.setViews(views!, in: NSStackView.Gravity.top)
+  
+        print(self.stackViewHeight.constant)
+        print(self.stackView.frame.height)
+        print(self.stackView.bounds.height)
+        
+        self.stackView.needsLayout = true
+        self.stackView.needsDisplay = true
+        
+        print(self.stackViewHeight.constant)
+        print(self.stackView.frame.height)
+        print(self.stackView.bounds.height)
     }
     
     //TODO refresh

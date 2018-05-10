@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
+        <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,6 +21,13 @@
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="iNJ-lv-prM">
                     <rect key="frame" x="0.0" y="0.0" width="433" height="100"/>
                     <subviews>
+                        <box boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="aQH-Bk-HDF">
+                            <rect key="frame" x="0.0" y="0.0" width="433" height="100"/>
+                            <view key="contentView" id="95p-AI-3xA">
+                                <rect key="frame" x="1" y="1" width="431" height="98"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </view>
+                        </box>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RvS-6F-9qW">
                             <rect key="frame" x="-2" y="83" width="437" height="17"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Label" id="MAH-kF-yxR">
@@ -53,10 +61,14 @@
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" id="0v7-SW-LYp"/>
+                        <constraint firstItem="aQH-Bk-HDF" firstAttribute="centerY" secondItem="iNJ-lv-prM" secondAttribute="centerY" id="3xj-gq-5Zm"/>
                         <constraint firstItem="RvS-6F-9qW" firstAttribute="top" secondItem="iNJ-lv-prM" secondAttribute="top" id="4og-3X-91J"/>
                         <constraint firstItem="RvS-6F-9qW" firstAttribute="width" secondItem="iNJ-lv-prM" secondAttribute="width" id="W7t-bt-lsw"/>
                         <constraint firstItem="RvS-6F-9qW" firstAttribute="leading" secondItem="iNJ-lv-prM" secondAttribute="leading" id="gCh-cD-KLB"/>
+                        <constraint firstItem="aQH-Bk-HDF" firstAttribute="centerX" secondItem="iNJ-lv-prM" secondAttribute="centerX" id="oNR-oL-XYT"/>
+                        <constraint firstItem="aQH-Bk-HDF" firstAttribute="height" secondItem="iNJ-lv-prM" secondAttribute="height" id="r81-el-dG0"/>
                         <constraint firstAttribute="width" constant="433" id="tS2-JR-Fmb"/>
+                        <constraint firstItem="aQH-Bk-HDF" firstAttribute="width" secondItem="iNJ-lv-prM" secondAttribute="width" id="v7G-JH-alO"/>
                     </constraints>
                 </customView>
             </subviews>
