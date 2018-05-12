@@ -28,8 +28,6 @@ class PopupViewController: NSViewController {
         // Do view setup here.
                                 
         self.updateViews()
-        
-        print("X")
     }
     
     private func updateViews() {
@@ -44,8 +42,8 @@ class PopupViewController: NSViewController {
         
         sumHeight += (self.stackView.spacing * CGFloat((views?.count ?? 1) - 1))
         
-        print(sumHeight)
-        print(self.stackView.spacing)
+//        print(sumHeight)
+//        print(self.stackView.spacing)
 //        print(self.stackViewHeight.constant)
 //        print(self.stackViewWidth.constant)
 //        print(self.stackView.frame.height)
@@ -64,7 +62,7 @@ class PopupViewController: NSViewController {
         
         self.stackView.setViews(views!, in: NSStackView.Gravity.top)
 
-        self.stackView.updateConstraintsForSubtreeIfNeeded()
+//        self.stackView.updateConstraintsForSubtreeIfNeeded()
 
 //        print(self.stackViewHeight.constant)
 //        print(self.stackView.frame.height)
