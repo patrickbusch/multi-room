@@ -697,7 +697,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="450" height="450"/>
                                     <subviews>
                                         <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" translatesAutoresizingMaskIntoConstraints="NO" id="pv0-1Q-Q03">
-                                            <rect key="frame" x="0.0" y="-10" width="450" height="450"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="450" height="450"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="450" id="UVV-bZ-UKx"/>
                                                 <constraint firstAttribute="height" constant="450" id="vVU-yi-zCx"/>
@@ -705,8 +705,8 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="pv0-1Q-Q03" firstAttribute="top" secondItem="om5-kJ-5B6" secondAttribute="top" constant="10" id="XqP-NH-Xol"/>
-                                        <constraint firstItem="pv0-1Q-Q03" firstAttribute="leading" secondItem="om5-kJ-5B6" secondAttribute="leading" id="a0R-LY-6qx"/>
+                                        <constraint firstItem="pv0-1Q-Q03" firstAttribute="centerX" secondItem="om5-kJ-5B6" secondAttribute="centerX" id="vrh-Hz-gXh"/>
+                                        <constraint firstItem="pv0-1Q-Q03" firstAttribute="centerY" secondItem="om5-kJ-5B6" secondAttribute="centerY" id="wmY-WG-x8n"/>
                                     </constraints>
                                 </view>
                             </subviews>
