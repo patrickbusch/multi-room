@@ -705,16 +705,15 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="450" id="FFa-zr-Tt8"/>
                                         <constraint firstItem="pv0-1Q-Q03" firstAttribute="top" secondItem="om5-kJ-5B6" secondAttribute="top" constant="10" id="XqP-NH-Xol"/>
                                         <constraint firstItem="pv0-1Q-Q03" firstAttribute="leading" secondItem="om5-kJ-5B6" secondAttribute="leading" id="a0R-LY-6qx"/>
-                                        <constraint firstAttribute="width" constant="450" id="bAv-gy-fXU"/>
                                     </constraints>
                                 </view>
                             </subviews>
                             <constraints>
                                 <constraint firstItem="om5-kJ-5B6" firstAttribute="top" secondItem="8cN-Vo-ktr" secondAttribute="top" id="4vi-eU-Fea"/>
                                 <constraint firstItem="om5-kJ-5B6" firstAttribute="centerY" secondItem="8cN-Vo-ktr" secondAttribute="centerY" id="5sc-s0-SPQ"/>
+                                <constraint firstItem="om5-kJ-5B6" firstAttribute="leading" secondItem="8cN-Vo-ktr" secondAttribute="leading" id="WfP-jZ-vfS"/>
                                 <constraint firstItem="om5-kJ-5B6" firstAttribute="centerX" secondItem="8cN-Vo-ktr" secondAttribute="centerX" id="wAA-kF-wIm"/>
                             </constraints>
                         </clipView>
@@ -728,8 +727,6 @@
                         </scroller>
                     </scrollView>
                     <connections>
-                        <outlet property="popoverHeight" destination="FFa-zr-Tt8" id="Ro4-8L-HMD"/>
-                        <outlet property="popoverWidth" destination="bAv-gy-fXU" id="kNg-Lf-hBw"/>
                         <outlet property="scrollView" destination="mCc-Gt-mKf" id="4kI-lo-1yd"/>
                         <outlet property="stackView" destination="pv0-1Q-Q03" id="zZb-SH-kYk"/>
                         <outlet property="stackViewHeight" destination="vVU-yi-zCx" id="Pfa-gp-9C6"/>

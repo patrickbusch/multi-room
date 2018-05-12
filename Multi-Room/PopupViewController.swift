@@ -15,9 +15,6 @@ class PopupViewController: NSViewController {
     @IBOutlet weak var stackViewHeight: NSLayoutConstraint!
     @IBOutlet weak var stackViewWidth: NSLayoutConstraint!
 
-    @IBOutlet weak var popoverWidth: NSLayoutConstraint!
-    @IBOutlet weak var popoverHeight: NSLayoutConstraint!
-
     private let MAX_HEIGHT: CGFloat = 450
     private let MAX_WIDTH: CGFloat = 450
     private let SPACE: CGFloat = 20
