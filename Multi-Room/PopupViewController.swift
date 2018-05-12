@@ -26,24 +26,14 @@ class PopupViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        
-
-
-        
-        
-        
+                                
         self.updateViews()
         
         print("X")
     }
     
     private func updateViews() {
-//        self.vcs?.forEach({ (vc) in
-//            self.stackView.addView(vc.view, in: .top)
-//        })
-        
-        //TODO fix weird sizing in stack view
-        
+
         let views = self.vcs?.map({ (vc) -> NSView in
             return vc.view
         })
@@ -53,31 +43,38 @@ class PopupViewController: NSViewController {
             }.reduce(0, +) ?? 250
         
         sumHeight += (self.stackView.spacing * CGFloat((views?.count ?? 1) - 1))
+        
         print(sumHeight)
         print(self.stackView.spacing)
-        print(self.stackViewHeight.constant)
-        print(self.stackView.frame.height)
-        print(self.stackView.bounds.height)
+//        print(self.stackViewHeight.constant)
+//        print(self.stackViewWidth.constant)
+//        print(self.stackView.frame.height)
+//        print(self.stackView.frame.width)
+//        print(self.stackView.bounds.height)
+//        print(self.stackView.bounds.width)
+//        print(self.stackView.spacing)
         
         self.popoverHeight.constant = sumHeight
         self.stackViewHeight.constant = sumHeight
+ 
         
 //        self.stackView.frame = NSRect(x: 0, y: 0, width: MAX_WIDTH, height: sumHeight)
         
         self.scrollView.frame = NSRect(x: 0, y: 0, width: MAX_WIDTH, height: sumHeight > MAX_HEIGHT ? MAX_HEIGHT : sumHeight)
         
         self.stackView.setViews(views!, in: NSStackView.Gravity.top)
-  
-        print(self.stackViewHeight.constant)
-        print(self.stackView.frame.height)
-        print(self.stackView.bounds.height)
+
+        self.stackView.updateConstraintsForSubtreeIfNeeded()
+
+//        print(self.stackViewHeight.constant)
+//        print(self.stackView.frame.height)
+//        print(self.stackView.bounds.height)
+//        print(self.stackView.hasAmbiguousLayout)
         
-        self.stackView.needsLayout = true
-        self.stackView.needsDisplay = true
-        
-        print(self.stackViewHeight.constant)
-        print(self.stackView.frame.height)
-        print(self.stackView.bounds.height)
+        self.stackView.views.forEach { (view) in
+            print(view.frame.height)
+        }
+
     }
     
     //TODO refresh

@@ -696,7 +696,7 @@
                                 <view translatesAutoresizingMaskIntoConstraints="NO" id="om5-kJ-5B6">
                                     <rect key="frame" x="0.0" y="0.0" width="450" height="450"/>
                                     <subviews>
-                                        <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" translatesAutoresizingMaskIntoConstraints="NO" id="pv0-1Q-Q03">
+                                        <stackView distribution="fillEqually" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" translatesAutoresizingMaskIntoConstraints="NO" id="pv0-1Q-Q03">
                                             <rect key="frame" x="0.0" y="0.0" width="450" height="450"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="450" id="UVV-bZ-UKx"/>

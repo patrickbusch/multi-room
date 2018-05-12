@@ -33,8 +33,11 @@ class TestModule: SHModule {
     
     var views: [SHPopoverView] {
         get {
+            let testView = TestView1()
+            testView.textToShow = self.identifier.name
+            
             return [
-                TestPopoverView(self.identifier, vc: TestView1())
+                TestPopoverView(self.identifier, vc: testView)
                 ]
         }
     }
