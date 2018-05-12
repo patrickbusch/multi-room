@@ -20,6 +20,7 @@ class PopupViewController: NSViewController {
     private let SPACE: CGFloat = 20
     
     private var vcs: [SHViewController]?
+    private var viewWasLoaded = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,13 +29,14 @@ class PopupViewController: NSViewController {
 
         self.installStackView()
         self.updateViews()
+        self.viewWasLoaded = true
     }
     
     private func installStackView() {
         self.scrollView.documentView = self.stackView
         
         let leading = NSLayoutConstraint(item: self.stackView, attribute: .leading, relatedBy: .equal, toItem: self.scrollView, attribute: .leading, multiplier: 1, constant: 0)
-        let top = NSLayoutConstraint(item: self.stackView, attribute: .top, relatedBy: .equal, toItem: self.scrollView, attribute: .top, multiplier: 1, constant: 0)
+        let top = NSLayoutConstraint(item: self.stackView, attribute: .top, relatedBy: .equal, toItem: self.scrollView, attribute: .top, multiplier: 1, constant: 10)
         
         self.scrollView.addConstraint(leading)
         self.scrollView.addConstraint(top)
@@ -51,25 +53,24 @@ class PopupViewController: NSViewController {
             return view.bounds.height
             }.reduce(0, +) ?? 250
         
+        let maxWidth = views?.map { (view) -> CGFloat in
+            return view.bounds.width
+            }.max() ?? 250
+        
         sumHeight += (self.stackView.spacing * CGFloat((views?.count ?? 1) - 1))
         
-//        self.popoverHeight.constant = sumHeight + self.SPACE
         self.stackViewHeight.constant = sumHeight
- 
+        self.stackViewWidth.constant = maxWidth
         
-//        self.stackView.frame = NSRect(x: 0, y: 0, width: MAX_WIDTH, height: sumHeight)
+        //hinder scrolling
+        let viewHeight = sumHeight + 2
+        let viewWidth = maxWidth + 2
         
-        self.scrollView.frame = NSRect(x: 0, y: 0, width: MAX_WIDTH, height: sumHeight > MAX_HEIGHT ? MAX_HEIGHT : sumHeight)
-//        self.scrollView.documentView?.frame = NSRect(x: 0, y: 0, width: MAX_WIDTH, height: sumHeight > MAX_HEIGHT ? MAX_HEIGHT : sumHeight)
-//        self.scrollView.documentView?.frame = NSRect(x: 0, y: 0, width: MAX_WIDTH, height: sumHeight)
+        self.scrollView.frame = NSRect(x: 0, y: 0,
+                                       width: viewWidth > MAX_WIDTH ? MAX_WIDTH : viewWidth,
+                                       height: viewHeight > MAX_HEIGHT ? MAX_HEIGHT : viewHeight)
+
         self.stackView.setViews(views!, in: NSStackView.Gravity.top)
-
-//        self.stackView.updateConstraintsForSubtreeIfNeeded()
-
-//        print(self.stackViewHeight.constant)
-//        print(self.stackView.frame.height)
-//        print(self.stackView.bounds.height)
-//        print(self.stackView.hasAmbiguousLayout)
         
         self.stackView.views.forEach { (view) in
             print(view.frame.height)
@@ -77,9 +78,12 @@ class PopupViewController: NSViewController {
 
     }
     
-    //TODO refresh
     func setViews(vcs: [SHViewController]) {
         self.vcs = vcs
+        
+        if (viewWasLoaded) {
+            updateViews()
+        }
     }
 }
 

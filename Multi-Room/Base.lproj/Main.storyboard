@@ -694,10 +694,10 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <view translatesAutoresizingMaskIntoConstraints="NO" id="om5-kJ-5B6">
-                                    <rect key="frame" x="0.0" y="0.0" width="450" height="450"/>
+                                    <rect key="frame" x="-1" y="-1" width="452" height="452"/>
                                     <subviews>
                                         <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" translatesAutoresizingMaskIntoConstraints="NO" id="pv0-1Q-Q03">
-                                            <rect key="frame" x="0.0" y="0.0" width="450" height="450"/>
+                                            <rect key="frame" x="1" y="1" width="450" height="450"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="450" id="UVV-bZ-UKx"/>
                                                 <constraint firstAttribute="height" constant="450" id="vVU-yi-zCx"/>
@@ -711,17 +711,19 @@
                                 </view>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="om5-kJ-5B6" firstAttribute="top" secondItem="8cN-Vo-ktr" secondAttribute="top" id="4vi-eU-Fea"/>
                                 <constraint firstItem="om5-kJ-5B6" firstAttribute="centerY" secondItem="8cN-Vo-ktr" secondAttribute="centerY" id="5sc-s0-SPQ"/>
-                                <constraint firstItem="om5-kJ-5B6" firstAttribute="leading" secondItem="8cN-Vo-ktr" secondAttribute="leading" id="WfP-jZ-vfS"/>
                                 <constraint firstItem="om5-kJ-5B6" firstAttribute="centerX" secondItem="8cN-Vo-ktr" secondAttribute="centerX" id="wAA-kF-wIm"/>
                             </constraints>
                         </clipView>
+                        <constraints>
+                            <constraint firstItem="om5-kJ-5B6" firstAttribute="height" secondItem="mCc-Gt-mKf" secondAttribute="height" id="MLo-1i-hri"/>
+                            <constraint firstItem="om5-kJ-5B6" firstAttribute="width" secondItem="mCc-Gt-mKf" secondAttribute="width" id="QsA-H3-uLx"/>
+                        </constraints>
                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="0.5" horizontal="YES" id="YL9-uc-cPG">
                             <rect key="frame" x="-100" y="-100" width="448" height="16"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
-                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="0.99199999999999999" horizontal="NO" id="LZN-zE-bvE">
+                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="0.5" horizontal="NO" id="LZN-zE-bvE">
                             <rect key="frame" x="435" y="1" width="16" height="450"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
