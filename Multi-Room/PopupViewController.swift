@@ -20,6 +20,7 @@ class PopupViewController: NSViewController {
 
     private let MAX_HEIGHT: CGFloat = 450
     private let MAX_WIDTH: CGFloat = 450
+    private let SPACE: CGFloat = 20
     
     private var vcs: [SHViewController]?
     
@@ -52,14 +53,15 @@ class PopupViewController: NSViewController {
 //        print(self.stackView.bounds.width)
 //        print(self.stackView.spacing)
         
-        self.popoverHeight.constant = sumHeight
+        self.popoverHeight.constant = sumHeight + self.SPACE
         self.stackViewHeight.constant = sumHeight
  
         
 //        self.stackView.frame = NSRect(x: 0, y: 0, width: MAX_WIDTH, height: sumHeight)
         
-        self.scrollView.frame = NSRect(x: 0, y: 0, width: MAX_WIDTH, height: sumHeight > MAX_HEIGHT ? MAX_HEIGHT : sumHeight)
-        
+//        self.scrollView.frame = NSRect(x: 0, y: 0, width: MAX_WIDTH, height: sumHeight > MAX_HEIGHT ? MAX_HEIGHT : sumHeight)
+//        self.scrollView.documentView?.frame = NSRect(x: 0, y: 0, width: MAX_WIDTH, height: sumHeight > MAX_HEIGHT ? MAX_HEIGHT : sumHeight)
+        self.scrollView.documentView?.frame = NSRect(x: 0, y: 0, width: MAX_WIDTH, height: sumHeight)
         self.stackView.setViews(views!, in: NSStackView.Gravity.top)
 
 //        self.stackView.updateConstraintsForSubtreeIfNeeded()
