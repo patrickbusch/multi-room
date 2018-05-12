@@ -25,9 +25,21 @@ class PopupViewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         
-        self.scrollView.documentView = self.stackView
+
+        self.installStackView()
         self.updateViews()
     }
+    
+    private func installStackView() {
+        self.scrollView.documentView = self.stackView
+        
+        let leading = NSLayoutConstraint(item: self.stackView, attribute: .leading, relatedBy: .equal, toItem: self.scrollView, attribute: .leading, multiplier: 1, constant: 0)
+        let top = NSLayoutConstraint(item: self.stackView, attribute: .top, relatedBy: .equal, toItem: self.scrollView, attribute: .top, multiplier: 1, constant: 0)
+        
+        self.scrollView.addConstraint(leading)
+        self.scrollView.addConstraint(top)
+    }
+    
     
     private func updateViews() {
 
