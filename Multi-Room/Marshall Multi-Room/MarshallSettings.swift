@@ -22,16 +22,17 @@ class MarshallSettings {
         }
         
         set {
-            save("idAddress", newValue)
+            save("ipAddress", newValue)
         }
     }
     
     private func save(_ key: String, _ value: String?) {
         UserDefaults.standard.set(value, forKey: "\(self._identifier.name)_\(key)")
+        UserDefaults.standard.synchronize()
     }
     
     private func read(_ key: String) -> String? {
-        return UserDefaults.standard.string(forKey: "\(self._identifier.name).\(key)")
+        return UserDefaults.standard.string(forKey: "\(self._identifier.name)_\(key)")
     }
 
 }

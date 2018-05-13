@@ -25,6 +25,8 @@
 		1D6253342098C396004573FD /* TestMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6253332098C396004573FD /* TestMenuItem.swift */; };
 		1D6253362098C3CB004573FD /* TestPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6253352098C3CB004573FD /* TestPopoverView.swift */; };
 		1D7AA4B82098E9630069FD9D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D7AA4BA2098E9630069FD9D /* Localizable.strings */; };
+		1D9098C620A8813F00A3817F /* MarshallMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9098C520A8813F00A3817F /* MarshallMenuItem.swift */; };
+		1D9098C820A8817600A3817F /* MarshallAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9098C720A8817600A3817F /* MarshallAPI.swift */; };
 		1DB10FF62098CD5100133D2B /* MenuHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB10FF52098CD5100133D2B /* MenuHandler.swift */; };
 		1DC9117F20A70E0400970616 /* MarshallModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9117E20A70E0400970616 /* MarshallModule.swift */; };
 /* End PBXBuildFile section */
@@ -50,6 +52,8 @@
 		1D6253332098C396004573FD /* TestMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMenuItem.swift; sourceTree = "<group>"; };
 		1D6253352098C3CB004573FD /* TestPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPopoverView.swift; sourceTree = "<group>"; };
 		1D7AA4B92098E9630069FD9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1D9098C520A8813F00A3817F /* MarshallMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallMenuItem.swift; sourceTree = "<group>"; };
+		1D9098C720A8817600A3817F /* MarshallAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallAPI.swift; sourceTree = "<group>"; };
 		1DB10FF52098CD5100133D2B /* MenuHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHandler.swift; sourceTree = "<group>"; };
 		1DC9117E20A70E0400970616 /* MarshallModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallModule.swift; sourceTree = "<group>"; };
 		7E36BC508C24CAFA3C612584 /* Pods_Multi_Room.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Multi_Room.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +131,8 @@
 			children = (
 				1DC9117E20A70E0400970616 /* MarshallModule.swift */,
 				1D4EACC720A87A5000E058E5 /* MarshallSettings.swift */,
+				1D9098C520A8813F00A3817F /* MarshallMenuItem.swift */,
+				1D9098C720A8817600A3817F /* MarshallAPI.swift */,
 			);
 			path = "Marshall Multi-Room";
 			sourceTree = "<group>";
@@ -228,10 +234,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Multi-Room/Pods-Multi-Room-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SWXMLHash/SWXMLHash.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWXMLHash.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -272,6 +280,8 @@
 				1D6253322098C33A004573FD /* TestModule.swift in Sources */,
 				1D62532D2098B7EF004573FD /* SHModuleAPI.swift in Sources */,
 				1D5D98D120A47EBF00FB58B2 /* TestView1.swift in Sources */,
+				1D9098C820A8817600A3817F /* MarshallAPI.swift in Sources */,
+				1D9098C620A8813F00A3817F /* MarshallMenuItem.swift in Sources */,
 				1D6253362098C3CB004573FD /* TestPopoverView.swift in Sources */,
 				1D4EACC820A87A5000E058E5 /* MarshallSettings.swift in Sources */,
 				1D62532B2098B4ED004573FD /* PopupViewController.swift in Sources */,
