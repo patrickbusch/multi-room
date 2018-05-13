@@ -1,0 +1,242 @@
+ Skynet  rick  ~/Dropbox/Devices/Marshall 
+ ✔  ./multiroom.sh                                                              INSERT  12:37:37
+*   Trying 192.168.2.116...
+* TCP_NODELAY set
+* Connected to 192.168.2.116 (192.168.2.116) port 80 (#0)
+> GET /fsapi/GET_MULTIPLE?pin=1234&node=netremote.multiroom.group.id&node=netremote.multiroom.group.state&node=netremote.multiroom.group.name&node=netremote.multiroom.device.clientindex&node=netremote.multiroom.device.listallversion HTTP/1.1
+> Host: 192.168.2.116
+> User-Agent: curl/7.54.0
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Content-Type: text/xml
+< Access-Control-Allow-Origin: *
+< Content-Length: 698
+<
+<fsapiGetMultipleResponse>
+<fsapiResponse>
+<node>netremote.multiroom.group.id</node>
+<status>FS_OK</status>
+<value><c8_array></c8_array></value>
+</fsapiResponse>
+<fsapiResponse>
+<node>netremote.multiroom.group.state</node>
+<status>FS_OK</status>
+<value><u8>0</u8></value>
+</fsapiResponse>
+<fsapiResponse>
+<node>netremote.multiroom.group.name</node>
+<status>FS_NODE_DOES_NOT_EXIST</status>
+</fsapiResponse>
+<fsapiResponse>
+<node>netremote.multiroom.device.clientindex</node>
+<status>FS_NODE_DOES_NOT_EXIST</status>
+</fsapiResponse>
+curl -v "http://192.168.2.116/fsapi/GET_MULTIPLE?pin=1234&node=netremote.sys.audio.volume&node=netrem<fsapiResponse>
+<node>netremote.multiroom.device.listallversion</node>
+<status>FS_OK</status>
+<value><u32>0</u32></value>
+</fsapiResponse>
+</fsapiGetMultipleResponse>
+* Connection #0 to host 192.168.2.116 left intact
+
+ Skynet  rick  ~/Dropbox/Devices/Marshall 
+ ✔  ls -al                                                                      INSERT  12:37:39
+total 64
+drwxr-xr-x@ 10 rick  staff  340 May 13 12:37 .
+drwxr-xr-x@ 11 rick  staff  374 Mar  6 22:08 ..
+-rwxr-xr-x@  1 rick  staff   61 Mar 11 14:54 createSession.sh
+-rwxr-xr-x@  1 rick  staff   74 Mar 11 14:55 getNotifies.sh
+-rwxr-xr-x@  1 rick  staff   96 Mar 11 14:59 getPresets.sh
+-rwxr-xr-x@  1 rick  staff  257 May 13 12:37 multiroom.sh
+-rwxr-xr-x@  1 rick  staff   83 Mar  6 22:18 mute.sh
+-rwxr-xr-x@  1 rick  staff  239 Mar  6 22:13 overview.sh
+-rwxr-xr-x@  1 rick  staff  416 Mar 11 14:58 overview2.sh
+-rwxr-xr-x@  1 rick  staff   83 Mar  6 22:18 unmute.sh
+
+ Skynet  rick  ~/Dropbox/Devices/Marshall 
+ ✔  vi overview.sh                                                              INSERT  12:37:50
+
+ Skynet  rick  ~/Dropbox/Devices/Marshall 
+ ✔  ./overview.sh                                                               INSERT  12:38:05
+*   Trying 192.168.2.116...
+* TCP_NODELAY set
+* Connected to 192.168.2.116 (192.168.2.116) port 80 (#0)
+> GET /fsapi/GET_MULTIPLE?pin=1234&node=netremote.sys.audio.volume&node=netremote.sys.caps.volumesteps&node=netremote.sys.audio.mute&node=netremote.sys.audio.eqcustom.param0&node=netremote.sys.audio.eqcustom.param1 HTTP/1.1
+> Host: 192.168.2.116
+> User-Agent: curl/7.54.0
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Content-Type: text/xml
+< Access-Control-Allow-Origin: *
+< Content-Length: 690
+<
+<fsapiGetMultipleResponse>
+<fsapiResponse>
+<node>netremote.sys.audio.volume</node>
+<status>FS_OK</status>
+<value><u8>7</u8></value>
+</fsapiResponse>
+<fsapiResponse>
+curl -v "http://192.168.2.116/fsapi/GET_MULTIPLE?pin=1234&node=netremote.sys.info.friendlyname&node=n<node>netremote.sys.caps.volumesteps</node>
+<status>FS_OK</status>
+<value><u8>33</u8></value>
+</fsapiResponse>
+<fsapiResponse>
+<node>netremote.sys.audio.mute</node>
+<status>FS_OK</status>
+<value><u8>0</u8></value>
+</fsapiResponse>
+<fsapiResponse>
+<node>netremote.sys.audio.eqcustom.param0</node>
+<status>FS_OK</status>
+<value><s16>6</s16></value>
+</fsapiResponse>
+<fsapiResponse>
+<node>netremote.sys.audio.eqcustom.param1</node>
+<status>FS_OK</status>
+<value><s16>6</s16></value>
+</fsapiResponse>
+</fsapiGetMultipleResponse>
+* Connection #0 to host 192.168.2.116 left intact
+
+ Skynet  rick  ~/Dropbox/Devices/Marshall 
+ ✔  vi overview2.sh                                                             INSERT  12:38:08
+
+ Skynet  rick  ~/Dropbox/Devices/Marshall 
+ ✔  ./overview2.sh                                                              INSERT  12:38:28
+*   Trying 192.168.2.116...
+* TCP_NODELAY set
+* Connected to 192.168.2.116 (192.168.2.116) port 80 (#0)
+> GET /fsapi/GET_MULTIPLE?pin=1234&node=netremote.sys.info.friendlyname&node=netremote.sys.net.wlan.macaddress&node=netRemote.platform.OEM.colorProduct&node=netremote.multiroom.group.id&node=netremote.multiroom.group.name&node=netremote.multiroom.group.state&node=netremote.sys.mode&node=netremote.nav.preset.currentpreset&node=netremote.play.status&node=netremote.sys.info.netremotevendorid HTTP/1.1
+> Host: 192.168.2.116
+> User-Agent: curl/7.54.0
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Content-Type: text/xml
+< Access-Control-Allow-Origin: *
+< Content-Length: 1425
+<
+<fsapiGetMultipleResponse>
+<fsapiResponse>
+<node>netremote.sys.info.friendlyname</node>
+<status>FS_OK</status>
+<value><c8_array>Ricks Marshall Stanmore</c8_array></value>
+</fsapiResponse>
+<fsapiResponse>
+<node>netremote.sys.net.wlan.macaddress</node>
+<status>FS_OK</status>
+<value><c8_array>30:58:90:21:96:a8</c8_array></value>
+</fsapiResponse>
+<fsapiResponse>
+<node>netRemote.platform.OEM.colorProduct</node>
+<status>FS_OK</status>
+<value><c8_array>Stanmore_Cream</c8_array></value>
+</fsapiResponse>
+<fsapiResponse>
+<node>netremote.multiroom.group.id</node>
+<status>FS_OK</status>
+<value><c8_array></c8_array></value>
+</fsapiResponse>
+<fsapiResponse>
+<node>netremote.multiroom.group.name</node>
+<status>FS_NODE_DOES_NOT_EXIST</status>
+</fsapiResponse>
+<fsapiResponse>
+<node>netremote.multiroom.group.state</node>
+<status>FS_OK</status>
+<value><u8>0</u8></value>
+</fsapiResponse>
+<fsapiResponse>
+curl -v "http://192.168.2.116/fsapi/SET/netremote.sys.audio.mute?pin=1234&value=1"
+<node>netremote.sys.mode</node>
+<status>FS_OK</status>
+<value><u32>3</u32></value>
+</fsapiResponse>
+<fsapiResponse>
+<node>netremote.nav.preset.currentpreset</node>
+<status>FS_OK</status>
+<value><u32>5</u32></value>
+</fsapiResponse>
+<fsapiResponse>
+<node>netremote.play.status</node>
+<status>FS_OK</status>
+<value><u8>2</u8></value>
+</fsapiResponse>
+<fsapiResponse>
+<node>netremote.sys.info.netremotevendorid</node>
+<status>FS_OK</status>
+<value><c8_array>zound_001</c8_array></value>
+</fsapiResponse>
+</fsapiGetMultipleResponse>
+* Connection #0 to host 192.168.2.116 left intact
+
+ Skynet  rick  ~/Dropbox/Devices/Marshall 
+ ✔  vi mute.sh                                                                  INSERT  12:38:31
+
+ Skynet  rick  ~/Dropbox/Devices/Marshall 
+ ✔  ./mute.sh                                                                   INSERT  12:38:49
+*   Trying 192.168.2.116...
+* TCP_NODELAY set
+* Connected to 192.168.2.116 (192.168.2.116) port 80 (#0)
+> GET /fsapi/SET/netremote.sys.audio.mute?pin=1234&value=1 HTTP/1.1
+> Host: 192.168.2.116
+> User-Agent: curl/7.54.0
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Content-Type: text/xml
+< Access-Control-Allow-Origin: *
+< Content-Length: 56
+<
+<fsapiResponse>
+<status>FS_OK</status>
+</fsapiResponse>
+curl -v "http://192.168.2.116/fsapi/SET/netremote.sys.audio.mute?pin=1234&value=0"
+* Connection #0 to host 192.168.2.116 left intact
+
+ Skynet  rick  ~/Dropbox/Devices/Marshall 
+ ✔  ./mute.sh                                                                   INSERT  12:38:51
+*   Trying 192.168.2.116...
+* TCP_NODELAY set
+* Connected to 192.168.2.116 (192.168.2.116) port 80 (#0)
+> GET /fsapi/SET/netremote.sys.audio.mute?pin=1234&value=1 HTTP/1.1
+> Host: 192.168.2.116
+> User-Agent: curl/7.54.0
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Content-Type: text/xml
+< Access-Control-Allow-Origin: *
+< Content-Length: 58
+<
+<fsapiResponse>
+<status>FS_FAIL</status>
+</fsapiResponse>
+* Connection #0 to host 192.168.2.116 left intact
+
+ Skynet  rick  ~/Dropbox/Devices/Marshall 
+ ✔  vi unmute.sh                                                                INSERT  12:38:54
+
+ Skynet  rick  ~/Dropbox/Devices/Marshall 
+ ✔  ./unmute.sh                                                                 INSERT  12:39:02
+*   Trying 192.168.2.116...
+* TCP_NODELAY set
+* Connected to 192.168.2.116 (192.168.2.116) port 80 (#0)
+> GET /fsapi/SET/netremote.sys.audio.mute?pin=1234&value=0 HTTP/1.1
+> Host: 192.168.2.116
+> User-Agent: curl/7.54.0
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Content-Type: text/xml
+< Access-Control-Allow-Origin: *
+< Content-Length: 56
+<
+<fsapiResponse>
+<status>FS_OK</status>
+</fsapiResponse>
+* Connection #0 to host 192.168.2.116 left intact
+
