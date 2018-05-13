@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1BBE0A78CB427B0B931B5FC0 /* Pods_Multi_Room.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E36BC508C24CAFA3C612584 /* Pods_Multi_Room.framework */; };
 		1D0A79DE20A4BF2B00C0DBB7 /* Playground.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D0A79DD20A4BF2B00C0DBB7 /* Playground.xib */; };
+		1D4EACC820A87A5000E058E5 /* MarshallSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4EACC720A87A5000E058E5 /* MarshallSettings.swift */; };
 		1D5D98CF20A47E0D00FB58B2 /* TestView1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D5D98CE20A47E0D00FB58B2 /* TestView1.xib */; };
 		1D5D98D120A47EBF00FB58B2 /* TestView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5D98D020A47EBF00FB58B2 /* TestView1.swift */; };
 		1D62530A209859B3004573FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D625309209859B3004573FD /* AppDelegate.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		1D0A79DD20A4BF2B00C0DBB7 /* Playground.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Playground.xib; sourceTree = "<group>"; };
+		1D4EACC720A87A5000E058E5 /* MarshallSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallSettings.swift; sourceTree = "<group>"; };
 		1D5D98CE20A47E0D00FB58B2 /* TestView1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestView1.xib; sourceTree = "<group>"; };
 		1D5D98D020A47EBF00FB58B2 /* TestView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView1.swift; sourceTree = "<group>"; };
 		1D625306209859B3004573FD /* Multi-Room.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Multi-Room.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				1DC9117E20A70E0400970616 /* MarshallModule.swift */,
+				1D4EACC720A87A5000E058E5 /* MarshallSettings.swift */,
 			);
 			path = "Marshall Multi-Room";
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				1D62532D2098B7EF004573FD /* SHModuleAPI.swift in Sources */,
 				1D5D98D120A47EBF00FB58B2 /* TestView1.swift in Sources */,
 				1D6253362098C3CB004573FD /* TestPopoverView.swift in Sources */,
+				1D4EACC820A87A5000E058E5 /* MarshallSettings.swift in Sources */,
 				1D62532B2098B4ED004573FD /* PopupViewController.swift in Sources */,
 				1DB10FF62098CD5100133D2B /* MenuHandler.swift in Sources */,
 			);

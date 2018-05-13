@@ -10,9 +10,12 @@ import Cocoa
 class MarshallModule: SHModule {
     
     private let _identifier: Identifier
+    let settings: MarshallSettings
     
     init(_ identifier: Identifier) {
         self._identifier = identifier
+        self.settings = MarshallSettings(identifier)
+        self.settings.ipAddress = "192.168.2.116" //Test Only
     }
     
     var identifier: Identifier {
