@@ -109,10 +109,10 @@ class MarshallAPI {
                     }
                     
                     if (state == self.okayState) {
-                        print("\(apiValue) returned value \(value)")
+                        print("\(apiValue) : \(value)")
                         result[apiValue] = value
                     } else {
-                        print("\(apiValue) returned error \(state)")
+                        print("\(apiValue) : \(state)")
                     }
                 })
                 

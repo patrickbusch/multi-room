@@ -32,18 +32,17 @@ class MarshallModule: SHModule {
     var menuItems: [SHMenuItem] {
         get {
             return [
-                MarshallMenuItem(self._identifier, name: "Get Overview", action: api.overview),
+
+                MarshallMenuItem(self._identifier, name: "Get Sysinfo", action: { () in self.api.getParams([MarshallAPIValue.SysInfoFriendlyname, .SysMode, .SysNetWlanMacaddress, .SysCapsVolumesteps], successCallback: self.printValues)}),
+                                
+                MarshallMenuItem(self._identifier, name: "Get Mute, Volume", action: { () in self.api.getParams([MarshallAPIValue.SysAudioMute, .SysAudioVolume, .SysAudioEqcustomParam0, .SysAudioEqcustomParam1], successCallback: self.printValues)}),
                 
-                MarshallMenuItem(self._identifier, name: "Get netremote.multiroom.group.state", action: { () in self.api.getParam(param: "netremote.multiroom.group.state")}),
+                MarshallMenuItem(self._identifier, name: "Get Play Info", action: { () in self.api.getParams([MarshallAPIValue.PlayInfoName, .PlayInfoArtist, .PlayInfoAlbum, .PlayInfoGraphicUri, .PlayStatus, .PlayRepeat, .PlayShuffle], successCallback: self.printValues)}),
                 
-                MarshallMenuItem(self._identifier, name: "Get Mute, Volume", action: { () in self.api.getParams([MarshallAPIValue.SysAudioMute, .SysAudioVolume], successCallback: { (results) in
+                MarshallMenuItem(self._identifier, name: "Get Spotify Info", action: { () in self.api.getParams([MarshallAPIValue.SpotifyPlaylistName, .SpotifyPlaylistName], successCallback: self.printValues)}),
                 
-                    let res : [MarshallAPIValue : String] = results
-                    res.keys.forEach({ (key) in
-                        print("\(key) : \(res[key]!)")
-                    })
-                    
-                })}),
+                MarshallMenuItem(self._identifier, name: "Get Duration, Position", action: { () in self.api.getParams([MarshallAPIValue.PlayInfoDuration, .PlayPosition], successCallback: self.printValues)}),
+                
             ]
             
             
@@ -57,5 +56,14 @@ class MarshallModule: SHModule {
         }
     }
     
+}
+
+extension MarshallModule {
+    
+    func printValues(_ values: [MarshallAPIValue : String]) {
+        values.keys.forEach({ (key) in
+            print("\(key) : \(values[key]!)")
+        })
+    }
 }
 
