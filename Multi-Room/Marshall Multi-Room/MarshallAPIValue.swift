@@ -7,7 +7,7 @@
 
 import Cocoa
 
-enum MashallAPIValue : String {
+enum MarshallAPIValue : String {
     
     //getting stuff
     

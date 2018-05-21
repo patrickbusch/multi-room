@@ -33,7 +33,17 @@ class MarshallModule: SHModule {
         get {
             return [
                 MarshallMenuItem(self._identifier, name: "Get Overview", action: api.overview),
+                
                 MarshallMenuItem(self._identifier, name: "Get netremote.multiroom.group.state", action: { () in self.api.getParam(param: "netremote.multiroom.group.state")}),
+                
+                MarshallMenuItem(self._identifier, name: "Get Mute, Volume", action: { () in self.api.getParams([MarshallAPIValue.SysAudioMute, .SysAudioVolume], successCallback: { (results) in
+                
+                    let res : [MarshallAPIValue : String] = results
+                    res.keys.forEach({ (key) in
+                        print("\(key) : \(res[key]!)")
+                    })
+                    
+                })}),
             ]
             
             
