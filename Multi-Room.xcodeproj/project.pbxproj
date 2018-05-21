@@ -30,6 +30,9 @@
 		1DB10FF62098CD5100133D2B /* MenuHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB10FF52098CD5100133D2B /* MenuHandler.swift */; };
 		1DC9117F20A70E0400970616 /* MarshallModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9117E20A70E0400970616 /* MarshallModule.swift */; };
 		1DE7A85220B2F0AB00F05395 /* MarshallAPIValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE7A85120B2F0AB00F05395 /* MarshallAPIValue.swift */; };
+		1DE7A85420B3612B00F05395 /* NowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE7A85320B3612B00F05395 /* NowPlaying.swift */; };
+		1DE7A85620B3614000F05395 /* NowPlaying.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DE7A85520B3614000F05395 /* NowPlaying.xib */; };
+		1DE7A85820B3630D00F05395 /* MarshallPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE7A85720B3630D00F05395 /* MarshallPopoverView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +61,9 @@
 		1DB10FF52098CD5100133D2B /* MenuHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHandler.swift; sourceTree = "<group>"; };
 		1DC9117E20A70E0400970616 /* MarshallModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallModule.swift; sourceTree = "<group>"; };
 		1DE7A85120B2F0AB00F05395 /* MarshallAPIValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallAPIValue.swift; sourceTree = "<group>"; };
+		1DE7A85320B3612B00F05395 /* NowPlaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlaying.swift; sourceTree = "<group>"; };
+		1DE7A85520B3614000F05395 /* NowPlaying.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NowPlaying.xib; sourceTree = "<group>"; };
+		1DE7A85720B3630D00F05395 /* MarshallPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallPopoverView.swift; sourceTree = "<group>"; };
 		7E36BC508C24CAFA3C612584 /* Pods_Multi_Room.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Multi_Room.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E23EBCD73262A9C82FCFF74D /* Pods-Multi-Room.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Multi-Room.release.xcconfig"; path = "Pods/Target Support Files/Pods-Multi-Room/Pods-Multi-Room.release.xcconfig"; sourceTree = "<group>"; };
 		F567B0EAE5518A505BE96D95 /* Pods-Multi-Room.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Multi-Room.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Multi-Room/Pods-Multi-Room.debug.xcconfig"; sourceTree = "<group>"; };
@@ -136,6 +142,9 @@
 				1D9098C520A8813F00A3817F /* MarshallMenuItem.swift */,
 				1D9098C720A8817600A3817F /* MarshallAPI.swift */,
 				1DE7A85120B2F0AB00F05395 /* MarshallAPIValue.swift */,
+				1DE7A85320B3612B00F05395 /* NowPlaying.swift */,
+				1DE7A85520B3614000F05395 /* NowPlaying.xib */,
+				1DE7A85720B3630D00F05395 /* MarshallPopoverView.swift */,
 			);
 			path = "Marshall Multi-Room";
 			sourceTree = "<group>";
@@ -222,6 +231,7 @@
 				1D6253202098AA68004573FD /* Localizable.strings in Resources */,
 				1D625311209859B3004573FD /* Main.storyboard in Resources */,
 				1D0A79DE20A4BF2B00C0DBB7 /* Playground.xib in Resources */,
+				1DE7A85620B3614000F05395 /* NowPlaying.xib in Resources */,
 				1D5D98CF20A47E0D00FB58B2 /* TestView1.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,10 +285,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D62532F2098BA4A004573FD /* PopoverHandler.swift in Sources */,
+				1DE7A85420B3612B00F05395 /* NowPlaying.swift in Sources */,
 				1D6253342098C396004573FD /* TestMenuItem.swift in Sources */,
 				1D6253292098B489004573FD /* ModuleLoader.swift in Sources */,
 				1D62530A209859B3004573FD /* AppDelegate.swift in Sources */,
 				1D6253272098AD97004573FD /* EventMonitor.swift in Sources */,
+				1DE7A85820B3630D00F05395 /* MarshallPopoverView.swift in Sources */,
 				1DC9117F20A70E0400970616 /* MarshallModule.swift in Sources */,
 				1D6253322098C33A004573FD /* TestModule.swift in Sources */,
 				1D62532D2098B7EF004573FD /* SHModuleAPI.swift in Sources */,
