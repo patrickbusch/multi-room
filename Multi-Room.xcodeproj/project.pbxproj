@@ -29,6 +29,7 @@
 		1D9098C820A8817600A3817F /* MarshallAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9098C720A8817600A3817F /* MarshallAPI.swift */; };
 		1DB10FF62098CD5100133D2B /* MenuHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB10FF52098CD5100133D2B /* MenuHandler.swift */; };
 		1DC9117F20A70E0400970616 /* MarshallModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9117E20A70E0400970616 /* MarshallModule.swift */; };
+		1DE7A85220B2F0AB00F05395 /* MarshallAPIValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE7A85120B2F0AB00F05395 /* MarshallAPIValue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		1D9098C720A8817600A3817F /* MarshallAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallAPI.swift; sourceTree = "<group>"; };
 		1DB10FF52098CD5100133D2B /* MenuHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHandler.swift; sourceTree = "<group>"; };
 		1DC9117E20A70E0400970616 /* MarshallModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallModule.swift; sourceTree = "<group>"; };
+		1DE7A85120B2F0AB00F05395 /* MarshallAPIValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallAPIValue.swift; sourceTree = "<group>"; };
 		7E36BC508C24CAFA3C612584 /* Pods_Multi_Room.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Multi_Room.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E23EBCD73262A9C82FCFF74D /* Pods-Multi-Room.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Multi-Room.release.xcconfig"; path = "Pods/Target Support Files/Pods-Multi-Room/Pods-Multi-Room.release.xcconfig"; sourceTree = "<group>"; };
 		F567B0EAE5518A505BE96D95 /* Pods-Multi-Room.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Multi-Room.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Multi-Room/Pods-Multi-Room.debug.xcconfig"; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				1D4EACC720A87A5000E058E5 /* MarshallSettings.swift */,
 				1D9098C520A8813F00A3817F /* MarshallMenuItem.swift */,
 				1D9098C720A8817600A3817F /* MarshallAPI.swift */,
+				1DE7A85120B2F0AB00F05395 /* MarshallAPIValue.swift */,
 			);
 			path = "Marshall Multi-Room";
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				1D9098C820A8817600A3817F /* MarshallAPI.swift in Sources */,
 				1D9098C620A8813F00A3817F /* MarshallMenuItem.swift in Sources */,
 				1D6253362098C3CB004573FD /* TestPopoverView.swift in Sources */,
+				1DE7A85220B2F0AB00F05395 /* MarshallAPIValue.swift in Sources */,
 				1D4EACC820A87A5000E058E5 /* MarshallSettings.swift in Sources */,
 				1D62532B2098B4ED004573FD /* PopupViewController.swift in Sources */,
 				1DB10FF62098CD5100133D2B /* MenuHandler.swift in Sources */,
