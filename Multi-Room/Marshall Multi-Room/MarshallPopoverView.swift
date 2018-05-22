@@ -12,9 +12,10 @@ class MarshallPopoverView: SHPopoverView {
     private let _identifier: Identifier
     var vc: SHViewController
     
-    init(_ identifier: Identifier, vc: SHViewController) {
+    init(_ identifier: Identifier, vc: SHViewController, api: MarshallAPI) {
         self._identifier = identifier
         self.vc = vc
+        (self.vc as? MarshallViewController)?.api = api
     }
     
     var identifier: Identifier {

@@ -8,6 +8,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NowPlaying" customModule="Multi_Room" customModuleProvider="target">
             <connections>
+                <outlet property="loadingSpinner" destination="3Qf-0O-Kug" id="orY-fY-QT8"/>
+                <outlet property="speakerName" destination="daD-jZ-OfK" id="Ork-n9-hJN"/>
                 <outlet property="view" destination="c22-O7-iKe" id="Yuy-w0-j19"/>
             </connections>
         </customObject>
@@ -16,6 +18,25 @@
         <customView id="c22-O7-iKe">
             <rect key="frame" x="0.0" y="0.0" width="400" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="3Qf-0O-Kug">
+                    <rect key="frame" x="192" y="42" width="16" height="16"/>
+                </progressIndicator>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jrN-zZ-EPO">
+                    <rect key="frame" x="-2" y="83" width="98" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Speaker Name" id="daD-jZ-OfK">
+                        <font key="font" metaFont="systemBold"/>
+                        <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="jrN-zZ-EPO" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="02X-PG-rqf"/>
+                <constraint firstItem="3Qf-0O-Kug" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="Aaj-cl-uDL"/>
+                <constraint firstItem="jrN-zZ-EPO" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="QgH-CO-CxC"/>
+                <constraint firstItem="3Qf-0O-Kug" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="ym9-30-ZCB"/>
+            </constraints>
         </customView>
     </objects>
 </document>

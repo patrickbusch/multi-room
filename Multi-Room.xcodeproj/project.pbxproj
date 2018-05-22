@@ -25,6 +25,7 @@
 		1D6253342098C396004573FD /* TestMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6253332098C396004573FD /* TestMenuItem.swift */; };
 		1D6253362098C3CB004573FD /* TestPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6253352098C3CB004573FD /* TestPopoverView.swift */; };
 		1D7AA4B82098E9630069FD9D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D7AA4BA2098E9630069FD9D /* Localizable.strings */; };
+		1D7CFB3620B4AA1100489902 /* MarshallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7CFB3520B4AA1100489902 /* MarshallViewController.swift */; };
 		1D9098C620A8813F00A3817F /* MarshallMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9098C520A8813F00A3817F /* MarshallMenuItem.swift */; };
 		1D9098C820A8817600A3817F /* MarshallAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9098C720A8817600A3817F /* MarshallAPI.swift */; };
 		1DB10FF62098CD5100133D2B /* MenuHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB10FF52098CD5100133D2B /* MenuHandler.swift */; };
@@ -56,6 +57,7 @@
 		1D6253332098C396004573FD /* TestMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMenuItem.swift; sourceTree = "<group>"; };
 		1D6253352098C3CB004573FD /* TestPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPopoverView.swift; sourceTree = "<group>"; };
 		1D7AA4B92098E9630069FD9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1D7CFB3520B4AA1100489902 /* MarshallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallViewController.swift; sourceTree = "<group>"; };
 		1D9098C520A8813F00A3817F /* MarshallMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallMenuItem.swift; sourceTree = "<group>"; };
 		1D9098C720A8817600A3817F /* MarshallAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallAPI.swift; sourceTree = "<group>"; };
 		1DB10FF52098CD5100133D2B /* MenuHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHandler.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				1DE7A85320B3612B00F05395 /* NowPlaying.swift */,
 				1DE7A85520B3614000F05395 /* NowPlaying.xib */,
 				1DE7A85720B3630D00F05395 /* MarshallPopoverView.swift */,
+				1D7CFB3520B4AA1100489902 /* MarshallViewController.swift */,
 			);
 			path = "Marshall Multi-Room";
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				1D9098C620A8813F00A3817F /* MarshallMenuItem.swift in Sources */,
 				1D6253362098C3CB004573FD /* TestPopoverView.swift in Sources */,
 				1DE7A85220B2F0AB00F05395 /* MarshallAPIValue.swift in Sources */,
+				1D7CFB3620B4AA1100489902 /* MarshallViewController.swift in Sources */,
 				1D4EACC820A87A5000E058E5 /* MarshallSettings.swift in Sources */,
 				1D62532B2098B4ED004573FD /* PopupViewController.swift in Sources */,
 				1DB10FF62098CD5100133D2B /* MenuHandler.swift in Sources */,
