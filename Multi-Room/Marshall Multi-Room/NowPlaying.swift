@@ -37,6 +37,8 @@ class NowPlaying: MarshallViewController {
     private func updateValues(_ values: [MarshallAPIValue : String]) {
       
         values.forEach(update)
+        
+        self.stopLoading()
     }
     
     private func update(_ kv: (MarshallAPIValue, String)) {
