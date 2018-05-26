@@ -21,12 +21,13 @@ class NowPlaying: MarshallViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do view setup here.
-        self.startLoading()
-        
         self.speakerName.stringValue = ""
         self.viewName.stringValue = NSLocalizedString("Now Playing", comment: "")
+        self.elements.isHidden = true
         self.elements.backgroundColor = NSColor.blue
+        
+        // Do view setup here.
+        self.startLoading()
         
         self.api!.getParams([MarshallAPIValue.SysInfoFriendlyname], successCallback: self.updateValues)
     }
@@ -38,6 +39,7 @@ class NowPlaying: MarshallViewController {
     
     private func stopLoading() {
         self.loadingSpinner.isHidden = true
+        self.elements.isHidden = false
         self.loadingSpinner.stopAnimation(nil)
     }
     

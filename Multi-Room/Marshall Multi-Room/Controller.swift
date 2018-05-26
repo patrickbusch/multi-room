@@ -22,11 +22,13 @@ class Controller: MarshallViewController {
         super.viewDidLoad()
         
         // Do view setup here.
-        self.startLoading()
-
+        
         self.speakerName.stringValue = ""
         self.viewName.stringValue = NSLocalizedString("Controller", comment: "")
+        self.elements.isHidden = true
         self.elements.backgroundColor = NSColor.yellow
+        
+        self.startLoading()
         
         self.api!.getParams([MarshallAPIValue.SysInfoFriendlyname], successCallback: self.updateValues)
     }
@@ -38,6 +40,7 @@ class Controller: MarshallViewController {
     
     private func stopLoading() {
         self.loadingSpinner.isHidden = true
+        self.elements.isHidden = false
         self.loadingSpinner.stopAnimation(nil)
     }
     
