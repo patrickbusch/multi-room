@@ -1,14 +1,14 @@
 //
-//  NowPlaying.swift
+//  Controller
 //  Multi-Room
 //
-//  Created by Patrick Busch on 21.05.18.
+//  Created by Patrick Busch on 26.05.18.
 //
 
 import Foundation
 import Cocoa
 
-class NowPlaying: MarshallViewController {
+class Controller: MarshallViewController {
     
     @IBOutlet weak var loadingSpinner: NSProgressIndicator!
     
@@ -23,10 +23,10 @@ class NowPlaying: MarshallViewController {
         
         // Do view setup here.
         self.startLoading()
-        
+
         self.speakerName.stringValue = ""
-        self.viewName.stringValue = NSLocalizedString("Now Playing", comment: "")
-        self.elements.backgroundColor = NSColor.blue
+        self.viewName.stringValue = NSLocalizedString("Controller", comment: "")
+        self.elements.backgroundColor = NSColor.yellow
         
         self.api!.getParams([MarshallAPIValue.SysInfoFriendlyname], successCallback: self.updateValues)
     }

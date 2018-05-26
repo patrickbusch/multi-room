@@ -27,6 +27,9 @@
 		1D7AA4B82098E9630069FD9D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D7AA4BA2098E9630069FD9D /* Localizable.strings */; };
 		1D7CFB3620B4AA1100489902 /* MarshallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7CFB3520B4AA1100489902 /* MarshallViewController.swift */; };
 		1D7CFB3820B93E4400489902 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D7CFB3720B93E4400489902 /* Localizable.strings */; };
+		1D7CFB3C20B93F0400489902 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7CFB3B20B93F0400489902 /* Controller.swift */; };
+		1D7CFB4320B9809F00489902 /* NSViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7CFB4220B9809F00489902 /* NSViewExtensions.swift */; };
+		1D7CFB4520B9B3CA00489902 /* Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D7CFB4420B9B3CA00489902 /* Controller.xib */; };
 		1D9098C620A8813F00A3817F /* MarshallMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9098C520A8813F00A3817F /* MarshallMenuItem.swift */; };
 		1D9098C820A8817600A3817F /* MarshallAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9098C720A8817600A3817F /* MarshallAPI.swift */; };
 		1DB10FF62098CD5100133D2B /* MenuHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB10FF52098CD5100133D2B /* MenuHandler.swift */; };
@@ -60,6 +63,9 @@
 		1D7AA4B92098E9630069FD9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1D7CFB3520B4AA1100489902 /* MarshallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallViewController.swift; sourceTree = "<group>"; };
 		1D7CFB3720B93E4400489902 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		1D7CFB3B20B93F0400489902 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		1D7CFB4220B9809F00489902 /* NSViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewExtensions.swift; sourceTree = "<group>"; };
+		1D7CFB4420B9B3CA00489902 /* Controller.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Controller.xib; sourceTree = "<group>"; };
 		1D9098C520A8813F00A3817F /* MarshallMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallMenuItem.swift; sourceTree = "<group>"; };
 		1D9098C720A8817600A3817F /* MarshallAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallAPI.swift; sourceTree = "<group>"; };
 		1DB10FF52098CD5100133D2B /* MenuHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHandler.swift; sourceTree = "<group>"; };
@@ -106,6 +112,7 @@
 		1D625308209859B3004573FD /* Multi-Room */ = {
 			isa = PBXGroup;
 			children = (
+				1D7CFB4120B9808300489902 /* Common */,
 				1DC9117D20A70DC900970616 /* Marshall Multi-Room */,
 				1D6253302098C31F004573FD /* TestModule */,
 				1D625309209859B3004573FD /* AppDelegate.swift */,
@@ -138,6 +145,14 @@
 			path = TestModule;
 			sourceTree = "<group>";
 		};
+		1D7CFB4120B9808300489902 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1D7CFB4220B9809F00489902 /* NSViewExtensions.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		1DC9117D20A70DC900970616 /* Marshall Multi-Room */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +163,8 @@
 				1DE7A85120B2F0AB00F05395 /* MarshallAPIValue.swift */,
 				1DE7A85320B3612B00F05395 /* NowPlaying.swift */,
 				1DE7A85520B3614000F05395 /* NowPlaying.xib */,
+				1D7CFB3B20B93F0400489902 /* Controller.swift */,
+				1D7CFB4420B9B3CA00489902 /* Controller.xib */,
 				1DE7A85720B3630D00F05395 /* MarshallPopoverView.swift */,
 				1D7CFB3520B4AA1100489902 /* MarshallViewController.swift */,
 				1D7CFB3720B93E4400489902 /* Localizable.strings */,
@@ -237,6 +254,7 @@
 				1D6253202098AA68004573FD /* Localizable.strings in Resources */,
 				1D625311209859B3004573FD /* Main.storyboard in Resources */,
 				1D0A79DE20A4BF2B00C0DBB7 /* Playground.xib in Resources */,
+				1D7CFB4520B9B3CA00489902 /* Controller.xib in Resources */,
 				1D7CFB3820B93E4400489902 /* Localizable.strings in Resources */,
 				1DE7A85620B3614000F05395 /* NowPlaying.xib in Resources */,
 				1D5D98CF20A47E0D00FB58B2 /* TestView1.xib in Resources */,
@@ -305,7 +323,9 @@
 				1D9098C820A8817600A3817F /* MarshallAPI.swift in Sources */,
 				1D9098C620A8813F00A3817F /* MarshallMenuItem.swift in Sources */,
 				1D6253362098C3CB004573FD /* TestPopoverView.swift in Sources */,
+				1D7CFB4320B9809F00489902 /* NSViewExtensions.swift in Sources */,
 				1DE7A85220B2F0AB00F05395 /* MarshallAPIValue.swift in Sources */,
+				1D7CFB3C20B93F0400489902 /* Controller.swift in Sources */,
 				1D7CFB3620B4AA1100489902 /* MarshallViewController.swift in Sources */,
 				1D4EACC820A87A5000E058E5 /* MarshallSettings.swift in Sources */,
 				1D62532B2098B4ED004573FD /* PopupViewController.swift in Sources */,

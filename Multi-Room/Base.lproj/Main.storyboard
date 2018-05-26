@@ -696,7 +696,7 @@
                                 <view translatesAutoresizingMaskIntoConstraints="NO" id="om5-kJ-5B6">
                                     <rect key="frame" x="-1" y="-1" width="452" height="452"/>
                                     <subviews>
-                                        <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" translatesAutoresizingMaskIntoConstraints="NO" id="pv0-1Q-Q03">
+                                        <stackView autoresizesSubviews="NO" distribution="fillEqually" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" translatesAutoresizingMaskIntoConstraints="NO" id="pv0-1Q-Q03">
                                             <rect key="frame" x="1" y="1" width="450" height="450"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="450" id="UVV-bZ-UKx"/>
@@ -723,7 +723,7 @@
                             <rect key="frame" x="-100" y="-100" width="448" height="16"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
-                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="0.5" horizontal="NO" id="LZN-zE-bvE">
+                        <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="LZN-zE-bvE">
                             <rect key="frame" x="435" y="1" width="16" height="450"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>

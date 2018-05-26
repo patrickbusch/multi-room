@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="Controller" customModule="Multi_Room" customModuleProvider="target">
+            <connections>
+                <outlet property="elements" destination="XmW-di-YkH" id="bzV-Da-q3P"/>
+                <outlet property="loadingSpinner" destination="y0H-Kv-T6o" id="Gii-PM-21z"/>
+                <outlet property="speakerName" destination="VkS-Fa-u8Q" id="Zza-dG-Zhn"/>
+                <outlet property="view" destination="c22-O7-iKe" id="5yU-oK-hhY"/>
+                <outlet property="viewName" destination="lJN-42-4gR" id="88b-3x-bSy"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="y0H-Kv-T6o">
+                    <rect key="frame" x="192" y="42" width="16" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </progressIndicator>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VkS-Fa-u8Q">
+                    <rect key="frame" x="-2" y="83" width="98" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Speaker Name" id="xfk-2I-hse">
+                        <font key="font" metaFont="systemBold"/>
+                        <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lJN-42-4gR">
+                    <rect key="frame" x="304" y="83" width="98" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Speaker Name" id="WNp-ol-s35">
+                        <font key="font" metaFont="systemBold"/>
+                        <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="XmW-di-YkH">
+                    <rect key="frame" x="7" y="0.0" width="388" height="83"/>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="XmW-di-YkH" secondAttribute="bottom" id="6WT-qM-KF1"/>
+                <constraint firstItem="XmW-di-YkH" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="IKg-yr-Iby"/>
+                <constraint firstItem="XmW-di-YkH" firstAttribute="width" secondItem="c22-O7-iKe" secondAttribute="width" constant="-12" id="TBy-VF-AoR"/>
+                <constraint firstItem="VkS-Fa-u8Q" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="e0s-ud-LRc"/>
+                <constraint firstItem="XmW-di-YkH" firstAttribute="top" secondItem="VkS-Fa-u8Q" secondAttribute="bottom" id="giG-Vw-nfy"/>
+                <constraint firstItem="lJN-42-4gR" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="hHA-j9-d9G"/>
+                <constraint firstItem="VkS-Fa-u8Q" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="ikB-NS-Sg7"/>
+                <constraint firstAttribute="trailing" secondItem="lJN-42-4gR" secondAttribute="trailing" id="lMs-po-oO1"/>
+            </constraints>
+        </customView>
+    </objects>
+</document>

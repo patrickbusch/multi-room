@@ -8,15 +8,16 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NowPlaying" customModule="Multi_Room" customModuleProvider="target">
             <connections>
-                <outlet property="loadingSpinner" destination="3Qf-0O-Kug" id="orY-fY-QT8"/>
-                <outlet property="speakerName" destination="daD-jZ-OfK" id="Ork-n9-hJN"/>
-                <outlet property="view" destination="c22-O7-iKe" id="Yuy-w0-j19"/>
-                <outlet property="viewName" destination="BE3-XV-RJE" id="6qt-8b-qMU"/>
+                <outlet property="elements" destination="7d8-F5-Jlh" id="Fg8-rC-nkl"/>
+                <outlet property="loadingSpinner" destination="3Qf-0O-Kug" id="8gO-1m-RU1"/>
+                <outlet property="speakerName" destination="jrN-zZ-EPO" id="YXu-2t-yw1"/>
+                <outlet property="view" destination="c22-O7-iKe" id="mQb-yO-h7J"/>
+                <outlet property="viewName" destination="BE3-XV-RJE" id="zrJ-oK-oD9"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView id="c22-O7-iKe">
+        <customView identifier="MMR-NowPlaying" id="c22-O7-iKe">
             <rect key="frame" x="0.0" y="0.0" width="400" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
@@ -39,20 +40,20 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="IqO-1Z-USi">
-                    <rect key="frame" x="5" y="0.0" width="390" height="83"/>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="7d8-F5-Jlh">
+                    <rect key="frame" x="6" y="0.0" width="388" height="83"/>
                 </customView>
             </subviews>
             <constraints>
                 <constraint firstItem="jrN-zZ-EPO" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="02X-PG-rqf"/>
-                <constraint firstItem="IqO-1Z-USi" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="8Q0-AA-gmG"/>
+                <constraint firstItem="7d8-F5-Jlh" firstAttribute="top" secondItem="jrN-zZ-EPO" secondAttribute="bottom" id="33n-T9-Pdc"/>
                 <constraint firstItem="3Qf-0O-Kug" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="Aaj-cl-uDL"/>
-                <constraint firstItem="IqO-1Z-USi" firstAttribute="top" secondItem="jrN-zZ-EPO" secondAttribute="bottom" id="J4U-nW-Cj9"/>
-                <constraint firstAttribute="bottom" secondItem="IqO-1Z-USi" secondAttribute="bottom" id="Jy2-kZ-ZdO"/>
+                <constraint firstItem="7d8-F5-Jlh" firstAttribute="width" secondItem="c22-O7-iKe" secondAttribute="width" constant="-12" id="LaV-fP-2xl"/>
                 <constraint firstItem="jrN-zZ-EPO" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="QgH-CO-CxC"/>
+                <constraint firstAttribute="bottom" secondItem="7d8-F5-Jlh" secondAttribute="bottom" id="aqi-4v-xfw"/>
                 <constraint firstAttribute="trailing" secondItem="BE3-XV-RJE" secondAttribute="trailing" id="eHo-wZ-ZP0"/>
                 <constraint firstItem="BE3-XV-RJE" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="eLh-zN-zAK"/>
-                <constraint firstItem="IqO-1Z-USi" firstAttribute="width" secondItem="c22-O7-iKe" secondAttribute="width" constant="-10" id="eji-Np-zKM"/>
+                <constraint firstItem="7d8-F5-Jlh" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="eqd-Ce-o57"/>
                 <constraint firstItem="3Qf-0O-Kug" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="ym9-30-ZCB"/>
             </constraints>
         </customView>
