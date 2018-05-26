@@ -14,13 +14,15 @@ class NowPlaying: MarshallViewController {
     
     @IBOutlet weak var speakerName: NSTextFieldCell!
     
+    @IBOutlet weak var viewName: NSTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do view setup here.
         self.startLoading()
         
-        self.speakerName.stringValue = "YYY"
+        self.speakerName.stringValue = ""
+        self.viewName.stringValue = NSLocalizedString("Now Playing", comment: "")
         self.api!.getParams([MarshallAPIValue.SysInfoFriendlyname], successCallback: self.updateValues)
     }
     
