@@ -4,11 +4,15 @@
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NowPlaying" customModule="Multi_Room" customModuleProvider="target">
             <connections>
                 <outlet property="elements" destination="7d8-F5-Jlh" id="Fg8-rC-nkl"/>
+                <outlet property="line1" destination="5hW-bK-wb8" id="eCd-Wp-GAq"/>
+                <outlet property="line2" destination="7i6-i6-Qpk" id="181-9b-fCF"/>
+                <outlet property="line3" destination="jWW-CI-zTD" id="fIH-Sc-PvF"/>
                 <outlet property="loadingSpinner" destination="3Qf-0O-Kug" id="8gO-1m-RU1"/>
                 <outlet property="speakerName" destination="jrN-zZ-EPO" id="YXu-2t-yw1"/>
                 <outlet property="view" destination="c22-O7-iKe" id="mQb-yO-h7J"/>
@@ -42,6 +46,62 @@
                 </textField>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="7d8-F5-Jlh">
                     <rect key="frame" x="6" y="0.0" width="388" height="83"/>
+                    <subviews>
+                        <stackView distribution="fillEqually" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nnm-Lb-BUn">
+                            <rect key="frame" x="0.0" y="0.0" width="82" height="42"/>
+                            <subviews>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5hW-bK-wb8">
+                                    <rect key="frame" x="-2" y="25" width="39" height="17"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Line 1" id="ZcI-yj-1q9">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j5c-Dy-bij">
+                                    <rect key="frame" x="0.0" y="0.0" width="82" height="17"/>
+                                    <subviews>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7i6-i6-Qpk">
+                                            <rect key="frame" x="-2" y="0.0" width="41" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Line 2" id="6rw-r3-nES">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jWW-CI-zTD">
+                                            <rect key="frame" x="43" y="0.0" width="41" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Line 3" id="au0-Gr-L37">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </subviews>
+                                    <visibilityPriorities>
+                                        <integer value="1000"/>
+                                        <integer value="1000"/>
+                                    </visibilityPriorities>
+                                    <customSpacing>
+                                        <real value="3.4028234663852886e+38"/>
+                                        <real value="3.4028234663852886e+38"/>
+                                    </customSpacing>
+                                </stackView>
+                            </subviews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Nnm-Lb-BUn" firstAttribute="leading" secondItem="7d8-F5-Jlh" secondAttribute="leading" id="FUI-Wd-buR"/>
+                        <constraint firstAttribute="bottom" secondItem="Nnm-Lb-BUn" secondAttribute="bottom" id="Pwg-xV-B0Y"/>
+                    </constraints>
                 </customView>
             </subviews>
             <constraints>

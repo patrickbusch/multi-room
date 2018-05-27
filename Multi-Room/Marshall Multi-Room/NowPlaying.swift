@@ -18,18 +18,27 @@ class NowPlaying: MarshallViewController {
     
     @IBOutlet weak var elements: NSView!
     
+    @IBOutlet weak var line1: NSTextField!
+    
+    @IBOutlet weak var line2: NSTextField!
+    
+    @IBOutlet weak var line3: NSTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.speakerName.stringValue = ""
+        self.line1.stringValue = ""
+        self.line2.stringValue = ""
+        self.line3.stringValue = ""
         self.viewName.stringValue = NSLocalizedString("Now Playing", comment: "")
         self.elements.isHidden = true
-        self.elements.backgroundColor = NSColor.blue
+        self.elements.backgroundColor = NSColor.clear
         
         // Do view setup here.
         self.startLoading()
         
-        self.api!.getParams([MarshallAPIValue.SysInfoFriendlyname], successCallback: self.updateValues)
+        self.api!.getParams([MarshallAPIValue.SysInfoFriendlyname, .PlayInfoName, .PlayInfoAlbum, .PlayInfoArtist], successCallback: self.updateValues)
     }
     
     private func startLoading() {
@@ -54,6 +63,12 @@ class NowPlaying: MarshallViewController {
         switch kv.0 {
         case .SysInfoFriendlyname:
             self.speakerName.stringValue = kv.1
+        case .PlayInfoName:
+            self.line1.stringValue = kv.1
+        case .PlayInfoArtist:
+            self.line2.stringValue = kv.1
+        case .PlayInfoAlbum:
+            self.line3.stringValue = "(\(kv.1))"
         default:
             print("Nothing to do for key \(kv.0)")
         }
