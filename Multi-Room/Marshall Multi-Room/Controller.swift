@@ -44,6 +44,7 @@ class Controller: MarshallViewController {
         let valueToSend = "\(lround(value))"
         print("\(apiValue): \(valueToSend)")
         
+        self.api!.setParam(apiValue, value: valueToSend, successCallback: nil)
     }
     
     private func reset() {
@@ -52,6 +53,7 @@ class Controller: MarshallViewController {
         
         self.volumeLabel.stringValue = NSLocalizedString("Volume", comment: "")
 
+        self.volumeSlider.isContinuous = true
         self.volumeSlider.isEnabled = false
         
         self.elements.isHidden = true

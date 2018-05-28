@@ -25,57 +25,6 @@ class MarshallAPI {
         }
     }
     
-    func overview() {
-        
-        guard let base = self.baseUrl else {
-            return
-        }
-        
-        
-//        let parameters: Parameters = ["pin": "1234",
-//                                      "node": "netremote.multiroom.group.id",
-//                                      "node": "netremote.multiroom.group.state",
-//                                      "node": "netremote.multiroom.device.clientindex",
-//                                      "node": "netremote.multiroom.device.listallversion"]
-        // non-standard API
-        let parameters: String = "?pin=1234&node=netremote.multiroom.group.id&node=netremote.multiroom.group.state&node=netremote.multiroom.group.name&node=netremote.multiroom.device.clientindex&node=netremote.multiroom.device.listallversion"
-        
-        Alamofire.request("\(base)GET_MULTIPLE\(parameters)").responseString { (response) in
-
-            if let result = response.result.value {
-                print(result)
-            }
-            if let data = response.data {
-                let xml = SWXMLHash.parse(data)
-                
-                print(xml["fsapiGetMultipleResponse"]["fsapiResponse"][0]["status"].element?.text ?? "")
-            }
-        }
-    }
-    
-    func getParam(param: String) {
-        
-        guard let base = self.baseUrl else {
-            return
-        }
-        
-
-        
-        let parameters: String = "?pin=1234&node=\(param)"
-
-        Alamofire.request("\(base)GET_MULTIPLE\(parameters)").responseString { (response) in
-            
-            if let result = response.result.value {
-                print(result)
-            }
-            if let data = response.data {
-                let xml = SWXMLHash.parse(data)
-                
-                print(xml["fsapiGetMultipleResponse"]["fsapiResponse"][0]["status"].element?.text ?? "")
-            }
-        }
-    }
-    
     func getParams(_ params: [MarshallAPIValue],
                    successCallback: @escaping ([MarshallAPIValue : String]) -> ()) {
         
@@ -121,6 +70,22 @@ class MarshallAPI {
         }
     }
     
+    func setParam(_ param: MarshallAPIValue, value: String, successCallback: (() -> ())?) {
+        
+        guard let base = self.baseUrl else {
+            print("Cannot continue")
+            return
+        }
+        
+        let parameters = "\(param.rawValue)?pin=\(self.pin)&value=\(value)"
+        
+        Alamofire.request("\(base)SET/\(parameters)").response { (response) in
+            if (response.error == nil) {
+                successCallback?()
+            }
+        }
+        
+    }
     private func buildGetParams(_ params: [MarshallAPIValue]) -> String {
         
         var getParams = ""
