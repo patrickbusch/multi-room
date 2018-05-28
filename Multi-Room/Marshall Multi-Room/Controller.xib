@@ -9,9 +9,13 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="Controller" customModule="Multi_Room" customModuleProvider="target">
             <connections>
+                <outlet property="bassLabel" destination="an2-V4-abF" id="SkL-Pc-J7G"/>
+                <outlet property="bassSlider" destination="kgj-AM-XDm" id="POf-Tx-Qiq"/>
                 <outlet property="elements" destination="XmW-di-YkH" id="bzV-Da-q3P"/>
                 <outlet property="loadingSpinner" destination="y0H-Kv-T6o" id="Gii-PM-21z"/>
                 <outlet property="speakerName" destination="VkS-Fa-u8Q" id="Zza-dG-Zhn"/>
+                <outlet property="trebleLabel" destination="5Jq-E6-AUD" id="SP8-L2-f67"/>
+                <outlet property="trebleSlider" destination="uje-EP-7k1" id="Lbv-rX-Ntn"/>
                 <outlet property="view" destination="c22-O7-iKe" id="5yU-oK-hhY"/>
                 <outlet property="viewName" destination="lJN-42-4gR" id="88b-3x-bSy"/>
                 <outlet property="volumeLabel" destination="HTF-lo-sxG" id="fZd-kp-Lg7"/>
@@ -48,7 +52,7 @@
                     <rect key="frame" x="6" y="0.0" width="388" height="83"/>
                     <subviews>
                         <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FA3-vv-WKD">
-                            <rect key="frame" x="160" y="0.0" width="68" height="83"/>
+                            <rect key="frame" x="94" y="0.0" width="200" height="83"/>
                             <subviews>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HTF-lo-sxG">
                                     <rect key="frame" x="-2" y="34.5" width="43" height="14"/>
@@ -60,9 +64,39 @@
                                 </textField>
                                 <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eUK-JN-nav">
                                     <rect key="frame" x="47" y="-3" width="24" height="88"/>
-                                    <sliderCell key="cell" alignment="left" maxValue="32" doubleValue="15" tickMarkPosition="left" numberOfTickMarks="10" sliderType="linear" id="VGZ-wi-aFw"/>
+                                    <sliderCell key="cell" continuous="YES" alignment="left" maxValue="32" doubleValue="15" tickMarkPosition="left" numberOfTickMarks="11" sliderType="linear" id="VGZ-wi-aFw"/>
                                     <connections>
                                         <action selector="volumeChanged:" target="-2" id="oit-6T-qss"/>
+                                    </connections>
+                                </slider>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="an2-V4-abF">
+                                    <rect key="frame" x="74" y="34.5" width="29" height="14"/>
+                                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Bass" id="O2T-1Z-EuO">
+                                        <font key="font" metaFont="smallSystem"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kgj-AM-XDm">
+                                    <rect key="frame" x="109" y="-3" width="24" height="88"/>
+                                    <sliderCell key="cell" continuous="YES" alignment="left" maxValue="10" doubleValue="5" tickMarkPosition="left" numberOfTickMarks="11" allowsTickMarkValuesOnly="YES" sliderType="linear" id="1Zv-MB-0V8"/>
+                                    <connections>
+                                        <action selector="bassChanged:" target="-2" id="SLA-cJ-aOD"/>
+                                    </connections>
+                                </slider>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5Jq-E6-AUD">
+                                    <rect key="frame" x="136" y="34.5" width="37" height="14"/>
+                                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Treble" id="qZq-VP-CwH">
+                                        <font key="font" metaFont="smallSystem"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uje-EP-7k1">
+                                    <rect key="frame" x="179" y="-3" width="24" height="88"/>
+                                    <sliderCell key="cell" continuous="YES" alignment="left" maxValue="10" doubleValue="5" tickMarkPosition="left" numberOfTickMarks="11" allowsTickMarkValuesOnly="YES" sliderType="linear" id="1gA-Dh-ULa"/>
+                                    <connections>
+                                        <action selector="trebleChanged:" target="-2" id="SQE-Dd-4Y4"/>
                                     </connections>
                                 </slider>
                             </subviews>
@@ -72,8 +106,16 @@
                             <visibilityPriorities>
                                 <integer value="1000"/>
                                 <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
                             </visibilityPriorities>
                             <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
                                 <real value="3.4028234663852886e+38"/>
                                 <real value="3.4028234663852886e+38"/>
                             </customSpacing>

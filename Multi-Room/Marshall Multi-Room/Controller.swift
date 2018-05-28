@@ -19,11 +19,24 @@ class Controller: MarshallViewController {
     @IBOutlet weak var elements: NSView!
     
     @IBOutlet weak var volumeSlider: NSSlider!
+    @IBOutlet weak var bassSlider: NSSlider!
+    @IBOutlet weak var trebleSlider: NSSlider!
     
     @IBOutlet weak var volumeLabel: NSTextField!
+    @IBOutlet weak var bassLabel: NSTextField!
+    @IBOutlet weak var trebleLabel: NSTextField!
     
+
     @IBAction func volumeChanged(_ sender: NSSlider) {
         self.set(.SysAudioVolume, value: sender.doubleValue)
+    }
+
+    @IBAction func bassChanged(_ sender: NSSlider) {
+        self.set(.SysAudioEqcustomParam0, value: sender.doubleValue)
+    }
+    
+    @IBAction func trebleChanged(_ sender: NSSlider) {
+        self.set(.SysAudioEqcustomParam1, value: sender.doubleValue)
     }
     
     override func viewDidLoad() {
@@ -37,7 +50,10 @@ class Controller: MarshallViewController {
         
         self.api!.getParams([MarshallAPIValue.SysInfoFriendlyname,
                              .SysAudioVolume,
-                             .SysCapsVolumesteps], successCallback: self.updateValues)
+                             .SysCapsVolumesteps,
+                             .SysAudioEqcustomParam0,
+                             .SysAudioEqcustomParam1
+            ], successCallback: self.updateValues)
     }
     
     private func set(_ apiValue: MarshallAPIValue, value: Double) {
@@ -52,9 +68,12 @@ class Controller: MarshallViewController {
         self.viewName.stringValue = NSLocalizedString("Controller", comment: "")
         
         self.volumeLabel.stringValue = NSLocalizedString("Volume", comment: "")
+        self.bassSlider.stringValue = NSLocalizedString("Bass", comment: "")
+        self.trebleSlider.stringValue = NSLocalizedString("Treble", comment: "")
 
-        self.volumeSlider.isContinuous = true
         self.volumeSlider.isEnabled = false
+        self.bassSlider.isEnabled = false
+        self.trebleSlider.isEnabled = false
         
         self.elements.isHidden = true
         self.elements.backgroundColor = NSColor.clear
@@ -97,6 +116,22 @@ class Controller: MarshallViewController {
             
             self.volumeSlider.minValue = 0.0
             self.volumeSlider.maxValue = steps - 1
+            
+        case .SysAudioEqcustomParam0:
+            if let val = Double(kv.1) {
+                self.bassSlider.doubleValue = val
+                self.bassSlider.isEnabled = true
+            } else {
+                self.bassSlider.doubleValue = 0.0
+            }
+
+        case .SysAudioEqcustomParam1:
+            if let val = Double(kv.1) {
+                self.trebleSlider.doubleValue = val
+                self.trebleSlider.isEnabled = true
+            } else {
+                self.trebleSlider.doubleValue = 0.0
+            }
             
         default:
             print("Nothing to do for key \(kv.0)")
