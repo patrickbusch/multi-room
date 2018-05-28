@@ -27,18 +27,28 @@ class NowPlaying: MarshallViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.speakerName.stringValue = ""
-        self.line1.stringValue = ""
-        self.line2.stringValue = ""
-        self.line3.stringValue = ""
-        self.viewName.stringValue = NSLocalizedString("Now Playing", comment: "")
-        self.elements.isHidden = true
-        self.elements.backgroundColor = NSColor.clear
+        self.reset()
         
         // Do view setup here.
         self.startLoading()
         
         self.api!.getParams([MarshallAPIValue.SysInfoFriendlyname, .PlayInfoName, .PlayInfoAlbum, .PlayInfoArtist], successCallback: self.updateValues)
+    }
+    
+    private func reset() {
+        self.speakerName.stringValue = ""
+        self.viewName.stringValue = NSLocalizedString("Now Playing", comment: "")
+        
+        self.line1.stringValue = ""
+        self.line2.stringValue = ""
+        self.line3.stringValue = ""
+
+        self.line1.isHidden = true
+        self.line2.isHidden = true
+        self.line3.isHidden = true
+        
+        self.elements.isHidden = true
+        self.elements.backgroundColor = NSColor.clear
     }
     
     private func startLoading() {
@@ -64,10 +74,13 @@ class NowPlaying: MarshallViewController {
         case .SysInfoFriendlyname:
             self.speakerName.stringValue = kv.1
         case .PlayInfoName:
+            self.line1.isHidden = false
             self.line1.stringValue = kv.1
         case .PlayInfoArtist:
+            self.line2.isHidden = false
             self.line2.stringValue = kv.1
         case .PlayInfoAlbum:
+            self.line3.isHidden = false
             self.line3.stringValue = "(\(kv.1))"
         default:
             print("Nothing to do for key \(kv.0)")
