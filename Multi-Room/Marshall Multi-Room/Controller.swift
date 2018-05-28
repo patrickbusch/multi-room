@@ -51,7 +51,7 @@ class Controller: MarshallViewController {
         self.viewName.stringValue = NSLocalizedString("Controller", comment: "")
         
         self.volumeLabel.stringValue = NSLocalizedString("Volume", comment: "")
-        
+
         self.volumeSlider.isEnabled = false
         
         self.elements.isHidden = true
