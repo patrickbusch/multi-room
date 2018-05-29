@@ -12,7 +12,7 @@ enum MarshallAPIValue : String {
     //getting stuff
     
     //GET_MULTIPLE, GET
-    case SysMode = "netremote.sys.mode"
+    case SysMode = "netremote.sys.mode" // 1: Aux 5: Bluetooth 7: RCA
     case SysInfoFriendlyname = "netremote.sys.info.friendlyname"
     case SysNetWlanMacaddress = "netremote.sys.net.wlan.macaddress"
     case SysInfoNetremotevendorid = "netremote.sys.info.netremotevendorid"
@@ -62,10 +62,10 @@ enum MarshallAPIValue : String {
     case SysCapsValidmodes = "netremote.sys.caps.validmodes"
     
     
-    
     // SET
     case NavActionSelectPreset = "netremote.nav.action.selectpreset" //seems to be counting up from 0
-    case NavState = "netremote.nav.state"
+    case NavState = "netremote.nav.state" // 1 on selecting preset
+    case PlayControl = "netremote.play.control" // 0: Play/Stop (on Radio) 2: Play/Pause (on Spotify) 3: Next 4: Prev
     
     
     /*

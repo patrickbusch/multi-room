@@ -93,11 +93,19 @@ class NowPlaying: MarshallViewController {
             self.line1.isHidden = false
             self.line1.stringValue = kv.1
         case .PlayInfoArtist:
-            self.line2.isHidden = false
-            self.line2.stringValue = kv.1
+            if (kv.1.isEmpty) {
+                self.line2.isHidden = true
+            } else {
+                self.line2.isHidden = false
+                self.line2.stringValue = kv.1
+            }
         case .PlayInfoAlbum:
-            self.line3.isHidden = false
-            self.line3.stringValue = "(\(kv.1))"
+            if (kv.1.isEmpty) {
+                self.line3.isHidden = true
+            } else {
+                self.line3.isHidden = false
+                self.line3.stringValue = "\(kv.1)"
+            }
         default:
             print("Nothing to do for key \(kv.0)")
         }
