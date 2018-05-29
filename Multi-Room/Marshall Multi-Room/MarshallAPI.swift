@@ -37,9 +37,9 @@ class MarshallAPI {
         
         Alamofire.request("\(base)GET_MULTIPLE\(parameters)").responseString { (response) in
             
-            if let result = response.result.value {
-                print(result)
-            }
+//            if let result = response.result.value {
+//                print(result)
+//            }
             
             if let data = response.data {
                 let xml = SWXMLHash.parse(data)

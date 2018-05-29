@@ -12,7 +12,7 @@ enum MarshallAPIValue : String {
     //getting stuff
     
     //GET_MULTIPLE, GET
-    case SysMode = "netremote.sys.mode" // 1: Aux 5: Bluetooth 7: RCA
+    case SysMode = "netremote.sys.mode" // 1: Aux 2: Airplay 3: Spotify 5: Bluetooth 6: Radio-Streaming 7: RCA // 4: Chromecast?
     case SysInfoFriendlyname = "netremote.sys.info.friendlyname"
     case SysNetWlanMacaddress = "netremote.sys.net.wlan.macaddress"
     case SysInfoNetremotevendorid = "netremote.sys.info.netremotevendorid"

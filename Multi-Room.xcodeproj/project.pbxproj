@@ -24,6 +24,7 @@
 		1D6253322098C33A004573FD /* TestModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6253312098C33A004573FD /* TestModule.swift */; };
 		1D6253342098C396004573FD /* TestMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6253332098C396004573FD /* TestMenuItem.swift */; };
 		1D6253362098C3CB004573FD /* TestPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6253352098C3CB004573FD /* TestPopoverView.swift */; };
+		1D6BC87620BD613600AC72CB /* PlayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6BC87520BD613600AC72CB /* PlayState.swift */; };
 		1D7AA4B82098E9630069FD9D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D7AA4BA2098E9630069FD9D /* Localizable.strings */; };
 		1D7CFB3620B4AA1100489902 /* MarshallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7CFB3520B4AA1100489902 /* MarshallViewController.swift */; };
 		1D7CFB3820B93E4400489902 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D7CFB3720B93E4400489902 /* Localizable.strings */; };
@@ -60,6 +61,7 @@
 		1D6253312098C33A004573FD /* TestModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModule.swift; sourceTree = "<group>"; };
 		1D6253332098C396004573FD /* TestMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMenuItem.swift; sourceTree = "<group>"; };
 		1D6253352098C3CB004573FD /* TestPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPopoverView.swift; sourceTree = "<group>"; };
+		1D6BC87520BD613600AC72CB /* PlayState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayState.swift; sourceTree = "<group>"; };
 		1D7AA4B92098E9630069FD9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1D7CFB3520B4AA1100489902 /* MarshallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallViewController.swift; sourceTree = "<group>"; };
 		1D7CFB3720B93E4400489902 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				1DE7A85720B3630D00F05395 /* MarshallPopoverView.swift */,
 				1D7CFB3520B4AA1100489902 /* MarshallViewController.swift */,
 				1D7CFB3720B93E4400489902 /* Localizable.strings */,
+				1D6BC87520BD613600AC72CB /* PlayState.swift */,
 			);
 			path = "Marshall Multi-Room";
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				1D7CFB3C20B93F0400489902 /* Controller.swift in Sources */,
 				1D7CFB3620B4AA1100489902 /* MarshallViewController.swift in Sources */,
 				1D4EACC820A87A5000E058E5 /* MarshallSettings.swift in Sources */,
+				1D6BC87620BD613600AC72CB /* PlayState.swift in Sources */,
 				1D62532B2098B4ED004573FD /* PopupViewController.swift in Sources */,
 				1DB10FF62098CD5100133D2B /* MenuHandler.swift in Sources */,
 			);

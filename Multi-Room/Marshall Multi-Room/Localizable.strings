@@ -13,3 +13,9 @@
 "Volume" = "Volume";
 "Bass" = "Bass";
 "Treble" = "Treble";
+
+"Play" = "Play";
+"Pause" = "Pause";
+"Stop" = "Stop";
+"Prev" = "Prev";
+"Next" = "Next";
