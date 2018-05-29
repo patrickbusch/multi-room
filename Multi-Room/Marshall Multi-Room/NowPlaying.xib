@@ -34,7 +34,7 @@
                 <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bvn-Ja-Sc8">
                     <rect key="frame" x="0.0" y="0.0" width="400" height="104"/>
                     <subviews>
-                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="Ba2-ny-HdE">
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="Ba2-ny-HdE" userLabel="Title">
                             <rect key="frame" x="0.0" y="84" width="400" height="20"/>
                             <subviews>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jrN-zZ-EPO">
