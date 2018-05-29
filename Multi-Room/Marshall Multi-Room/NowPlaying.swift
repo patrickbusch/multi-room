@@ -24,6 +24,22 @@ class NowPlaying: MarshallViewController {
     
     @IBOutlet weak var line3: NSTextField!
     
+
+    @IBOutlet weak var prevButton: NSButton!
+    
+    @IBOutlet weak var nextButton: NSButton!
+    
+    @IBOutlet weak var playButton: NSButton!
+    
+    @IBAction func prevButtonPressed(_ sender: NSButton) {
+    }
+    
+    @IBAction func nextButtonPressed(_ sender: NSButton) {
+    }
+    
+    @IBAction func playButtonPressed(_ sender: NSButton) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
