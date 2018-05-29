@@ -31,7 +31,7 @@ enum MarshallAPIValue : String {
     case MultiroomGroupState = "netremote.multiroom.group.state"
     case PlatformOEMColorProduct = "netRemote.platform.OEM.colorProduct"
     case NavPresetCurrentpreset = "netremote.nav.preset.currentpreset"
-    case PlayStatus = "netremote.play.status"
+    case PlayStatus = "netremote.play.status" // 0: Nothing while Bluetooth not connected / AUX 2: Playing  / or RCA  3: Paused while spotify 6: Stopped while streaming
     case PlayCaps = "netremote.play.caps"
     case PlayInfoDuration = "netremote.play.info.duration"
     case PlayInfoGraphicUri = "netremote.play.info.graphicuri"

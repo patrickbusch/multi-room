@@ -38,16 +38,16 @@ class NowPlaying: MarshallViewController {
     
     @IBAction func playButtonPressed(_ sender: NSButton) {
     }
-    
-//    private var playState: PlayState = .AllStopped {
-//        willSet {
-//            self.setPlayState(newValue)
-//        }
-//    }
 
     private var currentInput: Input? {
         willSet {
             self.setInput(newValue)
+        }
+    }
+    
+    private var currentPlayState: PlayState? {
+        willSet {
+            self.setPlayState(newValue)
         }
     }
     
@@ -63,7 +63,8 @@ class NowPlaying: MarshallViewController {
                              .PlayInfoName,
                              .PlayInfoAlbum,
                              .PlayInfoArtist,
-                             .SysMode
+                             .SysMode,
+                             .PlayStatus
             ], successCallback: self.updateValues)
     }
     
@@ -118,12 +119,42 @@ class NowPlaying: MarshallViewController {
         switch input.playingType {
         case .None:
             self.playButton.isHidden = true
-        case .PlayStop, .PlayPause:
+        case .PlayStop:
+            if (self.currentPlayState == .Playing) {
+                self.playButton.title = NSLocalizedString("Stop", comment: "")
+            }
+            self.playButton.isHidden = false
+        case .PlayPause:
+            if (self.currentPlayState == .Playing) {
+                self.playButton.title = NSLocalizedString("Pause", comment: "")
+            }
             self.playButton.isHidden = false
         }
         
         self.prevButton.isHidden = !input.canSkip
         self.nextButton.isHidden = !input.canSkip
+    }
+    
+    private func setPlayState(_ optPlayState: PlayState?) {
+        
+        guard let playState = optPlayState else {
+            print("playState was not set")
+            return
+        }
+        
+        switch playState {
+        case .Paused, .Stopped:
+            self.playButton.title = NSLocalizedString("Play", comment: "")
+        case .Playing:
+            if (self.currentInput?.playingType == .PlayStop) {
+                self.playButton.title = NSLocalizedString("Stop", comment: "")
+            } else if (self.currentInput?.playingType == .PlayPause) {
+                self.playButton.title = NSLocalizedString("Pause", comment: "")
+            }
+        default:
+            print("nothing to do for play state \(playState)")
+        }
+        
     }
     
     private func update(_ kv: (MarshallAPIValue, String)) {
@@ -158,6 +189,14 @@ class NowPlaying: MarshallViewController {
                 return
             }            
             self.currentInput = input
+            
+        case .PlayStatus:
+            let intval = Int(kv.1) ?? 0
+            guard let playState = PlayState(rawValue: intval) else {
+                print("Unknown PlayStatr \(kv.1)")
+                return
+            }
+            self.currentPlayState = playState
             
         default:
             print("Nothing to do for key \(kv.0)")
