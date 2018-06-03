@@ -14,7 +14,6 @@
                 <outlet property="line1" destination="5hW-bK-wb8" id="eCd-Wp-GAq"/>
                 <outlet property="line2" destination="7i6-i6-Qpk" id="181-9b-fCF"/>
                 <outlet property="line3" destination="jWW-CI-zTD" id="fIH-Sc-PvF"/>
-                <outlet property="loadingSpinner" destination="3Qf-0O-Kug" id="8gO-1m-RU1"/>
                 <outlet property="nextButton" destination="aXH-hS-60h" id="yje-vH-KQd"/>
                 <outlet property="playButton" destination="EIJ-Lt-mQ7" id="lD7-dr-qJz"/>
                 <outlet property="prevButton" destination="xTO-xa-fmc" id="UkZ-v4-gO3"/>
@@ -29,9 +28,6 @@
             <rect key="frame" x="0.0" y="0.0" width="400" height="104"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="3Qf-0O-Kug">
-                    <rect key="frame" x="192" y="44" width="16" height="16"/>
-                </progressIndicator>
                 <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bvn-Ja-Sc8">
                     <rect key="frame" x="0.0" y="0.0" width="400" height="104"/>
                     <subviews>
@@ -64,13 +60,13 @@
                             </constraints>
                         </customView>
                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="7d8-F5-Jlh">
-                            <rect key="frame" x="0.0" y="0.0" width="400" height="80"/>
+                            <rect key="frame" x="107" y="0.0" width="186" height="80"/>
                             <subviews>
                                 <stackView distribution="fillEqually" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nnm-Lb-BUn">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="72"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="186" height="72"/>
                                     <subviews>
                                         <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="32" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xlI-AE-ibE">
-                                            <rect key="frame" x="107" y="40" width="186" height="32"/>
+                                            <rect key="frame" x="0.0" y="40" width="186" height="32"/>
                                             <subviews>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xTO-xa-fmc">
                                                     <rect key="frame" x="0.0" y="0.0" width="26" height="32"/>
@@ -115,7 +111,7 @@
                                             </customSpacing>
                                         </stackView>
                                         <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7x9-db-Ov8">
-                                            <rect key="frame" x="162.5" y="0.0" width="75" height="32"/>
+                                            <rect key="frame" x="55.5" y="0.0" width="75" height="32"/>
                                             <subviews>
                                                 <stackView distribution="fill" orientation="horizontal" alignment="bottom" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j5c-Dy-bij">
                                                     <rect key="frame" x="20" y="16" width="35" height="16"/>
@@ -123,7 +119,7 @@
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7i6-i6-Qpk">
                                                             <rect key="frame" x="-2" y="0.0" width="39" height="16"/>
                                                             <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Line 2" id="6rw-r3-nES">
-                                                                <font key="font" metaFont="system" size="12"/>
+                                                                <font key="font" metaFont="cellTitle"/>
                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
@@ -209,11 +205,9 @@
             </subviews>
             <constraints>
                 <constraint firstItem="bvn-Ja-Sc8" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="9h4-CF-AlZ"/>
-                <constraint firstItem="3Qf-0O-Kug" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="Aaj-cl-uDL"/>
                 <constraint firstItem="bvn-Ja-Sc8" firstAttribute="width" secondItem="c22-O7-iKe" secondAttribute="width" id="KG9-ui-czn"/>
                 <constraint firstItem="bvn-Ja-Sc8" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="idH-MH-pag"/>
                 <constraint firstItem="bvn-Ja-Sc8" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="wNA-se-VRv"/>
-                <constraint firstItem="3Qf-0O-Kug" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="ym9-30-ZCB"/>
             </constraints>
             <point key="canvasLocation" x="117" y="-54.5"/>
         </customView>

@@ -10,8 +10,6 @@ import Cocoa
 
 class Controller: MarshallViewController {
     
-    @IBOutlet weak var loadingSpinner: NSProgressIndicator!
-    
     @IBOutlet weak var speakerName: NSTextField!
     
     @IBOutlet weak var viewName: NSTextField!
@@ -81,14 +79,11 @@ class Controller: MarshallViewController {
     
     
     private func startLoading() {
-        self.loadingSpinner.startAnimation(nil)
-        self.loadingSpinner.isHidden = false
+        self.speakerName.stringValue = NSLocalizedString("Loading", comment: "")
     }
     
     private func stopLoading() {
-        self.loadingSpinner.isHidden = true
         self.elements.isHidden = false
-        self.loadingSpinner.stopAnimation(nil)
     }
     
     private func updateValues(_ values: [MarshallAPIValue : String]) {
