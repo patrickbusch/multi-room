@@ -43,6 +43,36 @@ enum Input: Int {
             }
         }
     }
+    
+    // 0: Play/Stop (on Radio) 2: Play/Pause (on Spotify) 3: Next 4: Prev
+    var playCommandValue: Int? {
+        get {
+            switch self.playingType {
+            case .PlayStop:
+                return 0
+            case .PlayPause:
+                return 2
+            default:
+                return nil
+            }
+        }
+    }
+    
+    var prevCommandValue: Int? {
+        if (self.canSkip) {
+            return 4
+        } else {
+            return nil
+        }
+    }
+    
+    var nextCommandValue: Int? {
+        if (self.canSkip) {
+            return 3
+        } else {
+            return nil
+        }
+    }
 }
 
 enum PlayingType {

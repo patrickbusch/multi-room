@@ -28,15 +28,15 @@ class Controller: MarshallViewController {
     
 
     @IBAction func volumeChanged(_ sender: NSSlider) {
-        self.set(.SysAudioVolume, value: sender.doubleValue)
+        self.send(.SysAudioVolume, value: sender.doubleValue)
     }
 
     @IBAction func bassChanged(_ sender: NSSlider) {
-        self.set(.SysAudioEqcustomParam0, value: sender.doubleValue)
+        self.send(.SysAudioEqcustomParam0, value: sender.doubleValue)
     }
     
     @IBAction func trebleChanged(_ sender: NSSlider) {
-        self.set(.SysAudioEqcustomParam1, value: sender.doubleValue)
+        self.send(.SysAudioEqcustomParam1, value: sender.doubleValue)
     }
     
     override func viewDidLoad() {
@@ -56,7 +56,7 @@ class Controller: MarshallViewController {
             ], successCallback: self.updateValues)
     }
     
-    private func set(_ apiValue: MarshallAPIValue, value: Double) {
+    private func send(_ apiValue: MarshallAPIValue, value: Double) {
         let valueToSend = "\(lround(value))"
         print("\(apiValue): \(valueToSend)")
         

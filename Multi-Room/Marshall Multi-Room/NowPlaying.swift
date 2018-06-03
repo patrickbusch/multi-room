@@ -31,12 +31,15 @@ class NowPlaying: MarshallViewController {
     @IBOutlet weak var playButton: NSButton!
     
     @IBAction func prevButtonPressed(_ sender: NSButton) {
+        self.send(.PlayControl, value: self.currentInput?.prevCommandValue)
     }
     
     @IBAction func nextButtonPressed(_ sender: NSButton) {
+        self.send(.PlayControl, value: self.currentInput?.nextCommandValue)
     }
     
     @IBAction func playButtonPressed(_ sender: NSButton) {
+        self.send(.PlayControl, value: self.currentInput?.playCommandValue)
     }
 
     private var currentInput: Input? {
@@ -107,6 +110,16 @@ class NowPlaying: MarshallViewController {
         self.loadingSpinner.isHidden = true
         self.elements.isHidden = false
         self.loadingSpinner.stopAnimation(nil)
+    }
+    
+    private func send(_ apiValue: MarshallAPIValue, value: Int?) {
+        
+        guard let valueToSend = value else {
+            print("nothing to send")
+            return
+        }
+        
+        self.api!.setParam(apiValue, value: "\(valueToSend)", successCallback: nil)
     }
     
     private func setInput(_ optInput: Input?) {
@@ -193,7 +206,7 @@ class NowPlaying: MarshallViewController {
         case .PlayStatus:
             let intval = Int(kv.1) ?? 0
             guard let playState = PlayState(rawValue: intval) else {
-                print("Unknown PlayStatr \(kv.1)")
+                print("Unknown PlayState \(kv.1)")
                 return
             }
             self.currentPlayState = playState
