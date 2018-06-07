@@ -27,6 +27,10 @@ protocol SHPopoverView : Identifiable {
 class SHViewController : NSViewController {
 }
 
+protocol Showable {
+    var isShown: Bool {get set}
+}
+
 protocol Identifiable {
     
     var identifier: Identifier {get}

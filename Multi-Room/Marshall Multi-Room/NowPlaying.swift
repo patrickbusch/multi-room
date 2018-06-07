@@ -8,7 +8,7 @@
 import Foundation
 import Cocoa
 
-class NowPlaying: MarshallViewController {
+class NowPlaying: MarshallViewController, Showable {
     
     @IBOutlet weak var speakerName: NSTextField!
     
@@ -49,6 +49,12 @@ class NowPlaying: MarshallViewController {
     private var currentPlayState: PlayState? {
         willSet {
             self.setPlayState(newValue)
+        }
+    }
+    
+    var isShown: Bool = false {
+        willSet {
+            
         }
     }
     

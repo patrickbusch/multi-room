@@ -8,7 +8,7 @@
 import Foundation
 import Cocoa
 
-class Controller: MarshallViewController {
+class Controller: MarshallViewController, Showable {
     
     @IBOutlet weak var speakerName: NSTextField!
     
@@ -35,6 +35,12 @@ class Controller: MarshallViewController {
     
     @IBAction func trebleChanged(_ sender: NSSlider) {
         self.send(.SysAudioEqcustomParam1, value: sender.doubleValue)
+    }
+    
+    var isShown: Bool = false {
+        willSet {
+            
+        }
     }
     
     override func viewDidLoad() {
