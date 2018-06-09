@@ -54,8 +54,26 @@ class NowPlaying: MarshallViewController, Showable {
     
     var isShown: Bool = false {
         willSet {
-            
+            print("isShown: \(newValue)")
+            if (newValue) {
+                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.load), userInfo: nil, repeats: true)
+            } else {
+                timer?.invalidate()
+            }
         }
+    }
+    
+    private var timer: Timer?
+    
+    @objc func load() {
+        
+        self.api!.getParams([MarshallAPIValue.SysInfoFriendlyname,
+                             .PlayInfoName,
+                             .PlayInfoAlbum,
+                             .PlayInfoArtist,
+                             .SysMode,
+                             .PlayStatus
+            ], successCallback: self.updateValues)
     }
     
     override func viewDidLoad() {
@@ -66,13 +84,7 @@ class NowPlaying: MarshallViewController, Showable {
         // Do view setup here.
         self.startLoading()
         
-        self.api!.getParams([MarshallAPIValue.SysInfoFriendlyname,
-                             .PlayInfoName,
-                             .PlayInfoAlbum,
-                             .PlayInfoArtist,
-                             .SysMode,
-                             .PlayStatus
-            ], successCallback: self.updateValues)
+        self.load()
     }
     
     private func reset() {

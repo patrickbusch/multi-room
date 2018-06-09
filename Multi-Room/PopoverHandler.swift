@@ -30,10 +30,22 @@ class PopoverHandler {
     }
     
     @objc func togglePopover(_ sender: Any?, statusBarButton: NSStatusBarButton?) {
+        
+        func setShowingState(_ val: Bool) {
+            self.vcs?.forEach({ (vc) in
+                
+                if var showable = vc as? Showable {
+                    showable.isShown = val
+                }
+            })
+        }
+        
         if self.popover.isShown {
             self.closePopover(sender: sender)
+            setShowingState(false)
         } else {
             self.showPopover(sender: sender, statusBarButton: statusBarButton)
+            setShowingState(true)
         }
     }
     
