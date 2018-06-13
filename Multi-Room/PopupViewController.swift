@@ -9,15 +9,11 @@ import Cocoa
 
 class PopupViewController: NSViewController {
     
-    @IBOutlet var stackView: NSStackView!
-    @IBOutlet var scrollView: NSScrollView!
-    
-    @IBOutlet weak var stackViewHeight: NSLayoutConstraint!
-    @IBOutlet weak var stackViewWidth: NSLayoutConstraint!
-
     private let MAX_HEIGHT: CGFloat = 450
     private let MAX_WIDTH: CGFloat = 450
     private let SPACE: CGFloat = 20
+    
+    @IBOutlet weak var tableView: NSTableView!
     
     private var vcs: [SHViewController]?
     private var viewWasLoaded = false
@@ -26,58 +22,36 @@ class PopupViewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         
-
-        self.installStackView()
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
         self.updateViews()
         self.viewWasLoaded = true
     }
-    
-    private func installStackView() {
-        self.scrollView.documentView = self.stackView
-        
-        let leading = NSLayoutConstraint(item: self.stackView, attribute: .leading, relatedBy: .equal, toItem: self.scrollView, attribute: .leading, multiplier: 1, constant: 0)
-        let top = NSLayoutConstraint(item: self.stackView, attribute: .top, relatedBy: .equal, toItem: self.scrollView, attribute: .top, multiplier: 1, constant: 10)
-        
-        self.scrollView.addConstraint(leading)
-        self.scrollView.addConstraint(top)
-    }
-    
+
     
     private func updateViews() {
+        
+        self.view.frame = CGRect(x: 0, y: 0, width: 450, height: 180)
 
         let views = self.vcs?.map({ (vc) -> NSView in
             return vc.view
         })
-        
-        var sumHeight = views?.map { (view) -> CGFloat in
+
+        let sumHeight = views?.map { (view) -> CGFloat in
             return view.bounds.height
-            }.reduce(0, +) ?? 250
-        
+            }.reduce(0, +) ?? 0
+
         let maxWidth = views?.map { (view) -> CGFloat in
             return view.bounds.width
-            }.max() ?? 250
+            }.max() ?? 0
         
-        sumHeight += (self.stackView.spacing * CGFloat((views?.count ?? 1) - 1))
-        
-        self.stackViewHeight.constant = sumHeight
-        self.stackViewWidth.constant = maxWidth
-        
-        //hinder scrolling
-        let viewHeight = sumHeight + 2
-        let viewWidth = maxWidth + 2
-        
-        self.scrollView.frame = NSRect(x: 0, y: 0,
-                                       width: viewWidth > MAX_WIDTH ? MAX_WIDTH : viewWidth,
-                                       height: viewHeight > MAX_HEIGHT ? MAX_HEIGHT : viewHeight)
-
-        self.stackView.setViews(views!, in: NSStackView.Gravity.top)
-        
-        self.stackView.views.forEach { (view) in
-            print(view.frame.height)
-        }
+        self.view.frame = CGRect(x: 0, y: 0,
+                                 width: maxWidth > MAX_WIDTH ? MAX_WIDTH : maxWidth,
+                                 height: sumHeight + SPACE > MAX_HEIGHT ? MAX_HEIGHT : sumHeight + SPACE)
 
     }
-    
+
     func setViews(vcs: [SHViewController]) {
         self.vcs = vcs
         
@@ -85,6 +59,31 @@ class PopupViewController: NSViewController {
             updateViews()
         }
     }
+}
+
+extension PopupViewController: NSTableViewDataSource {
+    
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return self.vcs?.count ?? 0
+    }
+    
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        return self.vcs?[row].view.frame.height ?? 0
+    }
+    
+}
+
+extension PopupViewController: NSTableViewDelegate {
+    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        
+        guard let item = self.vcs?[row] else {
+            return nil
+        }
+
+        return item.view
+    }
+    
 }
 
 extension PopupViewController {
@@ -101,3 +100,5 @@ extension PopupViewController {
         return viewcontroller
     }
 }
+
+
