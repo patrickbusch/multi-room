@@ -11,7 +11,7 @@ class PopupViewController: NSViewController {
     
     private let MAX_HEIGHT: CGFloat = 450
     private let MAX_WIDTH: CGFloat = 450
-    private let SPACE: CGFloat = 20
+    private let SPACE: CGFloat = 10
     
     @IBOutlet weak var tableView: NSTableView!
     
