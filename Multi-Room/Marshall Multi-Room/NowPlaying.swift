@@ -8,11 +8,11 @@
 import Foundation
 import Cocoa
 
-class NowPlaying: MarshallViewController, Showable {
+class NowPlaying: MarshallViewController, Showable, HasTitle {
     
-    @IBOutlet weak var speakerName: NSTextField!
+    var setLeftTitle: ((String) -> ())?
     
-    @IBOutlet weak var viewName: NSTextField!
+    var setRightTitle: ((String) -> ())?
     
     @IBOutlet weak var elements: NSView!
     
@@ -88,8 +88,8 @@ class NowPlaying: MarshallViewController, Showable {
     }
     
     private func reset() {
-        self.speakerName.stringValue = ""
-        self.viewName.stringValue = NSLocalizedString("Now Playing", comment: "")
+        self.setLeftTitle?("")
+        self.setRightTitle?(NSLocalizedString("Now Playing", comment: ""))
         
         self.line1.stringValue = ""
         self.line2.stringValue = ""
@@ -118,7 +118,7 @@ class NowPlaying: MarshallViewController, Showable {
     }
     
     private func startLoading() {
-        self.speakerName.stringValue = NSLocalizedString("Loading", comment: "")
+        self.setLeftTitle?(NSLocalizedString("Loading", comment: ""))
     }
     
     private func stopLoading() {
@@ -186,7 +186,7 @@ class NowPlaying: MarshallViewController, Showable {
     private func update(_ kv: (MarshallAPIValue, String)) {
         switch kv.0 {
         case .SysInfoFriendlyname:
-            self.speakerName.stringValue = kv.1
+            self.setLeftTitle?(kv.1)
             
         case .PlayInfoName:
             self.line1.isHidden = false

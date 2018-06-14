@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="TableSeparator" customModule="Multi_Room">
+            <connections>
+                <outlet property="left" destination="VkS-Fa-u8Q" id="VGc-PF-K68"/>
+                <outlet property="right" destination="lJN-42-4gR" id="sGt-vT-r7Q"/>
+                <outlet property="view" destination="c22-O7-iKe" id="YcY-VV-hRB"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="19"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mhs-Jd-Xou">
+                    <rect key="frame" x="0.0" y="-1" width="400" height="20"/>
+                    <subviews>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="bXT-qg-9iu" userLabel="Title">
+                            <rect key="frame" x="0.0" y="0.0" width="400" height="20"/>
+                            <subviews>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VkS-Fa-u8Q" userLabel="Left">
+                                    <rect key="frame" x="-2" y="3" width="30" height="17"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Left" id="xfk-2I-hse" userLabel="Left">
+                                        <font key="font" metaFont="systemBold"/>
+                                        <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lJN-42-4gR" userLabel="Right">
+                                    <rect key="frame" x="363" y="3" width="39" height="17"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Right" id="WNp-ol-s35" userLabel="Right">
+                                        <font key="font" metaFont="systemBold"/>
+                                        <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="lJN-42-4gR" firstAttribute="top" secondItem="bXT-qg-9iu" secondAttribute="top" id="6Yy-Vs-pxS"/>
+                                <constraint firstAttribute="trailing" secondItem="lJN-42-4gR" secondAttribute="trailing" id="HrG-XI-qZG"/>
+                                <constraint firstItem="VkS-Fa-u8Q" firstAttribute="top" secondItem="bXT-qg-9iu" secondAttribute="top" id="ZFN-dx-k6C"/>
+                                <constraint firstAttribute="height" constant="20" id="lvu-Ma-VE4"/>
+                                <constraint firstItem="VkS-Fa-u8Q" firstAttribute="leading" secondItem="bXT-qg-9iu" secondAttribute="leading" id="zzB-zH-ZFv"/>
+                            </constraints>
+                        </customView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="400" id="qbf-SE-jfX"/>
+                    </constraints>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Mhs-Jd-Xou" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="CPs-r3-Gnz"/>
+                <constraint firstItem="Mhs-Jd-Xou" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="YIH-Hf-Pjr"/>
+                <constraint firstItem="Mhs-Jd-Xou" firstAttribute="width" secondItem="c22-O7-iKe" secondAttribute="width" id="fEN-dT-bDm"/>
+            </constraints>
+            <point key="canvasLocation" x="140" y="192.5"/>
+        </customView>
+    </objects>
+</document>

@@ -31,6 +31,12 @@ protocol Showable {
     var isShown: Bool {get set}
 }
 
+protocol HasTitle {
+    
+    var setLeftTitle: ((String) -> ())? {get set}
+    var setRightTitle: ((String) -> ())? {get set}
+}
+
 protocol Identifiable {
     
     var identifier: Identifier {get}
