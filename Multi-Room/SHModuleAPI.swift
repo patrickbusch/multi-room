@@ -31,7 +31,7 @@ protocol Showable {
     var isShown: Bool {get set}
 }
 
-protocol HasTitle {
+protocol IsClosable {
     
     var setLeftTitle: ((String) -> ())? {get set}
     var setRightTitle: ((String) -> ())? {get set}

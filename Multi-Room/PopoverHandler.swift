@@ -72,7 +72,7 @@ class PopoverHandler {
             vcs.forEach({ (view) in
                 print("\(identifier): \(view.identifier)")
                 
-                if var viewWithTitle = view.vc as? HasTitle {
+                if var viewWithTitle = view.vc as? IsClosable {
                     let titleView = TableSeparator()
                     
                     viewWithTitle.setLeftTitle = { (title) in

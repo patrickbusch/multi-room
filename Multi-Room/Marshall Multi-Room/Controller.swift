@@ -8,7 +8,7 @@
 import Foundation
 import Cocoa
 
-class Controller: MarshallViewController, Showable, HasTitle {
+class Controller: MarshallViewController, Showable, IsClosable {
     
     var setLeftTitle: ((String) -> ())?
     
