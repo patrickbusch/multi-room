@@ -26,6 +26,7 @@ class PopoverHandler {
         }
         
         self.popover.contentViewController = self.popupViewController
+        self.popover.appearance = NSAppearance(named: NSAppearance.Name.aqua)
         self.viewsLoaded = self.popupViewController.setViews
     }
     
