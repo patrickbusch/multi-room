@@ -25,6 +25,7 @@ class PopupViewController: NSViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
+        self.view.backgroundColor = NSColor.black
         self.updateViews()
         self.viewWasLoaded = true
     }
