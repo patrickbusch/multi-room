@@ -83,6 +83,15 @@ class PopoverHandler {
                         titleView.right.stringValue = title
                     }
                     
+                    viewWithTitle.setTitleBackgroundColor = { (color) in
+                        titleView.view.backgroundColor = color
+                    }
+                    
+                    viewWithTitle.setTitleTextColor = { (color) in
+                        titleView.left.textColor = color
+                        titleView.right.textColor = color
+                    }
+                    
                     newVCs.append(titleView)
                 }
 

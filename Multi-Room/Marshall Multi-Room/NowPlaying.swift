@@ -14,6 +14,10 @@ class NowPlaying: MarshallViewController, Showable, IsClosable {
     
     var setRightTitle: ((String) -> ())?
     
+    var setTitleBackgroundColor: ((NSColor) -> ())?
+    
+    var setTitleTextColor: ((NSColor) -> ())?
+    
     @IBOutlet weak var elements: NSView!
     
     @IBOutlet weak var line1: NSTextField!
@@ -88,12 +92,21 @@ class NowPlaying: MarshallViewController, Showable, IsClosable {
     }
     
     private func reset() {
+        self.view.backgroundColor = self.contentBackgroundColor
+        
+        self.setTitleBackgroundColor?(self.titleBackgroundColor)
+        self.setTitleTextColor?(self.titleFontColor)
+        
         self.setLeftTitle?("")
         self.setRightTitle?(NSLocalizedString("Now Playing", comment: ""))
         
         self.line1.stringValue = ""
         self.line2.stringValue = ""
         self.line3.stringValue = ""
+        
+        self.line1.textColor = self.contentFontColor
+        self.line2.textColor = self.contentFontColor
+        self.line3.textColor = self.contentFontColor
 
         self.line1.isHidden = true
         self.line2.isHidden = true
@@ -103,8 +116,8 @@ class NowPlaying: MarshallViewController, Showable, IsClosable {
         self.nextButton.isHidden = true
         self.playButton.isHidden = true
         
-        self.prevButton.title = NSLocalizedString("Prev", comment: "")
-        self.nextButton.title = NSLocalizedString("Next", comment: "")
+        self.prevButton.attributedTitle = NSAttributedString(string: NSLocalizedString("Prev", comment: ""), attributes: [ .foregroundColor : self.contentFontColor])
+        self.nextButton.attributedTitle = NSAttributedString(string: NSLocalizedString("Next", comment: ""), attributes: [ .foregroundColor : self.contentFontColor])
         
         self.elements.isHidden = true
         self.elements.backgroundColor = NSColor.clear
@@ -147,12 +160,12 @@ class NowPlaying: MarshallViewController, Showable, IsClosable {
             self.playButton.isHidden = true
         case .PlayStop:
             if (self.currentPlayState == .Playing) {
-                self.playButton.title = NSLocalizedString("Stop", comment: "")
+                self.playButton.attributedTitle = NSAttributedString(string: NSLocalizedString("Stop", comment: ""), attributes: [ .foregroundColor : self.contentFontColor])
             }
             self.playButton.isHidden = false
         case .PlayPause:
             if (self.currentPlayState == .Playing) {
-                self.playButton.title = NSLocalizedString("Pause", comment: "")
+                self.playButton.attributedTitle = NSAttributedString(string: NSLocalizedString("Pause", comment: ""), attributes: [ .foregroundColor : self.contentFontColor])
             }
             self.playButton.isHidden = false
         }
@@ -170,12 +183,12 @@ class NowPlaying: MarshallViewController, Showable, IsClosable {
         
         switch playState {
         case .Paused, .Stopped:
-            self.playButton.title = NSLocalizedString("Play", comment: "")
+            self.playButton.attributedTitle = NSAttributedString(string: NSLocalizedString("Play", comment: ""), attributes: [ .foregroundColor : self.contentFontColor])
         case .Playing:
             if (self.currentInput?.playingType == .PlayStop) {
-                self.playButton.title = NSLocalizedString("Stop", comment: "")
+                self.playButton.attributedTitle = NSAttributedString(string: NSLocalizedString("Stop", comment: ""), attributes: [ .foregroundColor : self.contentFontColor])
             } else if (self.currentInput?.playingType == .PlayPause) {
-                self.playButton.title = NSLocalizedString("Pause", comment: "")
+                self.playButton.attributedTitle = NSAttributedString(string: NSLocalizedString("Pause", comment: ""), attributes: [ .foregroundColor : self.contentFontColor])
             }
         default:
             print("nothing to do for play state \(playState)")

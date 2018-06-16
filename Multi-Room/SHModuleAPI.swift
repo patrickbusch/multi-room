@@ -35,6 +35,8 @@ protocol IsClosable {
     
     var setLeftTitle: ((String) -> ())? {get set}
     var setRightTitle: ((String) -> ())? {get set}
+    var setTitleBackgroundColor: ((NSColor) -> ())? {get set}
+    var setTitleTextColor: ((NSColor) -> ())? {get set}
 }
 
 protocol Identifiable {

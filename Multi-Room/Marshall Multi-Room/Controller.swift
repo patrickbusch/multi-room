@@ -14,6 +14,10 @@ class Controller: MarshallViewController, Showable, IsClosable {
     
     var setRightTitle: ((String) -> ())?
     
+    var setTitleBackgroundColor: ((NSColor) -> ())?
+    
+    var setTitleTextColor: ((NSColor) -> ())?
+    
     @IBOutlet weak var elements: NSView!
     
     @IBOutlet weak var volumeSlider: NSSlider!
@@ -79,12 +83,21 @@ class Controller: MarshallViewController, Showable, IsClosable {
     }
     
     private func reset() {
+        self.view.backgroundColor = self.contentBackgroundColor
+        
+        self.setTitleBackgroundColor?(self.titleBackgroundColor)
+        self.setTitleTextColor?(self.titleFontColor)
+        
         self.setLeftTitle?("")
         self.setRightTitle?(NSLocalizedString("Controller", comment: ""))
         
         self.volumeLabel.stringValue = NSLocalizedString("Volume", comment: "")
-        self.bassSlider.stringValue = NSLocalizedString("Bass", comment: "")
-        self.trebleSlider.stringValue = NSLocalizedString("Treble", comment: "")
+        self.bassLabel.stringValue = NSLocalizedString("Bass", comment: "")
+        self.trebleLabel.stringValue = NSLocalizedString("Treble", comment: "")
+        
+        self.volumeLabel.textColor = self.contentFontColor
+        self.bassLabel.textColor = self.contentFontColor
+        self.trebleLabel.textColor = self.contentFontColor
 
         self.volumeSlider.isEnabled = false
         self.bassSlider.isEnabled = false
