@@ -16,6 +16,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let popoverHandler = PopoverHandler()
     var menu: NSMenu?
     
+//    var windowController: NSWindowController?
+    
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         
@@ -30,6 +33,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         moduleLoader.loadModules()
+        
+//        self.windowController = PopupWindowController.freshWindow()
+//        self.windowController!.showWindow(self)
+    
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -42,7 +49,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if event.type == NSEvent.EventType.rightMouseUp {
             self.statusItem.popUpMenu(self.menu ?? self.menuHandler.defaultMenu)
         } else if event.type == NSEvent.EventType.leftMouseUp {
-            popoverHandler.togglePopover(sender, statusBarButton: statusItem.button)
+            popoverHandler.itemClicked(sender, statusBarButton: statusItem.button)
         }
     }
 

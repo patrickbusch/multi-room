@@ -19,7 +19,8 @@ class MarshallModule: SHModule {
         self.api = MarshallAPI()
         
         //Test Stuff
-        self.settings.ipAddress = "192.168.2.116" //Test Only
+        self.settings.ipAddress = "192.168.2.115" //Test Only
+        //TODO Searching and IP Setting...
         self.api.ipAddress = self.settings.ipAddress
     }
     

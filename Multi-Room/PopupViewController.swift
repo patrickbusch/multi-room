@@ -7,10 +7,34 @@
 
 import Cocoa
 
+class PopupWindowController: NSWindowController {
+    
+    var windowWillCloseHandler: (() -> ())?
+    
+    static func freshWindow() -> PopupWindowController {
+
+        let storyboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
+        
+        let identifier = NSStoryboard.SceneIdentifier(rawValue: "MainWindow")
+        let windowController = storyboard.instantiateController(withIdentifier: identifier) as! PopupWindowController
+
+        return windowController
+    }
+}
+
+extension PopupWindowController: NSWindowDelegate {
+    
+    func windowWillClose(_ notification: Notification) {
+        self.windowWillCloseHandler?()
+    }
+}
+
 class PopupViewController: NSViewController {
     
     private let MAX_HEIGHT: CGFloat = 450
     private let MAX_WIDTH: CGFloat = 450
+    private let MIN_HEIGHT: CGFloat = 100
+    private let MIN_WIDTH: CGFloat = 200
     private let SPACE: CGFloat = 10
     
     @IBOutlet weak var tableView: NSTableView!
@@ -25,14 +49,14 @@ class PopupViewController: NSViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        self.view.backgroundColor = NSColor.black
+//        self.view.backgroundColor = NSColor.clear
         self.updateViews()
         self.viewWasLoaded = true
     }
 
     
     private func updateViews() {
-        
+
         self.view.frame = CGRect(x: 0, y: 0, width: 450, height: 180)
 
         let views = self.vcs?.map({ (vc) -> NSView in
@@ -41,16 +65,29 @@ class PopupViewController: NSViewController {
 
         let sumHeight = views?.map { (view) -> CGFloat in
             return view.bounds.height
-            }.reduce(0, +) ?? 0
+            }.reduce(0, +) ?? MIN_HEIGHT
 
         let maxWidth = views?.map { (view) -> CGFloat in
             return view.bounds.width
-            }.max() ?? 0
+            }.max() ?? MIN_WIDTH
+
+        print("Max Width: \(maxWidth)")
+        print("Sum Height: \(sumHeight)")
+        
+        let widthToSet = maxWidth > MAX_WIDTH ? MAX_WIDTH : maxWidth
+        let heightToSet = sumHeight + SPACE > MAX_HEIGHT ? MAX_HEIGHT : sumHeight + SPACE
         
         self.view.frame = CGRect(x: 0, y: 0,
-                                 width: maxWidth > MAX_WIDTH ? MAX_WIDTH : maxWidth,
-                                 height: sumHeight + SPACE > MAX_HEIGHT ? MAX_HEIGHT : sumHeight + SPACE)
-
+                                 width: widthToSet,
+                                 height: heightToSet)
+        
+        if var windowFrame = self.view.window?.frame {
+            windowFrame.size = NSSize(width: widthToSet, height: heightToSet)
+            self.view.window?.setFrame(windowFrame, display: true)
+            self.view.window?.viewsNeedDisplay = true
+        }
+        
+        self.tableView.reloadData()
     }
 
     func setViews(vcs: [SHViewController]) {
@@ -90,11 +127,9 @@ extension PopupViewController: NSTableViewDelegate {
 extension PopupViewController {
     
     static func freshController() -> PopupViewController {
-        //1.
+        
         let storyboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
-        //2.
         let identifier = NSStoryboard.SceneIdentifier(rawValue: "PopupViewController")
-        //3.
         guard let viewcontroller = storyboard.instantiateController(withIdentifier: identifier) as? PopupViewController else {
             fatalError("Why cant i find PopupViewController? - Check Main.storyboard")
         }
