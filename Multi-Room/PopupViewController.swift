@@ -17,7 +17,12 @@ class PopupWindowController: NSWindowController {
         
         let identifier = NSStoryboard.SceneIdentifier(rawValue: "MainWindow")
         let windowController = storyboard.instantiateController(withIdentifier: identifier) as! PopupWindowController
-
+        
+        windowController.window?.titlebarAppearsTransparent = true
+        windowController.window?.backgroundColor = NSColor.black
+        windowController.window?.title = NSLocalizedString("Multi-Room", comment: "")
+        windowController.window?.appearance = NSAppearance(named: .vibrantDark)
+        
         return windowController
     }
 }
@@ -49,7 +54,6 @@ class PopupViewController: NSViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-//        self.view.backgroundColor = NSColor.clear
         self.updateViews()
         self.viewWasLoaded = true
     }
@@ -82,7 +86,7 @@ class PopupViewController: NSViewController {
                                  height: heightToSet)
         
         if var windowFrame = self.view.window?.frame {
-            windowFrame.size = NSSize(width: widthToSet, height: heightToSet)
+            windowFrame.size = NSSize(width: widthToSet, height: heightToSet + (self.view.window?.titlebarHeight ?? 0))
             self.view.window?.setFrame(windowFrame, display: true)
             self.view.window?.viewsNeedDisplay = true
         }

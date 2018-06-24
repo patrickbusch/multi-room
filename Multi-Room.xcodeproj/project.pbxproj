@@ -36,6 +36,7 @@
 		1D9098C620A8813F00A3817F /* MarshallMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9098C520A8813F00A3817F /* MarshallMenuItem.swift */; };
 		1D9098C820A8817600A3817F /* MarshallAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9098C720A8817600A3817F /* MarshallAPI.swift */; };
 		1D91F90620D312A200B30A41 /* TableSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91F90520D312A100B30A41 /* TableSeparator.swift */; };
+		1DA0DA7F20DFEA89000E7657 /* NSWindowExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0DA7E20DFEA89000E7657 /* NSWindowExtensions.swift */; };
 		1DB10FF62098CD5100133D2B /* MenuHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB10FF52098CD5100133D2B /* MenuHandler.swift */; };
 		1DC9117F20A70E0400970616 /* MarshallModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9117E20A70E0400970616 /* MarshallModule.swift */; };
 		1DE7A85220B2F0AB00F05395 /* MarshallAPIValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE7A85120B2F0AB00F05395 /* MarshallAPIValue.swift */; };
@@ -76,6 +77,7 @@
 		1D9098C720A8817600A3817F /* MarshallAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallAPI.swift; sourceTree = "<group>"; };
 		1D91F90420D3129E00B30A41 /* TableSeparator.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableSeparator.xib; sourceTree = "<group>"; };
 		1D91F90520D312A100B30A41 /* TableSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSeparator.swift; sourceTree = "<group>"; };
+		1DA0DA7E20DFEA89000E7657 /* NSWindowExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWindowExtensions.swift; sourceTree = "<group>"; };
 		1DB10FF52098CD5100133D2B /* MenuHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHandler.swift; sourceTree = "<group>"; };
 		1DC9117E20A70E0400970616 /* MarshallModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallModule.swift; sourceTree = "<group>"; };
 		1DE7A85120B2F0AB00F05395 /* MarshallAPIValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallAPIValue.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				1D7CFB4220B9809F00489902 /* NSViewExtensions.swift */,
 				1D91F90520D312A100B30A41 /* TableSeparator.swift */,
 				1D91F90420D3129E00B30A41 /* TableSeparator.xib */,
+				1DA0DA7E20DFEA89000E7657 /* NSWindowExtensions.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				1D6BC87620BD613600AC72CB /* Enums.swift in Sources */,
 				1D62532B2098B4ED004573FD /* PopupViewController.swift in Sources */,
 				1DB10FF62098CD5100133D2B /* MenuHandler.swift in Sources */,
+				1DA0DA7F20DFEA89000E7657 /* NSWindowExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
