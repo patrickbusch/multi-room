@@ -9,10 +9,8 @@ import Cocoa
 
 class PopoverHandler {
     
-//    let popover = NSPopover()
     let windowController: PopupWindowController
     let popupViewController: PopupViewController
-//    var eventMonitor: EventMonitor?
     
     var viewsLoaded: (([SHViewController]) -> ())?
     private var vcs: [SHViewController]?
@@ -32,77 +30,36 @@ class PopoverHandler {
         
         self.windowController = PopupWindowController.freshWindow()
         
-        
         self.popupViewController = self.windowController.window!.contentViewController as! PopupViewController
         
-        
-        
-        
-//        self.eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [weak self] event in
-//            if let strongSelf = self, strongSelf.popover.isShown {
-//                strongSelf.closePopover(sender: event)
-//            }
-//        }
-        
-//        self.popover.contentViewController = self.popupViewController
-//        self.popover.appearance = NSAppearance(named: NSAppearance.Name.aqua)
         self.viewsLoaded = self.popupViewController.setViews
         
         self.windowController.windowWillCloseHandler = self.windowClosed
     }
     
-    @objc func itemClicked(_ sender: Any?, statusBarButton: NSStatusBarButton?) {
-        
-//        func setShowingState(_ val: Bool) {
-//            self.vcs?.forEach({ (vc) in
-//
-//                if var showable = vc as? Showable {
-//                    showable.isShown = val
-//                }
-//            })
-//        }
+    func show() {
         
         if (self.isShown) {
-            //TODO IF SHOWN GET TO FOREGROUND
+            self.windowToForeground()
+            NSApp.activate(ignoringOtherApps: true)
         } else {
             self.showWindow()
         }
-        
-//        if self.popover.isShown {
-//            self.closePopover(sender: sender)
-//            setShowingState(false)
-//        } else {
-//            self.showPopover(sender: sender, statusBarButton: statusBarButton)
-//            setShowingState(true)
-//        }
+    }
+    
+    private func windowToForeground() {
+        NSApp.activate(ignoringOtherApps: true)
     }
     
     private func showWindow() {
         self.windowController.showWindow(self)
         self.isShown = true
+        self.windowToForeground()
     }
     
     private func windowClosed() {
         self.isShown = false
     }
-    
-    
-//    private func showPopover(sender: Any?, statusBarButton: NSStatusBarButton?) {
-//        if let button = statusBarButton {
-//            self.windowController.showWindow(self)
-//
-//            //TODO IF SHOWN GET TO FOREGROUND
-////            self.popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
-//        }
-//
-//
-//    }
-//
-//    private func closePopover(sender: Any?) {
-////        self.popover.performClose(sender)
-//
-//
-//    }
     
     func updateViews(_ viewCollection: SHPopoverViewCollection) {
         

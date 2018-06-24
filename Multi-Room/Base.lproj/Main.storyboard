@@ -684,7 +684,7 @@
         <!--Window Controller-->
         <scene sceneID="ILF-GI-POg">
             <objects>
-                <windowController storyboardIdentifier="MainWindow" id="QT6-nI-lMv" customClass="PopupWindowController" customModule="Multi_Room" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="MainWindow" showSeguePresentationStyle="single" id="QT6-nI-lMv" customClass="PopupWindowController" customModule="Multi_Room" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="nLL-Wr-Lzg">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
