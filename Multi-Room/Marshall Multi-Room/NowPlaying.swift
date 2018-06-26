@@ -8,15 +8,7 @@
 import Foundation
 import Cocoa
 
-class NowPlaying: MarshallViewController, Showable, IsClosable {
-    
-    var setLeftTitle: ((String) -> ())?
-    
-    var setRightTitle: ((String) -> ())?
-    
-    var setTitleBackgroundColor: ((NSColor) -> ())?
-    
-    var setTitleTextColor: ((NSColor) -> ())?
+class NowPlaying: MarshallViewController, Showable, HasTitle {
     
     @IBOutlet weak var elements: NSView!
     
@@ -67,6 +59,25 @@ class NowPlaying: MarshallViewController, Showable, IsClosable {
         }
     }
     
+    var views: [NSView] {
+        get {
+            var v = [NSView]()
+            
+            if let title = self.titleView {
+                v.append(title.view)
+            }
+            
+            if (isOpen) {
+                v.append(self.view)
+            }
+            return v
+        }
+    }
+    
+    var isOpen: Bool = true
+    
+    var titleView: TableSeparator?
+    
     private var timer: Timer?
     
     @objc func load() {
@@ -94,11 +105,13 @@ class NowPlaying: MarshallViewController, Showable, IsClosable {
     private func reset() {
         self.view.backgroundColor = self.contentBackgroundColor
         
-        self.setTitleBackgroundColor?(self.titleBackgroundColor)
-        self.setTitleTextColor?(self.titleFontColor)
+        self.titleView = TableSeparator()
         
-        self.setLeftTitle?("")
-        self.setRightTitle?(NSLocalizedString("Now Playing", comment: ""))
+        self.titleView?.leftTitle = ""
+        self.titleView?.rightTitle = NSLocalizedString("Now Playing", comment: "")
+        
+        self.titleView?.background = self.titleBackgroundColor
+        self.titleView?.fontColor = self.titleFontColor
         
         self.line1.stringValue = ""
         self.line2.stringValue = ""
@@ -131,7 +144,7 @@ class NowPlaying: MarshallViewController, Showable, IsClosable {
     }
     
     private func startLoading() {
-        self.setLeftTitle?(NSLocalizedString("Loading", comment: ""))
+        self.titleView?.leftTitle = NSLocalizedString("Loading", comment: "")
     }
     
     private func stopLoading() {
@@ -199,7 +212,7 @@ class NowPlaying: MarshallViewController, Showable, IsClosable {
     private func update(_ kv: (MarshallAPIValue, String)) {
         switch kv.0 {
         case .SysInfoFriendlyname:
-            self.setLeftTitle?(kv.1)
+            self.titleView?.leftTitle = kv.1
             
         case .PlayInfoName:
             self.line1.isHidden = false

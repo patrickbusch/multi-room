@@ -28,15 +28,15 @@ class SHViewController : NSViewController {
 }
 
 protocol Showable {
+    
     var isShown: Bool {get set}
 }
 
-protocol IsClosable {
+protocol HasTitle {
     
-    var setLeftTitle: ((String) -> ())? {get set}
-    var setRightTitle: ((String) -> ())? {get set}
-    var setTitleBackgroundColor: ((NSColor) -> ())? {get set}
-    var setTitleTextColor: ((NSColor) -> ())? {get set}
+    var titleView: TableSeparator? {get set}
+    var views: [NSView] {get}
+    var isOpen: Bool {get set}
 }
 
 protocol Identifiable {

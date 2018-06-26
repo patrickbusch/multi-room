@@ -710,7 +710,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="450" height="450"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
-                            <scrollView wantsLayer="YES" appearanceType="aqua" borderType="none" autohidesScrollers="YES" horizontalLineScroll="98" horizontalPageScroll="10" verticalLineScroll="98" verticalPageScroll="10" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIR-OM-kjo">
+                            <scrollView wantsLayer="YES" appearanceType="aqua" borderType="none" autohidesScrollers="YES" horizontalLineScroll="98" horizontalPageScroll="10" verticalLineScroll="98" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="KIR-OM-kjo">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="450"/>
                                 <clipView key="contentView" drawsBackground="NO" id="8Rp-RU-BFO">
                                     <rect key="frame" x="0.0" y="0.0" width="450" height="450"/>
@@ -748,7 +748,7 @@
                                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="xZk-Gf-HOj">
-                                    <rect key="frame" x="2" y="432" width="446" height="16"/>
+                                    <rect key="frame" x="-100" y="-100" width="446" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="j23-QL-1bf">

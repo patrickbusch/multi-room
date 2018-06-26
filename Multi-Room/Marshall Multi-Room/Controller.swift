@@ -8,15 +8,7 @@
 import Foundation
 import Cocoa
 
-class Controller: MarshallViewController, Showable, IsClosable {
-    
-    var setLeftTitle: ((String) -> ())?
-    
-    var setRightTitle: ((String) -> ())?
-    
-    var setTitleBackgroundColor: ((NSColor) -> ())?
-    
-    var setTitleTextColor: ((NSColor) -> ())?
+class Controller: MarshallViewController, Showable, HasTitle {
     
     @IBOutlet weak var elements: NSView!
     
@@ -51,6 +43,25 @@ class Controller: MarshallViewController, Showable, IsClosable {
             }
         }
     }
+
+    var views: [NSView] {
+        get {
+            var v = [NSView]()
+            
+            if let title = self.titleView {
+                v.append(title.view)
+            }
+            
+            if (isOpen) {
+                v.append(self.view)
+            }
+            return v
+        }
+    }
+    
+    var isOpen: Bool = true
+    
+    var titleView: TableSeparator?
     
     private var timer: Timer?
     
@@ -85,11 +96,13 @@ class Controller: MarshallViewController, Showable, IsClosable {
     private func reset() {
         self.view.backgroundColor = self.contentBackgroundColor
         
-        self.setTitleBackgroundColor?(self.titleBackgroundColor)
-        self.setTitleTextColor?(self.titleFontColor)
+        self.titleView = TableSeparator()
         
-        self.setLeftTitle?("")
-        self.setRightTitle?(NSLocalizedString("Controller", comment: ""))
+        self.titleView?.leftTitle = ""
+        self.titleView?.rightTitle = NSLocalizedString("Controller", comment: "")
+        
+        self.titleView?.background = self.titleBackgroundColor
+        self.titleView?.fontColor = self.titleFontColor
         
         self.volumeLabel.stringValue = NSLocalizedString("Volume", comment: "")
         self.bassLabel.stringValue = NSLocalizedString("Bass", comment: "")
@@ -109,7 +122,7 @@ class Controller: MarshallViewController, Showable, IsClosable {
     
     
     private func startLoading() {
-        self.setLeftTitle?(NSLocalizedString("Loading", comment: ""))
+        self.titleView?.leftTitle = NSLocalizedString("Loading", comment: "")
     }
     
     private func stopLoading() {
@@ -126,7 +139,7 @@ class Controller: MarshallViewController, Showable, IsClosable {
     private func update(_ kv: (MarshallAPIValue, String)) {
         switch kv.0 {
         case .SysInfoFriendlyname:
-            self.setLeftTitle?(kv.1)
+            self.titleView?.leftTitle = kv.1
             
         case .SysAudioVolume:
             if let vol = Double(kv.1) {

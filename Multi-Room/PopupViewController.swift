@@ -23,6 +23,8 @@ class PopupWindowController: NSWindowController {
         windowController.window?.title = NSLocalizedString("Multi-Room", comment: "")
         windowController.window?.appearance = NSAppearance(named: .vibrantDark)
         
+//        windowController.window?.titleVisibility = .hidden
+        
         return windowController
     }
 }
@@ -36,15 +38,30 @@ extension PopupWindowController: NSWindowDelegate {
 
 class PopupViewController: NSViewController {
     
-    private let MAX_HEIGHT: CGFloat = 450
+    private let MAX_HEIGHT: CGFloat = 450 //Screen height?
     private let MAX_WIDTH: CGFloat = 450
     private let MIN_HEIGHT: CGFloat = 100
     private let MIN_WIDTH: CGFloat = 200
-    private let SPACE: CGFloat = 10
+    private let SPACE: CGFloat = 25
     
     @IBOutlet weak var tableView: NSTableView!
     
     private var vcs: [SHViewController]?
+    private var views: [NSView] {
+        get {
+            var views = [NSView]()
+            
+            self.vcs?.forEach({ (vc) in
+                if let vcWithTitle = vc as? HasTitle {
+                    views.append(contentsOf: vcWithTitle.views)
+                } else {
+                    views.append(vc.view)
+                }
+            })
+            
+            return views
+        }
+    }
     private var viewWasLoaded = false
     
     override func viewDidLoad() {
@@ -53,6 +70,7 @@ class PopupViewController: NSViewController {
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.action = #selector(onItemClicked)
         
         self.updateViews()
         self.viewWasLoaded = true
@@ -63,27 +81,29 @@ class PopupViewController: NSViewController {
 
         self.view.frame = CGRect(x: 0, y: 0, width: 450, height: 180)
 
-        let views = self.vcs?.map({ (vc) -> NSView in
-            return vc.view
-        })
-
-        let sumHeight = views?.map { (view) -> CGFloat in
+        var sumHeight = self.views.map { (view) -> CGFloat in
             return view.bounds.height
-            }.reduce(0, +) ?? MIN_HEIGHT
+            }.reduce(0, +)
+        
+        if (sumHeight < MIN_HEIGHT) {
+            sumHeight = MIN_HEIGHT
+        }
 
-        let maxWidth = views?.map { (view) -> CGFloat in
+        let maxWidth = self.views.map { (view) -> CGFloat in
             return view.bounds.width
             }.max() ?? MIN_WIDTH
 
         print("Max Width: \(maxWidth)")
         print("Sum Height: \(sumHeight)")
         
-        let widthToSet = maxWidth > MAX_WIDTH ? MAX_WIDTH : maxWidth
-        let heightToSet = sumHeight + SPACE > MAX_HEIGHT ? MAX_HEIGHT : sumHeight + SPACE
+        let titleBarHeight = self.view.window?.titlebarHeight ?? 0
         
-        self.view.frame = CGRect(x: 0, y: 0,
-                                 width: widthToSet,
-                                 height: heightToSet)
+        let widthToSet = maxWidth > MAX_WIDTH ? MAX_WIDTH : maxWidth
+        let heightToSet = sumHeight + titleBarHeight + SPACE > MAX_HEIGHT ? MAX_HEIGHT : sumHeight + titleBarHeight + SPACE
+        
+//        self.view.frame = CGRect(x: 0, y: 0,
+//                                 width: widthToSet,
+//                                 height: heightToSet)
         
         if var windowFrame = self.view.window?.frame {
             windowFrame.size = NSSize(width: widthToSet, height: heightToSet + (self.view.window?.titlebarHeight ?? 0))
@@ -106,11 +126,11 @@ class PopupViewController: NSViewController {
 extension PopupViewController: NSTableViewDataSource {
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return self.vcs?.count ?? 0
+        return self.views.count
     }
     
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-        return self.vcs?[row].view.frame.height ?? 0
+        return self.views[row].frame.height
     }
     
 }
@@ -118,14 +138,12 @@ extension PopupViewController: NSTableViewDataSource {
 extension PopupViewController: NSTableViewDelegate {
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        
-        guard let item = self.vcs?[row] else {
-            return nil
-        }
-
-        return item.view
+        return self.views[row]
     }
     
+    @objc private func onItemClicked() {
+        print("row \(tableView.clickedRow), col \(tableView.clickedColumn) clicked")
+    }
 }
 
 extension PopupViewController {

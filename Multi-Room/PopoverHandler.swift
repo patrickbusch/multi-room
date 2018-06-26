@@ -70,29 +70,6 @@ class PopoverHandler {
             vcs.forEach({ (view) in
                 print("\(identifier): \(view.identifier)")
                 
-                if var viewWithTitle = view.vc as? IsClosable {
-                    let titleView = TableSeparator()
-                    
-                    viewWithTitle.setLeftTitle = { (title) in
-                        titleView.left.stringValue = title
-                    }
-
-                    viewWithTitle.setRightTitle = { (title) in
-                        titleView.right.stringValue = title
-                    }
-                    
-                    viewWithTitle.setTitleBackgroundColor = { (color) in
-                        titleView.view.backgroundColor = color
-                    }
-                    
-                    viewWithTitle.setTitleTextColor = { (color) in
-                        titleView.left.textColor = color
-                        titleView.right.textColor = color
-                    }
-                    
-                    newVCs.append(titleView)
-                }
-
                 newVCs.append(view.vc)
             })
             

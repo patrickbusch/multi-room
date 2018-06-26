@@ -26,7 +26,6 @@
 		1D6253362098C3CB004573FD /* TestPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6253352098C3CB004573FD /* TestPopoverView.swift */; };
 		1D6BC87620BD613600AC72CB /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6BC87520BD613600AC72CB /* Enums.swift */; };
 		1D787ADA20D315D7000C7763 /* TableSeparator.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D91F90420D3129E00B30A41 /* TableSeparator.xib */; };
-		1D787ADE20D5A468000C7763 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D787ADD20D5A468000C7763 /* PopupView.swift */; };
 		1D7AA4B82098E9630069FD9D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D7AA4BA2098E9630069FD9D /* Localizable.strings */; };
 		1D7CFB3620B4AA1100489902 /* MarshallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7CFB3520B4AA1100489902 /* MarshallViewController.swift */; };
 		1D7CFB3820B93E4400489902 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D7CFB3720B93E4400489902 /* Localizable.strings */; };
@@ -66,7 +65,6 @@
 		1D6253332098C396004573FD /* TestMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMenuItem.swift; sourceTree = "<group>"; };
 		1D6253352098C3CB004573FD /* TestPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPopoverView.swift; sourceTree = "<group>"; };
 		1D6BC87520BD613600AC72CB /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
-		1D787ADD20D5A468000C7763 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		1D7AA4B92098E9630069FD9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1D7CFB3520B4AA1100489902 /* MarshallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallViewController.swift; sourceTree = "<group>"; };
 		1D7CFB3720B93E4400489902 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -132,7 +130,6 @@
 				1DB10FF52098CD5100133D2B /* MenuHandler.swift */,
 				1D62532E2098BA4A004573FD /* PopoverHandler.swift */,
 				1D62532A2098B4ED004573FD /* PopupViewController.swift */,
-				1D787ADD20D5A468000C7763 /* PopupView.swift */,
 				1D62530D209859B3004573FD /* Assets.xcassets */,
 				1D62530F209859B3004573FD /* Main.storyboard */,
 				1D625312209859B3004573FD /* Info.plist */,
@@ -334,7 +331,6 @@
 				1DE7A85820B3630D00F05395 /* MarshallPopoverView.swift in Sources */,
 				1DC9117F20A70E0400970616 /* MarshallModule.swift in Sources */,
 				1D6253322098C33A004573FD /* TestModule.swift in Sources */,
-				1D787ADE20D5A468000C7763 /* PopupView.swift in Sources */,
 				1D62532D2098B7EF004573FD /* SHModuleAPI.swift in Sources */,
 				1D5D98D120A47EBF00FB58B2 /* TestView1.swift in Sources */,
 				1D9098C820A8817600A3817F /* MarshallAPI.swift in Sources */,
