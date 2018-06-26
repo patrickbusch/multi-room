@@ -21,10 +21,10 @@ class PopupWindowController: NSWindowController {
         windowController.window?.titlebarAppearsTransparent = true
         windowController.window?.backgroundColor = NSColor.black
         windowController.window?.title = NSLocalizedString("Multi-Room", comment: "")
-        windowController.window?.appearance = NSAppearance(named: .vibrantDark)
+//        windowController.window?.appearance = NSAppearance(named: .vibrantDark)
         
 //        windowController.window?.titleVisibility = .hidden
-        
+//        windowController.window?.styleMask = .fullSizeContentView
         return windowController
     }
 }
@@ -143,6 +143,37 @@ extension PopupViewController: NSTableViewDelegate {
     
     @objc private func onItemClicked() {
         print("row \(tableView.clickedRow), col \(tableView.clickedColumn) clicked")
+        
+        guard tableView.clickedRow >= 0 && tableView.clickedRow < self.views.count else {
+            return
+        }
+        
+        if let titleView = self.views[tableView.clickedRow] as? TitleView {
+            print("istitleview")
+            
+            let availableVCs = self.vcs?.filter({ (vc) -> Bool in
+                guard let titleVC = vc as? HasTitle else {
+                    return false
+                }
+                
+                return titleVC.titleView?.view == titleView
+            })
+            
+            guard availableVCs?.count ?? 0 == 1 else {
+                print("number of views unclear")
+                return
+            }
+            
+            var vc = availableVCs![0] as! HasTitle
+            
+            if (vc.isOpen) {
+                vc.isOpen = false
+            } else {
+                vc.isOpen = true
+            }
+            
+            self.updateViews()
+        }
     }
 }
 

@@ -66,12 +66,26 @@ class Controller: MarshallViewController, Showable, HasTitle {
     private var timer: Timer?
     
     @objc private func load() {
-        self.api!.getParams([MarshallAPIValue.SysInfoFriendlyname,
-                             .SysAudioVolume,
-                             .SysCapsVolumesteps,
-                             .SysAudioEqcustomParam0,
-                             .SysAudioEqcustomParam1
-            ], successCallback: self.updateValues)
+        
+        var dataToLoad: [MarshallAPIValue]?
+        
+        if (isOpen) {
+            dataToLoad = [MarshallAPIValue.SysInfoFriendlyname,
+                          .SysAudioVolume,
+                          .SysCapsVolumesteps,
+                          .SysAudioEqcustomParam0,
+                          .SysAudioEqcustomParam1
+            ]
+        } else {
+            dataToLoad = []
+        }
+        
+        guard dataToLoad?.count ?? 0 > 0 else {
+            print("nothing to load")
+            return
+        }
+        
+        self.api!.getParams(dataToLoad!, successCallback: self.updateValues)
     }
     
     override func viewDidLoad() {

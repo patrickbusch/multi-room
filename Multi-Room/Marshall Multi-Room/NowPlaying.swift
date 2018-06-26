@@ -82,13 +82,25 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
     
     @objc func load() {
         
-        self.api!.getParams([MarshallAPIValue.SysInfoFriendlyname,
-                             .PlayInfoName,
-                             .PlayInfoAlbum,
-                             .PlayInfoArtist,
-                             .SysMode,
-                             .PlayStatus
-            ], successCallback: self.updateValues)
+        var dataToLoad: [MarshallAPIValue]?
+        
+        if (isOpen) {
+            dataToLoad = [MarshallAPIValue.SysInfoFriendlyname,
+                          .PlayInfoName,
+                          .PlayInfoAlbum,
+                          .PlayInfoArtist,
+                          .SysMode,
+                          .PlayStatus]
+        } else {
+            dataToLoad = []
+        }
+        
+        guard dataToLoad?.count ?? 0 > 0 else {
+            print("nothing to load")
+            return
+        }
+        
+        self.api!.getParams(dataToLoad!, successCallback: self.updateValues)
     }
     
     override func viewDidLoad() {
