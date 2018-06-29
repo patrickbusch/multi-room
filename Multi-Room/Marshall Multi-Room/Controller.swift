@@ -48,9 +48,7 @@ class Controller: MarshallViewController, Showable, HasTitle {
         get {
             var v = [NSView]()
             
-            if let title = self.titleView {
-                v.append(title.view)
-            }
+            v.append(self.titleView.view)
             
             if (isOpen) {
                 v.append(self.view)
@@ -61,7 +59,7 @@ class Controller: MarshallViewController, Showable, HasTitle {
     
     var isOpen: Bool = true
     
-    var titleView: TableSeparator?
+    var titleView: TableSeparator = TableSeparator()
     
     private var timer: Timer?
     
@@ -110,13 +108,11 @@ class Controller: MarshallViewController, Showable, HasTitle {
     private func reset() {
         self.view.backgroundColor = self.contentBackgroundColor
         
-        self.titleView = TableSeparator()
+        self.titleView.leftTitle = ""
+        self.titleView.rightTitle = NSLocalizedString("Controller", comment: "")
         
-        self.titleView?.leftTitle = ""
-        self.titleView?.rightTitle = NSLocalizedString("Controller", comment: "")
-        
-        self.titleView?.background = self.titleBackgroundColor
-        self.titleView?.fontColor = self.titleFontColor
+        self.titleView.background = self.titleBackgroundColor
+        self.titleView.fontColor = self.titleFontColor
         
         self.volumeLabel.stringValue = NSLocalizedString("Volume", comment: "")
         self.bassLabel.stringValue = NSLocalizedString("Bass", comment: "")
@@ -136,7 +132,7 @@ class Controller: MarshallViewController, Showable, HasTitle {
     
     
     private func startLoading() {
-        self.titleView?.leftTitle = NSLocalizedString("Loading", comment: "")
+        self.titleView.leftTitle = NSLocalizedString("Loading", comment: "")
     }
     
     private func stopLoading() {
@@ -153,7 +149,7 @@ class Controller: MarshallViewController, Showable, HasTitle {
     private func update(_ kv: (MarshallAPIValue, String)) {
         switch kv.0 {
         case .SysInfoFriendlyname:
-            self.titleView?.leftTitle = kv.1
+            self.titleView.leftTitle = kv.1
             
         case .SysAudioVolume:
             if let vol = Double(kv.1) {

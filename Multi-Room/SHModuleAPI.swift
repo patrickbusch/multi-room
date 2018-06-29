@@ -34,7 +34,7 @@ protocol Showable {
 
 protocol HasTitle {
     
-    var titleView: TableSeparator? {get set}
+    var titleView: TableSeparator {get}
     var views: [NSView] {get}
     var isOpen: Bool {get set}
 }

@@ -63,9 +63,7 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
         get {
             var v = [NSView]()
             
-            if let title = self.titleView {
-                v.append(title.view)
-            }
+            v.append(self.titleView.view)
             
             if (isOpen) {
                 v.append(self.view)
@@ -76,7 +74,7 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
     
     var isOpen: Bool = true
     
-    var titleView: TableSeparator?
+    var titleView: TableSeparator = TableSeparator()
     
     private var timer: Timer?
     
@@ -117,13 +115,11 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
     private func reset() {
         self.view.backgroundColor = self.contentBackgroundColor
         
-        self.titleView = TableSeparator()
+        self.titleView.leftTitle = ""
+        self.titleView.rightTitle = NSLocalizedString("Now Playing", comment: "")
         
-        self.titleView?.leftTitle = ""
-        self.titleView?.rightTitle = NSLocalizedString("Now Playing", comment: "")
-        
-        self.titleView?.background = self.titleBackgroundColor
-        self.titleView?.fontColor = self.titleFontColor
+        self.titleView.background = self.titleBackgroundColor
+        self.titleView.fontColor = self.titleFontColor
         
         self.line1.stringValue = ""
         self.line2.stringValue = ""
@@ -156,7 +152,7 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
     }
     
     private func startLoading() {
-        self.titleView?.leftTitle = NSLocalizedString("Loading", comment: "")
+        self.titleView.leftTitle = NSLocalizedString("Loading", comment: "")
     }
     
     private func stopLoading() {
@@ -224,7 +220,7 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
     private func update(_ kv: (MarshallAPIValue, String)) {
         switch kv.0 {
         case .SysInfoFriendlyname:
-            self.titleView?.leftTitle = kv.1
+            self.titleView.leftTitle = kv.1
             
         case .PlayInfoName:
             self.line1.isHidden = false

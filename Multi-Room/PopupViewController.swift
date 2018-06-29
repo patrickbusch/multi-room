@@ -40,9 +40,9 @@ class PopupViewController: NSViewController {
     
     private let MAX_HEIGHT: CGFloat = 450 //Screen height?
     private let MAX_WIDTH: CGFloat = 450
-    private let MIN_HEIGHT: CGFloat = 100
+    private let MIN_HEIGHT: CGFloat = 20
     private let MIN_WIDTH: CGFloat = 200
-    private let SPACE: CGFloat = 25
+    private let SPACE: CGFloat = 10
     
     @IBOutlet weak var tableView: NSTableView!
     
@@ -72,6 +72,8 @@ class PopupViewController: NSViewController {
         self.tableView.dataSource = self
         self.tableView.action = #selector(onItemClicked)
         
+        self.view.backgroundColor = NSColor.green
+        
         self.updateViews()
         self.viewWasLoaded = true
     }
@@ -82,9 +84,11 @@ class PopupViewController: NSViewController {
         self.view.frame = CGRect(x: 0, y: 0, width: 450, height: 180)
 
         var sumHeight = self.views.map { (view) -> CGFloat in
+            print("height \(view.bounds.height)")
             return view.bounds.height
             }.reduce(0, +)
         
+        //160 on first, 198 on more????? -> TitleViews not set on first drawing!
         if (sumHeight < MIN_HEIGHT) {
             sumHeight = MIN_HEIGHT
         }
@@ -96,14 +100,14 @@ class PopupViewController: NSViewController {
         print("Max Width: \(maxWidth)")
         print("Sum Height: \(sumHeight)")
         
-        let titleBarHeight = self.view.window?.titlebarHeight ?? 0
+//        let titleBarHeight = self.view.window?.titlebarHeight ?? 0
         
         let widthToSet = maxWidth > MAX_WIDTH ? MAX_WIDTH : maxWidth
-        let heightToSet = sumHeight + titleBarHeight + SPACE > MAX_HEIGHT ? MAX_HEIGHT : sumHeight + titleBarHeight + SPACE
+        let heightToSet = sumHeight + SPACE > MAX_HEIGHT ? MAX_HEIGHT : sumHeight + SPACE
         
-//        self.view.frame = CGRect(x: 0, y: 0,
-//                                 width: widthToSet,
-//                                 height: heightToSet)
+        self.view.frame = CGRect(x: 0, y: 0,
+                                 width: widthToSet,
+                                 height: heightToSet)
         
         if var windowFrame = self.view.window?.frame {
             windowFrame.size = NSSize(width: widthToSet, height: heightToSet + (self.view.window?.titlebarHeight ?? 0))
@@ -156,7 +160,7 @@ extension PopupViewController: NSTableViewDelegate {
                     return false
                 }
                 
-                return titleVC.titleView?.view == titleView
+                return titleVC.titleView.view == titleView
             })
             
             guard availableVCs?.count ?? 0 == 1 else {
