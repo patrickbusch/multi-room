@@ -11,10 +11,10 @@ class MarshallViewController: SHViewController {
 
     var api: MarshallAPI?
     
-    let titleBackgroundColor = NSColor.black
-    let contentBackgroundColor = NSColor.darkGray
-    let titleFontColor = NSColor.white
-    let contentFontColor = NSColor.white
+    let titleBackgroundColor = Colors.titleBackground
+    let contentBackgroundColor = Colors.contentBackground
+    let titleFontColor = Colors.titleFont
+    let contentFontColor = Colors.contentFont
     
     override func viewDidLoad() {
         super.viewDidLoad()

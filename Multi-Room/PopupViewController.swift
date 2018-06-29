@@ -18,13 +18,17 @@ class PopupWindowController: NSWindowController {
         let identifier = NSStoryboard.SceneIdentifier(rawValue: "MainWindow")
         let windowController = storyboard.instantiateController(withIdentifier: identifier) as! PopupWindowController
         
-        windowController.window?.titlebarAppearsTransparent = true
-        windowController.window?.backgroundColor = NSColor.black
-        windowController.window?.title = NSLocalizedString("Multi-Room", comment: "")
-//        windowController.window?.appearance = NSAppearance(named: .vibrantDark)
-        
-//        windowController.window?.titleVisibility = .hidden
-//        windowController.window?.styleMask = .fullSizeContentView
+        if let window = windowController.window {
+            window.styleMask.remove(NSWindow.StyleMask.unifiedTitleAndToolbar)
+//            window.styleMask.insert(NSWindow.StyleMask.fullSizeContentView)
+            window.styleMask.insert(NSWindow.StyleMask.titled)
+            window.backgroundColor = Colors.windowBackground
+            window.toolbar?.isVisible = false
+            window.titleVisibility = .hidden
+            window.titlebarAppearsTransparent = true
+            window.title = NSLocalizedString("Multi-Room", comment: "")
+        }
+    
         return windowController
     }
 }
@@ -72,7 +76,7 @@ class PopupViewController: NSViewController {
         self.tableView.dataSource = self
         self.tableView.action = #selector(onItemClicked)
         
-        self.view.backgroundColor = NSColor.green
+        self.view.backgroundColor = Colors.tableBackground
         
         self.updateViews()
         self.viewWasLoaded = true
@@ -88,7 +92,6 @@ class PopupViewController: NSViewController {
             return view.bounds.height
             }.reduce(0, +)
         
-        //160 on first, 198 on more????? -> TitleViews not set on first drawing!
         if (sumHeight < MIN_HEIGHT) {
             sumHeight = MIN_HEIGHT
         }
