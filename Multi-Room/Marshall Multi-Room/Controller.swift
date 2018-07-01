@@ -59,7 +59,13 @@ class Controller: MarshallViewController, Showable, HasTitle {
     
     var isOpen: Bool = true
     
-    var titleView: TableSeparator = DefaultTableSeparator()
+    let defaultTableSeparator = DefaultTableSeparator()
+//    let nowPlayingSmall = NowPlayingSmall()
+    var titleView: TableSeparator {
+        get {
+            return self.defaultTableSeparator
+        }
+    }
     
     private var timer: Timer?
     
@@ -108,13 +114,10 @@ class Controller: MarshallViewController, Showable, HasTitle {
     private func reset() {
         self.view.backgroundColor = self.contentBackgroundColor
         
-        if let dts = self.titleView as? DefaultTableSeparator {
-            dts.leftTitle = ""
-            dts.rightTitle = NSLocalizedString("Controller", comment: "")
-        }
-        
-        self.titleView.background = self.titleBackgroundColor
-        self.titleView.fontColor = self.titleFontColor
+        self.defaultTableSeparator.leftTitle = ""
+        self.defaultTableSeparator.rightTitle = NSLocalizedString("Controller", comment: "")
+        self.defaultTableSeparator.background = self.titleBackgroundColor
+        self.defaultTableSeparator.fontColor = self.titleFontColor
         
         self.volumeLabel.stringValue = NSLocalizedString("Volume", comment: "")
         self.bassLabel.stringValue = NSLocalizedString("Bass", comment: "")
@@ -134,9 +137,7 @@ class Controller: MarshallViewController, Showable, HasTitle {
     
     
     private func startLoading() {
-        if let dts = self.titleView as? DefaultTableSeparator {
-            dts.leftTitle = NSLocalizedString("Loading", comment: "")
-        }
+        self.defaultTableSeparator.leftTitle = NSLocalizedString("Loading", comment: "")
     }
     
     private func stopLoading() {
@@ -153,9 +154,7 @@ class Controller: MarshallViewController, Showable, HasTitle {
     private func update(_ kv: (MarshallAPIValue, String)) {
         switch kv.0 {
         case .SysInfoFriendlyname:
-            if let dts = self.titleView as? DefaultTableSeparator {
-                dts.leftTitle = kv.1
-            }
+            self.defaultTableSeparator.leftTitle = kv.1
             
         case .SysAudioVolume:
             if let vol = Double(kv.1) {
