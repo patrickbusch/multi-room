@@ -126,9 +126,11 @@ class Controller: MarshallViewController, Showable, HasTitle {
         self.defaultTableSeparator.fontColor = self.titleFontColor
         
         self.controllerSmall.leftTitle = ""
-        self.controllerSmall.rightTitle = ""
         self.controllerSmall.background = self.titleBackgroundColor
         self.controllerSmall.fontColor = self.titleFontColor
+        
+        self.controllerSmall.sliderEnabled = false
+        self.controllerSmall.sliderHidden = true
         
         self.volumeLabel.stringValue = NSLocalizedString("Volume", comment: "")
         self.bassLabel.stringValue = NSLocalizedString("Bass", comment: "")
@@ -154,6 +156,7 @@ class Controller: MarshallViewController, Showable, HasTitle {
     
     private func stopLoading() {
         self.elements.isHidden = false
+        self.controllerSmall.sliderHidden = false
     }
     
     private func updateValues(_ values: [MarshallAPIValue : String]) {
@@ -172,8 +175,12 @@ class Controller: MarshallViewController, Showable, HasTitle {
             if let vol = Double(kv.1) {
                 self.volumeSlider.doubleValue = vol
                 self.volumeSlider.isEnabled = true
+                
+                self.controllerSmall.currentVolume = vol
+                self.controllerSmall.sliderEnabled = true
             } else {
                 self.volumeSlider.doubleValue = 0.0
+                self.controllerSmall.currentVolume = 0.0
             }
             
         case .SysCapsVolumesteps:
@@ -181,6 +188,7 @@ class Controller: MarshallViewController, Showable, HasTitle {
             
             self.volumeSlider.minValue = 0.0
             self.volumeSlider.maxValue = steps - 1
+            self.controllerSmall.volumeSteps = steps - 1
             
         case .SysAudioEqcustomParam0:
             if let val = Double(kv.1) {

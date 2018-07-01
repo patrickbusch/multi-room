@@ -12,7 +12,11 @@ class ControllerSmall: SHViewController, TableSeparator {
     
     @IBOutlet weak var left: NSTextField!
     
-    @IBOutlet weak var right: NSTextField!
+    @IBOutlet weak var volumeSlider: NSSlider!
+    
+    @IBAction func volumeChanged(_ sender: NSSlider) {
+        
+    }
     
     private var viewHasLoaded = false
     
@@ -20,14 +24,6 @@ class ControllerSmall: SHViewController, TableSeparator {
         willSet {
             if (viewHasLoaded) {
                 self.left.stringValue = newValue
-            }
-        }
-    }
-
-    var rightTitle: String = "" {
-        willSet {
-            if (viewHasLoaded) {
-                self.right.stringValue = newValue
             }
         }
     }
@@ -44,7 +40,38 @@ class ControllerSmall: SHViewController, TableSeparator {
         willSet {
             if (viewHasLoaded) {
                 self.left.textColor = newValue
-                self.right.textColor = newValue
+            }
+        }
+    }
+    
+    var currentVolume: Double = 0.0 {
+        willSet {
+            if (viewHasLoaded) {
+                self.volumeSlider.doubleValue = newValue
+            }
+        }
+    }
+    
+    var volumeSteps: Double = 32 {
+        willSet {
+            if (viewHasLoaded) {
+                self.volumeSlider.maxValue = newValue
+            }
+        }
+    }
+    
+    var sliderHidden: Bool = true {
+        willSet {
+            if (viewHasLoaded) {
+                self.volumeSlider.isHidden = newValue
+            }
+        }
+    }
+    
+    var sliderEnabled: Bool = false {
+        willSet {
+            if (viewHasLoaded) {
+                self.volumeSlider.isEnabled = newValue
             }
         }
     }
@@ -55,10 +82,14 @@ class ControllerSmall: SHViewController, TableSeparator {
         // Do view setup here.
         self.view.backgroundColor = self.background
         self.left.textColor = self.fontColor
-        self.right.textColor = self.fontColor
         self.left.stringValue = self.leftTitle
-        self.right.stringValue = self.rightTitle
         
+        self.volumeSlider.doubleValue = self.currentVolume
+        self.volumeSlider.maxValue = self.volumeSteps
+        self.volumeSlider.isEnabled = self.sliderEnabled
+        self.volumeSlider.isHidden = self.sliderHidden
+        
+
         self.viewHasLoaded = true
     }
     
