@@ -11,8 +11,24 @@ import Cocoa
 class NowPlayingSmall: SHViewController, TableSeparator {
     
     @IBOutlet weak var left: NSTextField!
+
+    @IBOutlet weak var prevButton: NSButton!
     
-    @IBOutlet weak var right: NSTextField!
+    @IBOutlet weak var playPauseButton: NSButton!
+    
+    @IBOutlet weak var nextButton: NSButton!
+    
+    @IBAction func prevButtonPressed(_ sender: NSButton) {
+        self.prevButtonPressedHandler?()
+    }
+    
+    @IBAction func playPauseButtonPressed(_ sender: NSButton) {
+        self.playPauseButtonPressedHandler?()
+    }
+    
+    @IBAction func nextButtonPressed(_ sender: NSButton) {
+        self.nextButtonPressedHandler?()
+    }
     
     private var viewHasLoaded = false
     
@@ -20,14 +36,6 @@ class NowPlayingSmall: SHViewController, TableSeparator {
         willSet {
             if (viewHasLoaded) {
                 self.left.stringValue = newValue
-            }
-        }
-    }
-
-    var rightTitle: String = "" {
-        willSet {
-            if (viewHasLoaded) {
-                self.right.stringValue = newValue
             }
         }
     }
@@ -44,10 +52,37 @@ class NowPlayingSmall: SHViewController, TableSeparator {
         willSet {
             if (viewHasLoaded) {
                 self.left.textColor = newValue
-                self.right.textColor = newValue
             }
         }
     }
+    
+    var prevButtonImage: NSImage = #imageLiteral(resourceName: "Prev").withTintColor(tintColor: NSColor.white) {
+        willSet {
+            if (viewHasLoaded) {
+                self.prevButton.image = newValue
+            }
+        }
+    }
+    
+    var playPauseButtonImage: NSImage = #imageLiteral(resourceName: "Play").withTintColor(tintColor: NSColor.white) {
+        willSet {
+            if (viewHasLoaded) {
+                self.playPauseButton.image = newValue
+            }
+        }
+    }
+    
+    var nextButtonImage: NSImage = #imageLiteral(resourceName: "Next").withTintColor(tintColor: NSColor.white) {
+        willSet {
+            if (viewHasLoaded) {
+                self.nextButton.image = newValue
+            }
+        }
+    }
+    
+    var prevButtonPressedHandler: (() -> ())?
+    var playPauseButtonPressedHandler: (() -> ())?
+    var nextButtonPressedHandler: (() -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,9 +90,11 @@ class NowPlayingSmall: SHViewController, TableSeparator {
         // Do view setup here.
         self.view.backgroundColor = self.background
         self.left.textColor = self.fontColor
-        self.right.textColor = self.fontColor
         self.left.stringValue = self.leftTitle
-        self.right.stringValue = self.rightTitle
+        
+        self.prevButton.image = self.prevButtonImage
+        self.playPauseButton.image = self.playPauseButtonImage
+        self.nextButton.image = self.nextButtonImage
         
         self.viewHasLoaded = true
     }

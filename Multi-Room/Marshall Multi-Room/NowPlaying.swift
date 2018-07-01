@@ -137,7 +137,9 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
         } else {
             dataToLoad = [.PlayInfoName,
                           .PlayInfoAlbum,
-                          .PlayInfoArtist]
+                          .PlayInfoArtist,
+                          .SysMode,
+                          .PlayStatus]
         }
         
         guard dataToLoad?.count ?? 0 > 0 else {
@@ -168,7 +170,6 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
         self.defaultTableSeparator.fontColor = self.titleFontColor
         
         self.nowPlayingSmall.leftTitle = ""
-        self.nowPlayingSmall.rightTitle = ""
         self.nowPlayingSmall.background = self.titleBackgroundColor
         self.nowPlayingSmall.fontColor = self.titleFontColor
         
@@ -190,6 +191,22 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
         
         self.prevButton.image = #imageLiteral(resourceName: "Prev").withTintColor(tintColor: self.contentFontColor)
         self.nextButton.image = #imageLiteral(resourceName: "Next").withTintColor(tintColor: self.contentFontColor)
+        
+        self.nowPlayingSmall.prevButtonImage = #imageLiteral(resourceName: "Prev").withTintColor(tintColor: self.titleFontColor)
+        self.nowPlayingSmall.nextButtonImage = #imageLiteral(resourceName: "Next").withTintColor(tintColor: self.titleFontColor)
+        self.nowPlayingSmall.playPauseButtonImage = #imageLiteral(resourceName: "Play").withTintColor(tintColor: self.titleFontColor)
+        
+        self.nowPlayingSmall.prevButtonPressedHandler = { () in
+            self.send(.PlayControl, value: self.currentInput?.prevCommandValue)
+        }
+
+        self.nowPlayingSmall.nextButtonPressedHandler = { () in
+            self.send(.PlayControl, value: self.currentInput?.nextCommandValue)
+        }
+        
+        self.nowPlayingSmall.playPauseButtonPressedHandler = { () in
+            self.send(.PlayControl, value: self.currentInput?.playCommandValue)
+        }
         
         self.elements.isHidden = true
         self.elements.backgroundColor = NSColor.clear
@@ -234,11 +251,13 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
         case .PlayStop:
             if (self.currentPlayState == .Playing) {
                 self.playButton.image = #imageLiteral(resourceName: "Stop").withTintColor(tintColor: self.contentFontColor)
+                self.nowPlayingSmall.playPauseButtonImage = #imageLiteral(resourceName: "Stop").withTintColor(tintColor: self.titleFontColor)
             }
             self.playButton.isHidden = false
         case .PlayPause:
             if (self.currentPlayState == .Playing) {
                 self.playButton.image = #imageLiteral(resourceName: "Pause").withTintColor(tintColor: self.contentFontColor)
+                self.nowPlayingSmall.playPauseButtonImage = #imageLiteral(resourceName: "Pause").withTintColor(tintColor: self.titleFontColor)
             }
             self.playButton.isHidden = false
         }
@@ -257,11 +276,14 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
         switch playState {
         case .Paused, .Stopped:
             self.playButton.image = #imageLiteral(resourceName: "Play").withTintColor(tintColor: self.contentFontColor)
+            self.nowPlayingSmall.playPauseButtonImage = #imageLiteral(resourceName: "Play").withTintColor(tintColor: self.titleFontColor)
         case .Playing:
             if (self.currentInput?.playingType == .PlayStop) {
                 self.playButton.image = #imageLiteral(resourceName: "Stop").withTintColor(tintColor: self.contentFontColor)
+                self.nowPlayingSmall.playPauseButtonImage = #imageLiteral(resourceName: "Stop").withTintColor(tintColor: self.titleFontColor)
             } else if (self.currentInput?.playingType == .PlayPause) {
                 self.playButton.image = #imageLiteral(resourceName: "Pause").withTintColor(tintColor: self.contentFontColor)
+                self.nowPlayingSmall.playPauseButtonImage = #imageLiteral(resourceName: "Pause").withTintColor(tintColor: self.titleFontColor)
             }
         default:
             print("nothing to do for play state \(playState)")
