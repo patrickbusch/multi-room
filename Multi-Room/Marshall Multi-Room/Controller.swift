@@ -60,10 +60,16 @@ class Controller: MarshallViewController, Showable, HasTitle {
     var isOpen: Bool = true
     
     let defaultTableSeparator = DefaultTableSeparator()
-//    let nowPlayingSmall = NowPlayingSmall()
+    let controllerSmall = ControllerSmall()
     var titleView: TableSeparator {
         get {
-            return self.defaultTableSeparator
+            
+            if (isOpen) {
+                return self.defaultTableSeparator
+            } else {
+                return self.controllerSmall
+            }
+            
         }
     }
     
@@ -81,7 +87,7 @@ class Controller: MarshallViewController, Showable, HasTitle {
                           .SysAudioEqcustomParam1
             ]
         } else {
-            dataToLoad = []
+            dataToLoad = [.SysAudioVolume]
         }
         
         guard dataToLoad?.count ?? 0 > 0 else {
@@ -119,6 +125,11 @@ class Controller: MarshallViewController, Showable, HasTitle {
         self.defaultTableSeparator.background = self.titleBackgroundColor
         self.defaultTableSeparator.fontColor = self.titleFontColor
         
+        self.controllerSmall.leftTitle = ""
+        self.controllerSmall.rightTitle = ""
+        self.controllerSmall.background = self.titleBackgroundColor
+        self.controllerSmall.fontColor = self.titleFontColor
+        
         self.volumeLabel.stringValue = NSLocalizedString("Volume", comment: "")
         self.bassLabel.stringValue = NSLocalizedString("Bass", comment: "")
         self.trebleLabel.stringValue = NSLocalizedString("Treble", comment: "")
@@ -138,6 +149,7 @@ class Controller: MarshallViewController, Showable, HasTitle {
     
     private func startLoading() {
         self.defaultTableSeparator.leftTitle = NSLocalizedString("Loading", comment: "")
+        self.controllerSmall.leftTitle = NSLocalizedString("Loading", comment: "")
     }
     
     private func stopLoading() {

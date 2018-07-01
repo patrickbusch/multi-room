@@ -48,6 +48,39 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
         }
     }
     
+    private var currentInfo: String = "" {
+        didSet {
+            self.setAggregatedPlayInfo()
+        }
+    }
+
+    private var currentArtist: String = "" {
+        didSet {
+            self.setAggregatedPlayInfo()
+        }
+    }
+    
+    private var currentAlbum: String = "" {
+        didSet {
+            self.setAggregatedPlayInfo()
+        }
+    }
+    
+    func setAggregatedPlayInfo () {
+        
+        var aggInfo = self.currentInfo
+        
+        if (!self.currentArtist.isEmpty) {
+            aggInfo.append(" | \(self.currentArtist)")
+        }
+        
+        if (!self.currentAlbum.isEmpty) {
+            aggInfo.append(" | \(self.currentAlbum)")
+        }
+        
+        self.nowPlayingSmall.leftTitle = aggInfo
+    }
+    
     var isShown: Bool = false {
         willSet {
             print("isShown: \(newValue)")
@@ -78,7 +111,13 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
     let nowPlayingSmall = NowPlayingSmall()
     var titleView: TableSeparator {
         get {
-            return self.defaultTableSeparator
+            
+            if (isOpen) {
+                return self.defaultTableSeparator
+            } else {
+                return self.nowPlayingSmall
+            }
+            
         }
     }
     
@@ -96,7 +135,9 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
                           .SysMode,
                           .PlayStatus]
         } else {
-            dataToLoad = []
+            dataToLoad = [.PlayInfoName,
+                          .PlayInfoAlbum,
+                          .PlayInfoArtist]
         }
         
         guard dataToLoad?.count ?? 0 > 0 else {
@@ -125,6 +166,11 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
         self.defaultTableSeparator.rightTitle = NSLocalizedString("Now Playing", comment: "")
         self.defaultTableSeparator.background = self.titleBackgroundColor
         self.defaultTableSeparator.fontColor = self.titleFontColor
+        
+        self.nowPlayingSmall.leftTitle = ""
+        self.nowPlayingSmall.rightTitle = ""
+        self.nowPlayingSmall.background = self.titleBackgroundColor
+        self.nowPlayingSmall.fontColor = self.titleFontColor
         
         self.line1.stringValue = ""
         self.line2.stringValue = ""
@@ -158,6 +204,7 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
     
     private func startLoading() {
         self.defaultTableSeparator.leftTitle = NSLocalizedString("Loading", comment: "")
+        self.nowPlayingSmall.leftTitle = NSLocalizedString("Loading", comment: "")
     }
     
     private func stopLoading() {
@@ -230,21 +277,26 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
         case .PlayInfoName:
             self.line1.isHidden = false
             self.line1.stringValue = kv.1
+            self.currentInfo = kv.1
             
         case .PlayInfoArtist:
             if (kv.1.isEmpty) {
                 self.line2.isHidden = true
+                self.currentArtist = ""
             } else {
                 self.line2.isHidden = false
                 self.line2.stringValue = kv.1
+                self.currentArtist = kv.1
             }
             
         case .PlayInfoAlbum:
             if (kv.1.isEmpty) {
                 self.line3.isHidden = true
+                self.currentAlbum = ""
             } else {
                 self.line3.isHidden = false
                 self.line3.stringValue = "\(kv.1)"
+                self.currentAlbum = kv.1
             }
             
         case .SysMode:

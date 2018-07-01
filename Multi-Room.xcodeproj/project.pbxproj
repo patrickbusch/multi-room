@@ -40,6 +40,8 @@
 		1DA0DA8320E675B8000E7657 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0DA8220E675B8000E7657 /* Colors.swift */; };
 		1DB0282920E8FD0400408AF3 /* NowPlayingSmall.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DB0282820E8FD0400408AF3 /* NowPlayingSmall.xib */; };
 		1DB0282B20E8FD1D00408AF3 /* NowPlayingSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0282A20E8FD1D00408AF3 /* NowPlayingSmall.swift */; };
+		1DB0282D20E9014E00408AF3 /* ControllerSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0282C20E9014E00408AF3 /* ControllerSmall.swift */; };
+		1DB0282F20E9016700408AF3 /* ControllerSmall.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DB0282E20E9016700408AF3 /* ControllerSmall.xib */; };
 		1DB10FF62098CD5100133D2B /* MenuHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB10FF52098CD5100133D2B /* MenuHandler.swift */; };
 		1DC9117F20A70E0400970616 /* MarshallModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9117E20A70E0400970616 /* MarshallModule.swift */; };
 		1DE7A85220B2F0AB00F05395 /* MarshallAPIValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE7A85120B2F0AB00F05395 /* MarshallAPIValue.swift */; };
@@ -84,6 +86,8 @@
 		1DA0DA8220E675B8000E7657 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		1DB0282820E8FD0400408AF3 /* NowPlayingSmall.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NowPlayingSmall.xib; sourceTree = "<group>"; };
 		1DB0282A20E8FD1D00408AF3 /* NowPlayingSmall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingSmall.swift; sourceTree = "<group>"; };
+		1DB0282C20E9014E00408AF3 /* ControllerSmall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerSmall.swift; sourceTree = "<group>"; };
+		1DB0282E20E9016700408AF3 /* ControllerSmall.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ControllerSmall.xib; sourceTree = "<group>"; };
 		1DB10FF52098CD5100133D2B /* MenuHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHandler.swift; sourceTree = "<group>"; };
 		1DC9117E20A70E0400970616 /* MarshallModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallModule.swift; sourceTree = "<group>"; };
 		1DE7A85120B2F0AB00F05395 /* MarshallAPIValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallAPIValue.swift; sourceTree = "<group>"; };
@@ -188,6 +192,8 @@
 				1DB0282820E8FD0400408AF3 /* NowPlayingSmall.xib */,
 				1D7CFB3B20B93F0400489902 /* Controller.swift */,
 				1D7CFB4420B9B3CA00489902 /* Controller.xib */,
+				1DB0282C20E9014E00408AF3 /* ControllerSmall.swift */,
+				1DB0282E20E9016700408AF3 /* ControllerSmall.xib */,
 				1DE7A85720B3630D00F05395 /* MarshallPopoverView.swift */,
 				1D7CFB3520B4AA1100489902 /* MarshallViewController.swift */,
 				1D7CFB3720B93E4400489902 /* Localizable.strings */,
@@ -278,6 +284,7 @@
 				1D6253202098AA68004573FD /* Localizable.strings in Resources */,
 				1D625311209859B3004573FD /* Main.storyboard in Resources */,
 				1D787ADA20D315D7000C7763 /* DefaultTableSeparator.xib in Resources */,
+				1DB0282F20E9016700408AF3 /* ControllerSmall.xib in Resources */,
 				1DB0282920E8FD0400408AF3 /* NowPlayingSmall.xib in Resources */,
 				1D0A79DE20A4BF2B00C0DBB7 /* Playground.xib in Resources */,
 				1D7CFB4520B9B3CA00489902 /* Controller.xib in Resources */,
@@ -340,6 +347,7 @@
 				1D6253342098C396004573FD /* TestMenuItem.swift in Sources */,
 				1D6253292098B489004573FD /* ModuleLoader.swift in Sources */,
 				1D62530A209859B3004573FD /* AppDelegate.swift in Sources */,
+				1DB0282D20E9014E00408AF3 /* ControllerSmall.swift in Sources */,
 				1D6253272098AD97004573FD /* EventMonitor.swift in Sources */,
 				1DE7A85820B3630D00F05395 /* MarshallPopoverView.swift in Sources */,
 				1DC9117F20A70E0400970616 /* MarshallModule.swift in Sources */,
