@@ -42,6 +42,7 @@
 		1DB0282B20E8FD1D00408AF3 /* NowPlayingSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0282A20E8FD1D00408AF3 /* NowPlayingSmall.swift */; };
 		1DB0282D20E9014E00408AF3 /* ControllerSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0282C20E9014E00408AF3 /* ControllerSmall.swift */; };
 		1DB0282F20E9016700408AF3 /* ControllerSmall.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DB0282E20E9016700408AF3 /* ControllerSmall.xib */; };
+		1DB0283120E9531A00408AF3 /* NSImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0283020E9531A00408AF3 /* NSImageExtensions.swift */; };
 		1DB10FF62098CD5100133D2B /* MenuHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB10FF52098CD5100133D2B /* MenuHandler.swift */; };
 		1DC9117F20A70E0400970616 /* MarshallModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9117E20A70E0400970616 /* MarshallModule.swift */; };
 		1DE7A85220B2F0AB00F05395 /* MarshallAPIValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE7A85120B2F0AB00F05395 /* MarshallAPIValue.swift */; };
@@ -88,6 +89,7 @@
 		1DB0282A20E8FD1D00408AF3 /* NowPlayingSmall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingSmall.swift; sourceTree = "<group>"; };
 		1DB0282C20E9014E00408AF3 /* ControllerSmall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerSmall.swift; sourceTree = "<group>"; };
 		1DB0282E20E9016700408AF3 /* ControllerSmall.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ControllerSmall.xib; sourceTree = "<group>"; };
+		1DB0283020E9531A00408AF3 /* NSImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImageExtensions.swift; sourceTree = "<group>"; };
 		1DB10FF52098CD5100133D2B /* MenuHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHandler.swift; sourceTree = "<group>"; };
 		1DC9117E20A70E0400970616 /* MarshallModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallModule.swift; sourceTree = "<group>"; };
 		1DE7A85120B2F0AB00F05395 /* MarshallAPIValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallAPIValue.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				1DA0DA7E20DFEA89000E7657 /* NSWindowExtensions.swift */,
 				1DA0DA8020E2E257000E7657 /* TitleView.swift */,
 				1DA0DA8220E675B8000E7657 /* Colors.swift */,
+				1DB0283020E9531A00408AF3 /* NSImageExtensions.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				1D62532B2098B4ED004573FD /* PopupViewController.swift in Sources */,
 				1DB10FF62098CD5100133D2B /* MenuHandler.swift in Sources */,
 				1DA0DA7F20DFEA89000E7657 /* NSWindowExtensions.swift in Sources */,
+				1DB0283120E9531A00408AF3 /* NSImageExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -188,8 +188,8 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
         self.nextButton.isHidden = true
         self.playButton.isHidden = true
         
-        self.prevButton.attributedTitle = NSAttributedString(string: NSLocalizedString("Prev", comment: ""), attributes: [ .foregroundColor : self.contentFontColor])
-        self.nextButton.attributedTitle = NSAttributedString(string: NSLocalizedString("Next", comment: ""), attributes: [ .foregroundColor : self.contentFontColor])
+        self.prevButton.image = #imageLiteral(resourceName: "Prev").withTintColor(tintColor: self.contentFontColor)
+        self.nextButton.image = #imageLiteral(resourceName: "Next").withTintColor(tintColor: self.contentFontColor)
         
         self.elements.isHidden = true
         self.elements.backgroundColor = NSColor.clear
@@ -233,12 +233,12 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
             self.playButton.isHidden = true
         case .PlayStop:
             if (self.currentPlayState == .Playing) {
-                self.playButton.attributedTitle = NSAttributedString(string: NSLocalizedString("Stop", comment: ""), attributes: [ .foregroundColor : self.contentFontColor])
+                self.playButton.image = #imageLiteral(resourceName: "Stop").withTintColor(tintColor: self.contentFontColor)
             }
             self.playButton.isHidden = false
         case .PlayPause:
             if (self.currentPlayState == .Playing) {
-                self.playButton.attributedTitle = NSAttributedString(string: NSLocalizedString("Pause", comment: ""), attributes: [ .foregroundColor : self.contentFontColor])
+                self.playButton.image = #imageLiteral(resourceName: "Pause").withTintColor(tintColor: self.contentFontColor)
             }
             self.playButton.isHidden = false
         }
@@ -256,12 +256,12 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
         
         switch playState {
         case .Paused, .Stopped:
-            self.playButton.attributedTitle = NSAttributedString(string: NSLocalizedString("Play", comment: ""), attributes: [ .foregroundColor : self.contentFontColor])
+            self.playButton.image = #imageLiteral(resourceName: "Play").withTintColor(tintColor: self.contentFontColor)
         case .Playing:
             if (self.currentInput?.playingType == .PlayStop) {
-                self.playButton.attributedTitle = NSAttributedString(string: NSLocalizedString("Stop", comment: ""), attributes: [ .foregroundColor : self.contentFontColor])
+                self.playButton.image = #imageLiteral(resourceName: "Stop").withTintColor(tintColor: self.contentFontColor)
             } else if (self.currentInput?.playingType == .PlayPause) {
-                self.playButton.attributedTitle = NSAttributedString(string: NSLocalizedString("Pause", comment: ""), attributes: [ .foregroundColor : self.contentFontColor])
+                self.playButton.image = #imageLiteral(resourceName: "Pause").withTintColor(tintColor: self.contentFontColor)
             }
         default:
             print("nothing to do for play state \(playState)")
