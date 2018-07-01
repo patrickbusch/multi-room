@@ -115,8 +115,10 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
     private func reset() {
         self.view.backgroundColor = self.contentBackgroundColor
         
-        self.titleView.leftTitle = ""
-        self.titleView.rightTitle = NSLocalizedString("Now Playing", comment: "")
+        if let dts = self.titleView as? DefaultTableSeparator {
+            dts.leftTitle = ""
+            dts.rightTitle = NSLocalizedString("Now Playing", comment: "")
+        }
         
         self.titleView.background = self.titleBackgroundColor
         self.titleView.fontColor = self.titleFontColor
@@ -152,7 +154,9 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
     }
     
     private func startLoading() {
-        self.titleView.leftTitle = NSLocalizedString("Loading", comment: "")
+        if let dts = self.titleView as? DefaultTableSeparator {
+            dts.leftTitle = NSLocalizedString("Loading", comment: "")
+        }
     }
     
     private func stopLoading() {
@@ -220,7 +224,9 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
     private func update(_ kv: (MarshallAPIValue, String)) {
         switch kv.0 {
         case .SysInfoFriendlyname:
-            self.titleView.leftTitle = kv.1
+            if let dts = self.titleView as? DefaultTableSeparator {
+                dts.leftTitle = kv.1
+            }
             
         case .PlayInfoName:
             self.line1.isHidden = false
