@@ -43,7 +43,7 @@ extension PopupWindowController: NSWindowDelegate {
 class PopupViewController: NSViewController {
     
     private let MAX_HEIGHT: CGFloat = 450 //Screen height?
-    private let MAX_WIDTH: CGFloat = 450
+    private let MAX_WIDTH: CGFloat = 400
     private let MIN_HEIGHT: CGFloat = 20
     private let MIN_WIDTH: CGFloat = 200
     private let SPACE: CGFloat = 10
@@ -85,7 +85,7 @@ class PopupViewController: NSViewController {
     
     private func updateViews() {
 
-        self.view.frame = CGRect(x: 0, y: 0, width: 450, height: 180)
+        self.view.frame = CGRect(x: 0, y: 0, width: MAX_WIDTH, height: MIN_HEIGHT)
 
         var sumHeight = self.views.map { (view) -> CGFloat in
             print("height \(view.bounds.height)")
@@ -96,10 +96,13 @@ class PopupViewController: NSViewController {
             sumHeight = MIN_HEIGHT
         }
 
-        let maxWidth = self.views.map { (view) -> CGFloat in
-            return view.bounds.width
-            }.max() ?? MIN_WIDTH
+//        let maxWidth = self.views.map { (view) -> CGFloat in
+//            print("height \(view.bounds.width)")
+//            return view.bounds.width
+//            }.max() ?? MIN_WIDTH
 
+        let maxWidth = MAX_WIDTH
+        
         print("Max Width: \(maxWidth)")
         print("Sum Height: \(sumHeight)")
         
