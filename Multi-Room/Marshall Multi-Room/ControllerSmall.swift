@@ -15,7 +15,7 @@ class ControllerSmall: SHViewController, TableSeparator {
     @IBOutlet weak var volumeSlider: NSSlider!
     
     @IBAction func volumeChanged(_ sender: NSSlider) {
-        
+        self.volumeChangedHandler?(sender.doubleValue)
     }
     
     private var viewHasLoaded = false
@@ -75,6 +75,8 @@ class ControllerSmall: SHViewController, TableSeparator {
             }
         }
     }
+    
+    var volumeChangedHandler: ((Double) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()

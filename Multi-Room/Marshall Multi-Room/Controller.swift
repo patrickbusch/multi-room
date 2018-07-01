@@ -131,6 +131,9 @@ class Controller: MarshallViewController, Showable, HasTitle {
         
         self.controllerSmall.sliderEnabled = false
         self.controllerSmall.sliderHidden = true
+        self.controllerSmall.volumeChangedHandler = { (value) in
+           self.send(.SysAudioVolume, value: value)
+        }
         
         self.volumeLabel.stringValue = NSLocalizedString("Volume", comment: "")
         self.bassLabel.stringValue = NSLocalizedString("Bass", comment: "")
@@ -170,6 +173,7 @@ class Controller: MarshallViewController, Showable, HasTitle {
         switch kv.0 {
         case .SysInfoFriendlyname:
             self.defaultTableSeparator.leftTitle = kv.1
+            self.controllerSmall.leftTitle = NSLocalizedString("Volume", comment: "")
             
         case .SysAudioVolume:
             if let vol = Double(kv.1) {

@@ -35,11 +35,11 @@
                                     </textFieldCell>
                                 </textField>
                                 <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iOh-Jc-qz1">
-                                    <rect key="frame" x="198" y="1" width="204" height="19"/>
+                                    <rect key="frame" x="198" y="-3" width="204" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="200" id="RZb-Gb-9Db"/>
                                     </constraints>
-                                    <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="32" doubleValue="15" tickMarkPosition="above" sliderType="linear" id="qo2-66-BVA"/>
+                                    <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="32" doubleValue="15" tickMarkPosition="above" numberOfTickMarks="11" sliderType="linear" id="qo2-66-BVA"/>
                                     <connections>
                                         <action selector="volumeChanged:" target="-2" id="MgW-d1-9j1"/>
                                     </connections>
