@@ -7,7 +7,7 @@
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="TableSeparator" customModule="Multi_Room">
+        <customObject id="-2" userLabel="File's Owner" customClass="DefaultTableSeparator" customModule="Multi_Room" customModuleProvider="target">
             <connections>
                 <outlet property="left" destination="VkS-Fa-u8Q" id="VGc-PF-K68"/>
                 <outlet property="right" destination="lJN-42-4gR" id="sGt-vT-r7Q"/>

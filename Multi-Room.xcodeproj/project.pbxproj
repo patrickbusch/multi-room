@@ -25,7 +25,7 @@
 		1D6253342098C396004573FD /* TestMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6253332098C396004573FD /* TestMenuItem.swift */; };
 		1D6253362098C3CB004573FD /* TestPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6253352098C3CB004573FD /* TestPopoverView.swift */; };
 		1D6BC87620BD613600AC72CB /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6BC87520BD613600AC72CB /* Enums.swift */; };
-		1D787ADA20D315D7000C7763 /* TableSeparator.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D91F90420D3129E00B30A41 /* TableSeparator.xib */; };
+		1D787ADA20D315D7000C7763 /* DefaultTableSeparator.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D91F90420D3129E00B30A41 /* DefaultTableSeparator.xib */; };
 		1D7AA4B82098E9630069FD9D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D7AA4BA2098E9630069FD9D /* Localizable.strings */; };
 		1D7CFB3620B4AA1100489902 /* MarshallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7CFB3520B4AA1100489902 /* MarshallViewController.swift */; };
 		1D7CFB3820B93E4400489902 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D7CFB3720B93E4400489902 /* Localizable.strings */; };
@@ -34,7 +34,7 @@
 		1D7CFB4520B9B3CA00489902 /* Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D7CFB4420B9B3CA00489902 /* Controller.xib */; };
 		1D9098C620A8813F00A3817F /* MarshallMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9098C520A8813F00A3817F /* MarshallMenuItem.swift */; };
 		1D9098C820A8817600A3817F /* MarshallAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9098C720A8817600A3817F /* MarshallAPI.swift */; };
-		1D91F90620D312A200B30A41 /* TableSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91F90520D312A100B30A41 /* TableSeparator.swift */; };
+		1D91F90620D312A200B30A41 /* DefaultTableSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91F90520D312A100B30A41 /* DefaultTableSeparator.swift */; };
 		1DA0DA7F20DFEA89000E7657 /* NSWindowExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0DA7E20DFEA89000E7657 /* NSWindowExtensions.swift */; };
 		1DA0DA8120E2E257000E7657 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0DA8020E2E257000E7657 /* TitleView.swift */; };
 		1DA0DA8320E675B8000E7657 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0DA8220E675B8000E7657 /* Colors.swift */; };
@@ -75,8 +75,8 @@
 		1D7CFB4420B9B3CA00489902 /* Controller.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Controller.xib; sourceTree = "<group>"; };
 		1D9098C520A8813F00A3817F /* MarshallMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallMenuItem.swift; sourceTree = "<group>"; };
 		1D9098C720A8817600A3817F /* MarshallAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallAPI.swift; sourceTree = "<group>"; };
-		1D91F90420D3129E00B30A41 /* TableSeparator.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableSeparator.xib; sourceTree = "<group>"; };
-		1D91F90520D312A100B30A41 /* TableSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSeparator.swift; sourceTree = "<group>"; };
+		1D91F90420D3129E00B30A41 /* DefaultTableSeparator.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefaultTableSeparator.xib; sourceTree = "<group>"; };
+		1D91F90520D312A100B30A41 /* DefaultTableSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTableSeparator.swift; sourceTree = "<group>"; };
 		1DA0DA7E20DFEA89000E7657 /* NSWindowExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWindowExtensions.swift; sourceTree = "<group>"; };
 		1DA0DA8020E2E257000E7657 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		1DA0DA8220E675B8000E7657 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -161,8 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				1D7CFB4220B9809F00489902 /* NSViewExtensions.swift */,
-				1D91F90520D312A100B30A41 /* TableSeparator.swift */,
-				1D91F90420D3129E00B30A41 /* TableSeparator.xib */,
+				1D91F90520D312A100B30A41 /* DefaultTableSeparator.swift */,
+				1D91F90420D3129E00B30A41 /* DefaultTableSeparator.xib */,
 				1DA0DA7E20DFEA89000E7657 /* NSWindowExtensions.swift */,
 				1DA0DA8020E2E257000E7657 /* TitleView.swift */,
 				1DA0DA8220E675B8000E7657 /* Colors.swift */,
@@ -271,7 +271,7 @@
 				1D7AA4B82098E9630069FD9D /* Localizable.strings in Resources */,
 				1D6253202098AA68004573FD /* Localizable.strings in Resources */,
 				1D625311209859B3004573FD /* Main.storyboard in Resources */,
-				1D787ADA20D315D7000C7763 /* TableSeparator.xib in Resources */,
+				1D787ADA20D315D7000C7763 /* DefaultTableSeparator.xib in Resources */,
 				1D0A79DE20A4BF2B00C0DBB7 /* Playground.xib in Resources */,
 				1D7CFB4520B9B3CA00489902 /* Controller.xib in Resources */,
 				1D7CFB3820B93E4400489902 /* Localizable.strings in Resources */,
@@ -347,7 +347,7 @@
 				1DE7A85220B2F0AB00F05395 /* MarshallAPIValue.swift in Sources */,
 				1D7CFB3C20B93F0400489902 /* Controller.swift in Sources */,
 				1D7CFB3620B4AA1100489902 /* MarshallViewController.swift in Sources */,
-				1D91F90620D312A200B30A41 /* TableSeparator.swift in Sources */,
+				1D91F90620D312A200B30A41 /* DefaultTableSeparator.swift in Sources */,
 				1D4EACC820A87A5000E058E5 /* MarshallSettings.swift in Sources */,
 				1DA0DA8320E675B8000E7657 /* Colors.swift in Sources */,
 				1D6BC87620BD613600AC72CB /* Enums.swift in Sources */,

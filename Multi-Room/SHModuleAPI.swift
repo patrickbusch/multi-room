@@ -32,6 +32,16 @@ protocol Showable {
     var isShown: Bool {get set}
 }
 
+protocol TableSeparator {
+    
+    var view: NSView {get set}
+    var leftTitle: String {get set}
+    var rightTitle: String {get set}
+    var background: NSColor {get set}
+    var fontColor: NSColor {get set}
+    
+}
+
 protocol HasTitle {
     
     var titleView: TableSeparator {get}

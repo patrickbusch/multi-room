@@ -8,7 +8,7 @@
 import Foundation
 import Cocoa
 
-class TableSeparator: SHViewController {
+class DefaultTableSeparator: SHViewController, TableSeparator {
     
     @IBOutlet weak var left: NSTextField!
     

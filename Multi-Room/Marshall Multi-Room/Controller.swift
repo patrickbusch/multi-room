@@ -59,7 +59,7 @@ class Controller: MarshallViewController, Showable, HasTitle {
     
     var isOpen: Bool = true
     
-    var titleView: TableSeparator = TableSeparator()
+    var titleView: TableSeparator = DefaultTableSeparator()
     
     private var timer: Timer?
     
