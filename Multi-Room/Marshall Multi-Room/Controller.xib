@@ -26,7 +26,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mhs-Jd-Xou">
-                    <rect key="frame" x="0.0" y="-0.5" width="400" height="80"/>
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="80"/>
                     <subviews>
                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="XmW-di-YkH">
                             <rect key="frame" x="20" y="0.0" width="360" height="80"/>
@@ -44,7 +44,7 @@
                                         </textField>
                                         <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eUK-JN-nav">
                                             <rect key="frame" x="47" y="-3" width="24" height="85"/>
-                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="32" doubleValue="15" tickMarkPosition="left" numberOfTickMarks="11" sliderType="linear" id="VGZ-wi-aFw"/>
+                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="32" doubleValue="15" tickMarkPosition="left" numberOfTickMarks="11" sliderType="linear" id="VGZ-wi-aFw" customClass="SHSliderCell" customModule="Multi_Room" customModuleProvider="target"/>
                                             <connections>
                                                 <action selector="volumeChanged:" target="-2" id="oit-6T-qss"/>
                                             </connections>
@@ -59,7 +59,7 @@
                                         </textField>
                                         <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kgj-AM-XDm">
                                             <rect key="frame" x="109" y="-3" width="24" height="85"/>
-                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="10" doubleValue="5" tickMarkPosition="left" numberOfTickMarks="11" allowsTickMarkValuesOnly="YES" sliderType="linear" id="1Zv-MB-0V8"/>
+                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="10" doubleValue="5" tickMarkPosition="left" numberOfTickMarks="11" allowsTickMarkValuesOnly="YES" sliderType="linear" id="1Zv-MB-0V8" customClass="SHSliderCell" customModule="Multi_Room" customModuleProvider="target"/>
                                             <connections>
                                                 <action selector="bassChanged:" target="-2" id="SLA-cJ-aOD"/>
                                             </connections>
@@ -74,7 +74,7 @@
                                         </textField>
                                         <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uje-EP-7k1">
                                             <rect key="frame" x="179" y="-3" width="24" height="85"/>
-                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="10" doubleValue="5" tickMarkPosition="left" numberOfTickMarks="11" allowsTickMarkValuesOnly="YES" sliderType="linear" id="1gA-Dh-ULa"/>
+                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="10" doubleValue="5" tickMarkPosition="left" numberOfTickMarks="11" allowsTickMarkValuesOnly="YES" sliderType="linear" id="1gA-Dh-ULa" customClass="SHSliderCell" customModule="Multi_Room" customModuleProvider="target"/>
                                             <connections>
                                                 <action selector="trebleChanged:" target="-2" id="SQE-Dd-4Y4"/>
                                             </connections>

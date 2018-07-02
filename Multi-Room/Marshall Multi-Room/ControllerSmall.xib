@@ -39,7 +39,7 @@
                                     <constraints>
                                         <constraint firstAttribute="width" constant="200" id="RZb-Gb-9Db"/>
                                     </constraints>
-                                    <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="32" doubleValue="15" tickMarkPosition="above" numberOfTickMarks="11" sliderType="linear" id="qo2-66-BVA"/>
+                                    <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="32" doubleValue="15" tickMarkPosition="above" numberOfTickMarks="11" sliderType="linear" id="qo2-66-BVA" customClass="SHSliderCell" customModule="Multi_Room" customModuleProvider="target"/>
                                     <connections>
                                         <action selector="volumeChanged:" target="-2" id="MgW-d1-9j1"/>
                                     </connections>

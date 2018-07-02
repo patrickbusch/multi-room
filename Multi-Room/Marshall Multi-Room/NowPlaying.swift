@@ -191,6 +191,7 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
         
         self.prevButton.image = #imageLiteral(resourceName: "Prev").withTintColor(tintColor: self.contentFontColor)
         self.nextButton.image = #imageLiteral(resourceName: "Next").withTintColor(tintColor: self.contentFontColor)
+        self.playButton.image = #imageLiteral(resourceName: "Play").withTintColor(tintColor: self.contentFontColor)
         
         self.nowPlayingSmall.prevButtonImage = #imageLiteral(resourceName: "Prev").withTintColor(tintColor: self.titleFontColor)
         self.nowPlayingSmall.nextButtonImage = #imageLiteral(resourceName: "Next").withTintColor(tintColor: self.titleFontColor)

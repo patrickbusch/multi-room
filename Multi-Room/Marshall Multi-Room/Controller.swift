@@ -147,6 +147,18 @@ class Controller: MarshallViewController, Showable, HasTitle {
         self.bassSlider.isEnabled = false
         self.trebleSlider.isEnabled = false
         
+        if let slider = self.volumeSlider.cell as? SHSliderCell {
+            slider.color = self.contentFontColor
+        }
+        
+        if let slider = self.bassSlider.cell as? SHSliderCell {
+            slider.color = self.contentFontColor
+        }
+        
+        if let slider = self.trebleSlider.cell as? SHSliderCell {
+            slider.color = self.contentFontColor
+        }
+        
         self.elements.isHidden = true
         self.elements.backgroundColor = NSColor.clear
     }

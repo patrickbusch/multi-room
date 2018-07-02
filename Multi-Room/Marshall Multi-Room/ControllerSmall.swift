@@ -40,6 +40,9 @@ class ControllerSmall: SHViewController, TableSeparator {
         willSet {
             if (viewHasLoaded) {
                 self.left.textColor = newValue
+                if let slider = self.volumeSlider.cell as? SHSliderCell {
+                    slider.color = newValue
+                }
             }
         }
     }
@@ -86,10 +89,15 @@ class ControllerSmall: SHViewController, TableSeparator {
         self.left.textColor = self.fontColor
         self.left.stringValue = self.leftTitle
         
+        
         self.volumeSlider.doubleValue = self.currentVolume
         self.volumeSlider.maxValue = self.volumeSteps
         self.volumeSlider.isEnabled = self.sliderEnabled
         self.volumeSlider.isHidden = self.sliderHidden
+        
+        if let slider = self.volumeSlider.cell as? SHSliderCell {
+            slider.color = self.fontColor
+        }
         
 
         self.viewHasLoaded = true

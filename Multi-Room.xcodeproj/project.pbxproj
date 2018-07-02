@@ -43,6 +43,7 @@
 		1DB0282D20E9014E00408AF3 /* ControllerSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0282C20E9014E00408AF3 /* ControllerSmall.swift */; };
 		1DB0282F20E9016700408AF3 /* ControllerSmall.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DB0282E20E9016700408AF3 /* ControllerSmall.xib */; };
 		1DB0283120E9531A00408AF3 /* NSImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0283020E9531A00408AF3 /* NSImageExtensions.swift */; };
+		1DB0283320E9645400408AF3 /* SHSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0283220E9645400408AF3 /* SHSliderCell.swift */; };
 		1DB10FF62098CD5100133D2B /* MenuHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB10FF52098CD5100133D2B /* MenuHandler.swift */; };
 		1DC9117F20A70E0400970616 /* MarshallModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9117E20A70E0400970616 /* MarshallModule.swift */; };
 		1DE7A85220B2F0AB00F05395 /* MarshallAPIValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE7A85120B2F0AB00F05395 /* MarshallAPIValue.swift */; };
@@ -90,6 +91,7 @@
 		1DB0282C20E9014E00408AF3 /* ControllerSmall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerSmall.swift; sourceTree = "<group>"; };
 		1DB0282E20E9016700408AF3 /* ControllerSmall.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ControllerSmall.xib; sourceTree = "<group>"; };
 		1DB0283020E9531A00408AF3 /* NSImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImageExtensions.swift; sourceTree = "<group>"; };
+		1DB0283220E9645400408AF3 /* SHSliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHSliderCell.swift; sourceTree = "<group>"; };
 		1DB10FF52098CD5100133D2B /* MenuHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHandler.swift; sourceTree = "<group>"; };
 		1DC9117E20A70E0400970616 /* MarshallModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallModule.swift; sourceTree = "<group>"; };
 		1DE7A85120B2F0AB00F05395 /* MarshallAPIValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallAPIValue.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				1DA0DA8020E2E257000E7657 /* TitleView.swift */,
 				1DA0DA8220E675B8000E7657 /* Colors.swift */,
 				1DB0283020E9531A00408AF3 /* NSImageExtensions.swift */,
+				1DB0283220E9645400408AF3 /* SHSliderCell.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				1D6253272098AD97004573FD /* EventMonitor.swift in Sources */,
 				1DE7A85820B3630D00F05395 /* MarshallPopoverView.swift in Sources */,
 				1DC9117F20A70E0400970616 /* MarshallModule.swift in Sources */,
+				1DB0283320E9645400408AF3 /* SHSliderCell.swift in Sources */,
 				1D6253322098C33A004573FD /* TestModule.swift in Sources */,
 				1D62532D2098B7EF004573FD /* SHModuleAPI.swift in Sources */,
 				1DB0282B20E8FD1D00408AF3 /* NowPlayingSmall.swift in Sources */,
