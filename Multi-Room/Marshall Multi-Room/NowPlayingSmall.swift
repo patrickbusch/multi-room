@@ -80,6 +80,53 @@ class NowPlayingSmall: SHViewController, TableSeparator {
         }
     }
     
+    var prevButtonHidden: Bool = true {
+        willSet {
+            if (viewHasLoaded) {
+                self.prevButton.isHidden = newValue
+            }
+        }
+    }
+
+    var prevButtonEnabled: Bool = false {
+        willSet {
+            if (viewHasLoaded) {
+                self.prevButton.isEnabled = newValue
+            }
+        }
+    }
+
+    var playPauseButtonHidden: Bool = true {
+        willSet {
+            if (viewHasLoaded) {
+                self.playPauseButton.isHidden = newValue
+            }
+        }
+    }
+    
+    var playPauseButtonEnabled: Bool = false {
+        willSet {
+            if (viewHasLoaded) {
+                self.playPauseButton.isEnabled = newValue
+            }
+        }
+    }
+    
+    var nextButtonHidden: Bool = true {
+        willSet {
+            if (viewHasLoaded) {
+                self.nextButton.isHidden = newValue
+            }
+        }
+    }
+    
+    var nextButtonEnabled: Bool = false {
+        willSet {
+            if (viewHasLoaded) {
+                self.nextButton.isEnabled = newValue
+            }
+        }
+    }
     var prevButtonPressedHandler: (() -> ())?
     var playPauseButtonPressedHandler: (() -> ())?
     var nextButtonPressedHandler: (() -> ())?
@@ -95,6 +142,13 @@ class NowPlayingSmall: SHViewController, TableSeparator {
         self.prevButton.image = self.prevButtonImage
         self.playPauseButton.image = self.playPauseButtonImage
         self.nextButton.image = self.nextButtonImage
+        
+        self.prevButton.isHidden = self.prevButtonHidden
+        self.prevButton.isEnabled = self.prevButtonEnabled
+        self.playPauseButton.isHidden = self.playPauseButtonHidden
+        self.playPauseButton.isEnabled = self.playPauseButtonEnabled
+        self.nextButton.isHidden = self.nextButtonHidden
+        self.nextButton.isEnabled = self.nextButtonEnabled
         
         self.viewHasLoaded = true
     }

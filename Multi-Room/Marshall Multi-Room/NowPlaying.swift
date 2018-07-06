@@ -249,22 +249,27 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
         switch input.playingType {
         case .None:
             self.playButton.isHidden = true
+            self.nowPlayingSmall.playPauseButtonHidden = true
         case .PlayStop:
             if (self.currentPlayState == .Playing) {
                 self.playButton.image = #imageLiteral(resourceName: "Stop").withTintColor(tintColor: self.contentFontColor)
                 self.nowPlayingSmall.playPauseButtonImage = #imageLiteral(resourceName: "Stop").withTintColor(tintColor: self.titleFontColor)
             }
             self.playButton.isHidden = false
+            self.nowPlayingSmall.playPauseButtonHidden = false
         case .PlayPause:
             if (self.currentPlayState == .Playing) {
                 self.playButton.image = #imageLiteral(resourceName: "Pause").withTintColor(tintColor: self.contentFontColor)
                 self.nowPlayingSmall.playPauseButtonImage = #imageLiteral(resourceName: "Pause").withTintColor(tintColor: self.titleFontColor)
             }
             self.playButton.isHidden = false
+            self.nowPlayingSmall.playPauseButtonHidden = false
         }
         
         self.prevButton.isHidden = !input.canSkip
         self.nextButton.isHidden = !input.canSkip
+        self.nowPlayingSmall.prevButtonHidden = !input.canSkip
+        self.nowPlayingSmall.nextButtonHidden = !input.canSkip
     }
     
     private func setPlayState(_ optPlayState: PlayState?) {
