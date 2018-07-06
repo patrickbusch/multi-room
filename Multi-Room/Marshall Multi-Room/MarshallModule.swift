@@ -44,6 +44,8 @@ class MarshallModule: SHModule {
                 
                 MarshallMenuItem(self._identifier, name: "Get Duration, Position", action: { () in self.api.getParams([MarshallAPIValue.PlayInfoDuration, .PlayPosition], successCallback: self.printValues)}),
                 
+                MarshallMenuItem(self._identifier, name: "Get Presets", action: { () in self.api.getList(MarshallAPIValue.NavPresets, maxItems: 7, successCallback: self.printValues)}),
+                
             ]
             
             
@@ -70,6 +72,12 @@ extension MarshallModule {
     func printValues(_ values: [MarshallAPIValue : String]) {
         values.keys.forEach({ (key) in
             print("\(key) : \(values[key]!)")
+        })
+    }
+    
+    func printValues(_ values: [Preset]) {
+        values.forEach({ (preset) in
+            print("name: \(preset.name ?? ""); type: \(preset.type ?? ""); artworkUrl: \(preset.artworkUrl ?? "")")
         })
     }
 }

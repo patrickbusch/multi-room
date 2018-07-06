@@ -95,4 +95,78 @@ class MarshallAPI {
         
         return getParams
     }
+    
+    func getList(_ param: MarshallAPIValue,  maxItems: Int,
+                   successCallback: @escaping ([Preset]) -> ()) {
+        
+        guard let base = self.baseUrl else {
+            print("Cannot continue")
+            return
+        }
+        
+        let parameters = "?pin=\(self.pin)&maxItems=\(maxItems)"
+        print("\(base)LIST_GET_NEXT/\(param.rawValue)/-1\(parameters)")
+        Alamofire.request("\(base)LIST_GET_NEXT/\(param.rawValue)/-1\(parameters)").responseString { (response) in
+            
+            if let data = response.data {
+                let xml = SWXMLHash.parse(data)
+                
+                var result = [Preset]()
+                
+                let fsApiResponse = xml["fsapiResponse"]
+                
+                let state = fsApiResponse["status"].element?.text ?? ""
+
+                guard state == self.okayState else {
+                    successCallback(result)
+                    return
+                }
+                
+                
+                fsApiResponse.children.filter({ (child) -> Bool in
+                    child.element?.name == "item"
+                }).forEach({ (item) in
+                    let preset = Preset()
+                    
+                    preset.key = item.value(ofAttribute: "key")
+                    
+                    item.children.filter({ (child) -> Bool in
+                        child.element?.name == "field"
+                    }).forEach({ (field) in
+//                        field.va
+                        do {
+                            preset.name = try ((field.withAttribute("name", "name").element?.children[0] as? SWXMLHash.XMLElement)?.children[0] as? TextElement)?.text ?? ""
+                        } catch {
+                            //do nothing
+                        }
+                        
+                        do {
+                            preset.type = try ((field.withAttribute("name", "type").element?.children[0] as? SWXMLHash.XMLElement)?.children[0] as? TextElement)?.text ?? ""
+                        } catch {
+                            //do nothing
+                        }
+                        
+                        do {
+                            preset.artworkUrl = try ((field.withAttribute("name", "artworkurl").element?.children[0] as? SWXMLHash.XMLElement)?.children[0] as? TextElement)?.text ?? ""
+                        } catch {
+                            //do nothing
+                        }
+                    })
+                    
+                    result.append(preset)
+                })
+
+                
+                successCallback(result)
+            }
+        }
+    }
+}
+
+class Preset {
+    
+    var key: Int?
+    var name: String?
+    var type: String?
+    var artworkUrl: String?
 }
