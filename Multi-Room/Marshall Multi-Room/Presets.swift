@@ -12,11 +12,13 @@ class Presets: MarshallViewController, Showable, HasTitle {
     
     @IBOutlet weak var elements: NSView!
 
+    @IBOutlet weak var presetStack: NSStackView!
+    
     var isShown: Bool = false {
         willSet {
             print("isShown: \(newValue)")
             if (newValue) {
-                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.load), userInfo: nil, repeats: true)
+                timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(self.load), userInfo: nil, repeats: true)
             } else {
                 timer?.invalidate()
             }
@@ -54,27 +56,52 @@ class Presets: MarshallViewController, Showable, HasTitle {
     
     private var timer: Timer?
     
+    private func fakePresets() -> [Preset] {
+        
+        let preset1 = Preset()
+        preset1.key = 0
+        preset1.name = "Preset1"
+        preset1.type = "IR"
+
+        let preset2 = Preset()
+        preset2.key = 1
+        preset2.name = "Preset2"
+        preset2.type = "IR"
+        
+        let preset3 = Preset()
+        preset3.key = 2
+        preset3.name = "Preset3"
+        preset3.type = "Spotify"
+        
+        let preset4 = Preset()
+        preset4.key = 3
+        preset4.name = "Preset4"
+        preset4.type = "Spotify"
+        
+        return [preset1, preset2, preset3, preset4]
+    }
+    
     @objc private func load() {
-//        
-//        var dataToLoad: [MarshallAPIValue]?
-//        
-//        if (isOpen) {
-//            dataToLoad = [MarshallAPIValue.SysInfoFriendlyname,
-//                          .SysAudioVolume,
-//                          .SysCapsVolumesteps,
-//                          .SysAudioEqcustomParam0,
-//                          .SysAudioEqcustomParam1
-//            ]
-//        } else {
-//            dataToLoad = [.SysAudioVolume]
-//        }
-//        
-//        guard dataToLoad?.count ?? 0 > 0 else {
-//            print("nothing to load")
-//            return
-//        }
-//        
-//        self.api!.getParams(dataToLoad!, successCallback: self.updateValues)
+    
+        
+//        self.api!.getList(MarshallAPIValue.NavPresets, maxItems: 7, successCallback: self.showPresets)
+        self.showPresets(fakePresets())
+        
+        var dataToLoad: [MarshallAPIValue]?
+        
+        if (isOpen) {
+            dataToLoad = [MarshallAPIValue.SysInfoFriendlyname
+            ]
+        } else {
+            dataToLoad = []
+        }
+        
+        guard dataToLoad?.count ?? 0 > 0 else {
+            print("nothing to load")
+            return
+        }
+        
+        self.api!.getParams(dataToLoad!, successCallback: self.updateValues)
     }
     
     override func viewDidLoad() {
@@ -111,8 +138,7 @@ class Presets: MarshallViewController, Showable, HasTitle {
         self.elements.isHidden = true
         self.elements.backgroundColor = NSColor.clear
     }
-    
-    
+
     private func startLoading() {
         self.defaultTableSeparator.leftTitle = NSLocalizedString("Loading", comment: "")
         self.presetsSmall.leftTitle = NSLocalizedString("Loading", comment: "")
@@ -125,8 +151,6 @@ class Presets: MarshallViewController, Showable, HasTitle {
     private func updateValues(_ values: [MarshallAPIValue : String]) {
       
         values.forEach(update)
-        
-        self.stopLoading()
     }
     
     private func update(_ kv: (MarshallAPIValue, String)) {
@@ -138,5 +162,19 @@ class Presets: MarshallViewController, Showable, HasTitle {
         default:
             print("Nothing to do for key \(kv.0)")
         }
+    }
+    
+    private func showPresets(_ presets: [Preset]) {
+        presets.forEach { (preset) in
+            print(preset.name ?? "")
+            
+            let presetView = PresetView()
+            presetView.topTitle = preset.type ?? ""
+            presetView.bottomTitle = preset.name ?? ""
+            
+            self.presetStack.addView(presetView.view, in: NSStackView.Gravity.leading)
+        }
+        
+        self.stopLoading()
     }
 }

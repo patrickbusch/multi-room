@@ -39,6 +39,8 @@
 		1D9E893A20F0DB0A00D253CC /* Presets.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D9E893920F0DB0A00D253CC /* Presets.xib */; };
 		1D9E893C20F0DB1400D253CC /* PresetsSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9E893B20F0DB1400D253CC /* PresetsSmall.swift */; };
 		1D9E893E20F0DB3500D253CC /* PresetsSmall.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D9E893D20F0DB3500D253CC /* PresetsSmall.xib */; };
+		1D9E894020F0F95C00D253CC /* PresetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D9E893F20F0F95C00D253CC /* PresetView.xib */; };
+		1D9E894220F0F99E00D253CC /* PresetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9E894120F0F99E00D253CC /* PresetView.swift */; };
 		1DA0DA7F20DFEA89000E7657 /* NSWindowExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0DA7E20DFEA89000E7657 /* NSWindowExtensions.swift */; };
 		1DA0DA8120E2E257000E7657 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0DA8020E2E257000E7657 /* TitleView.swift */; };
 		1DA0DA8320E675B8000E7657 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0DA8220E675B8000E7657 /* Colors.swift */; };
@@ -91,6 +93,8 @@
 		1D9E893920F0DB0A00D253CC /* Presets.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Presets.xib; sourceTree = "<group>"; };
 		1D9E893B20F0DB1400D253CC /* PresetsSmall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresetsSmall.swift; sourceTree = "<group>"; };
 		1D9E893D20F0DB3500D253CC /* PresetsSmall.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PresetsSmall.xib; sourceTree = "<group>"; };
+		1D9E893F20F0F95C00D253CC /* PresetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PresetView.xib; sourceTree = "<group>"; };
+		1D9E894120F0F99E00D253CC /* PresetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresetView.swift; sourceTree = "<group>"; };
 		1DA0DA7E20DFEA89000E7657 /* NSWindowExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWindowExtensions.swift; sourceTree = "<group>"; };
 		1DA0DA8020E2E257000E7657 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		1DA0DA8220E675B8000E7657 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -212,6 +216,8 @@
 				1D9E893920F0DB0A00D253CC /* Presets.xib */,
 				1D9E893B20F0DB1400D253CC /* PresetsSmall.swift */,
 				1D9E893D20F0DB3500D253CC /* PresetsSmall.xib */,
+				1D9E894120F0F99E00D253CC /* PresetView.swift */,
+				1D9E893F20F0F95C00D253CC /* PresetView.xib */,
 				1DE7A85720B3630D00F05395 /* MarshallPopoverView.swift */,
 				1D7CFB3520B4AA1100489902 /* MarshallViewController.swift */,
 				1D7CFB3720B93E4400489902 /* Localizable.strings */,
@@ -297,6 +303,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D9E894020F0F95C00D253CC /* PresetView.xib in Resources */,
 				1D62530E209859B3004573FD /* Assets.xcassets in Resources */,
 				1D7AA4B82098E9630069FD9D /* Localizable.strings in Resources */,
 				1D6253202098AA68004573FD /* Localizable.strings in Resources */,
@@ -372,6 +379,7 @@
 				1DE7A85820B3630D00F05395 /* MarshallPopoverView.swift in Sources */,
 				1DC9117F20A70E0400970616 /* MarshallModule.swift in Sources */,
 				1DB0283320E9645400408AF3 /* SHSlider.swift in Sources */,
+				1D9E894220F0F99E00D253CC /* PresetView.swift in Sources */,
 				1D6253322098C33A004573FD /* TestModule.swift in Sources */,
 				1D62532D2098B7EF004573FD /* SHModuleAPI.swift in Sources */,
 				1D9E893C20F0DB1400D253CC /* PresetsSmall.swift in Sources */,

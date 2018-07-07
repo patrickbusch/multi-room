@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="PresetView" customModule="Multi_Room" customModuleProvider="target">
+            <connections>
+                <outlet property="bottomLabel" destination="79H-om-whR" id="XHa-nT-K2p"/>
+                <outlet property="imageButton" destination="dCy-m8-54F" id="jYW-g1-k7s"/>
+                <outlet property="topLabel" destination="NhI-4g-Vze" id="6Wi-5Z-ay8"/>
+                <outlet property="view" destination="c22-O7-iKe" id="5yU-oK-hhY"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zVi-Mf-qa3">
+                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NhI-4g-Vze">
+                            <rect key="frame" x="-2" y="65" width="84" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="15" id="IzE-Ee-Koj"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="14" id="mns-MZ-acF"/>
+                            </constraints>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="dWx-IY-yxk">
+                                <font key="font" metaFont="smallSystem"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <button translatesAutoresizingMaskIntoConstraints="NO" id="dCy-m8-54F">
+                            <rect key="frame" x="17" y="17" width="46" height="46"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="dCy-m8-54F" secondAttribute="height" multiplier="1:1" id="7u5-Hk-N76"/>
+                                <constraint firstAttribute="height" constant="46" id="9Gd-eL-AhG"/>
+                            </constraints>
+                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="0Dj-vb-JlH">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </button>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="79H-om-whR">
+                            <rect key="frame" x="-2" y="0.0" width="84" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="15" id="G1e-2n-ieL"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="14" id="aJ5-z7-26n"/>
+                            </constraints>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="Nzn-ZQ-pOI">
+                                <font key="font" metaFont="smallSystem"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="NhI-4g-Vze" firstAttribute="width" secondItem="zVi-Mf-qa3" secondAttribute="width" id="18s-jl-7Mk"/>
+                        <constraint firstItem="79H-om-whR" firstAttribute="width" secondItem="zVi-Mf-qa3" secondAttribute="width" id="ZRX-OE-fFG"/>
+                    </constraints>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="zVi-Mf-qa3" firstAttribute="width" secondItem="c22-O7-iKe" secondAttribute="width" id="XCp-or-iDl"/>
+                <constraint firstItem="zVi-Mf-qa3" firstAttribute="height" secondItem="c22-O7-iKe" secondAttribute="height" id="eC4-vd-7gi"/>
+                <constraint firstItem="zVi-Mf-qa3" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="fSP-Re-dzg"/>
+                <constraint firstItem="zVi-Mf-qa3" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="txZ-kW-0He"/>
+            </constraints>
+            <point key="canvasLocation" x="27" y="61"/>
+        </customView>
+        <button id="ow0-h4-tpM">
+            <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="yVT-lF-Oyg">
+                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                <font key="font" metaFont="system"/>
+            </buttonCell>
+        </button>
+    </objects>
+</document>

@@ -10,6 +10,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="Presets" customModule="Multi_Room" customModuleProvider="target">
             <connections>
                 <outlet property="elements" destination="XmW-di-YkH" id="bzV-Da-q3P"/>
+                <outlet property="presetStack" destination="FA3-vv-WKD" id="lLw-wb-eOc"/>
                 <outlet property="view" destination="c22-O7-iKe" id="5yU-oK-hhY"/>
             </connections>
         </customObject>
