@@ -67,25 +67,25 @@ class SHSliderCell: NSSliderCell {
     
     override func drawBar(inside aRect: NSRect, flipped: Bool) {
         
-        guard let slider = controlView as? NSSlider else {
-            return
-        }
-        
-        if (slider.isVertical) {
-            var rect = aRect
-            rect.size.width = CGFloat(5)
-            let barRadius = CGFloat(0)
-            let bg = NSBezierPath(roundedRect: rect, xRadius: barRadius, yRadius: barRadius)
-            self.color.setFill()
-            bg.fill()
-        }
-        else {
-            var rect = aRect
-            rect.size.height = CGFloat(5)
-            let barRadius = CGFloat(0)
-            let bg = NSBezierPath(roundedRect: rect, xRadius: barRadius, yRadius: barRadius)
-            self.color.setFill()
-            bg.fill()
-        }
+//        guard let slider = controlView as? NSSlider else {
+//            return
+//        }
+//        
+//        if (slider.isVertical) {
+//            var rect = aRect
+//            rect.size.width = CGFloat(5)
+//            let barRadius = CGFloat(0)
+//            let bg = NSBezierPath(roundedRect: rect, xRadius: barRadius, yRadius: barRadius)
+//            self.color.setFill()
+//            bg.fill()
+//        }
+//        else {
+//            var rect = aRect
+//            rect.size.height = CGFloat(5)
+//            let barRadius = CGFloat(0)
+//            let bg = NSBezierPath(roundedRect: rect, xRadius: barRadius, yRadius: barRadius)
+//            self.color.setFill()
+//            bg.fill()
+//        }
     }
 }

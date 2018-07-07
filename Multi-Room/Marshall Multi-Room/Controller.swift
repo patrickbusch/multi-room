@@ -143,7 +143,7 @@ class Controller: MarshallViewController, Showable, HasTitle {
         self.bassLabel.textColor = self.contentFontColor
         self.trebleLabel.textColor = self.contentFontColor
 
-        self.volumeSlider.isEnabled = false
+        self.volumeSlider.isEnabled = true
         self.bassSlider.isEnabled = false
         self.trebleSlider.isEnabled = false
         
