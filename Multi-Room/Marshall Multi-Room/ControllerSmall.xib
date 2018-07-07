@@ -34,7 +34,7 @@
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
-                                <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iOh-Jc-qz1">
+                                <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iOh-Jc-qz1" customClass="SHSlider" customModule="Multi_Room" customModuleProvider="target">
                                     <rect key="frame" x="198" y="-3" width="204" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="200" id="RZb-Gb-9Db"/>

@@ -12,24 +12,27 @@ class Controller: MarshallViewController, Showable, HasTitle {
     
     @IBOutlet weak var elements: NSView!
     
-    @IBOutlet weak var volumeSlider: NSSlider!
-    @IBOutlet weak var bassSlider: NSSlider!
-    @IBOutlet weak var trebleSlider: NSSlider!
+    @IBOutlet weak var volumeSlider: SHSlider!
+    @IBOutlet weak var bassSlider: SHSlider!
+    @IBOutlet weak var trebleSlider: SHSlider!
     
     @IBOutlet weak var volumeLabel: NSTextField!
     @IBOutlet weak var bassLabel: NSTextField!
     @IBOutlet weak var trebleLabel: NSTextField!
     
 
-    @IBAction func volumeChanged(_ sender: NSSlider) {
+    @IBAction func volumeChanged(_ sender: SHSlider) {
+        sender.recolorTickMarks()
         self.send(.SysAudioVolume, value: sender.doubleValue)
     }
-
-    @IBAction func bassChanged(_ sender: NSSlider) {
+    
+    @IBAction func bassChanged(_ sender: SHSlider) {
+        sender.recolorTickMarks()
         self.send(.SysAudioEqcustomParam0, value: sender.doubleValue)
     }
     
-    @IBAction func trebleChanged(_ sender: NSSlider) {
+    @IBAction func trebleChanged(_ sender: SHSlider) {
+        sender.recolorTickMarks()
         self.send(.SysAudioEqcustomParam1, value: sender.doubleValue)
     }
     
@@ -128,6 +131,7 @@ class Controller: MarshallViewController, Showable, HasTitle {
         self.controllerSmall.leftTitle = ""
         self.controllerSmall.background = self.titleBackgroundColor
         self.controllerSmall.fontColor = self.titleFontColor
+        self.controllerSmall.activeColor = self.activeColor
         
         self.controllerSmall.sliderEnabled = false
         self.controllerSmall.sliderHidden = true
@@ -143,26 +147,21 @@ class Controller: MarshallViewController, Showable, HasTitle {
         self.bassLabel.textColor = self.contentFontColor
         self.trebleLabel.textColor = self.contentFontColor
 
-        self.volumeSlider.isEnabled = true
+        self.volumeSlider.isEnabled = false
         self.bassSlider.isEnabled = false
         self.trebleSlider.isEnabled = false
         
-        if let slider = self.volumeSlider.cell as? SHSliderCell {
-            slider.color = self.contentFontColor
-        }
+        self.volumeSlider.inactiveColor = self.contentFontColor
+        self.bassSlider.inactiveColor = self.contentFontColor
+        self.trebleSlider.inactiveColor = self.contentFontColor
         
-        if let slider = self.bassSlider.cell as? SHSliderCell {
-            slider.color = self.contentFontColor
-        }
-        
-        if let slider = self.trebleSlider.cell as? SHSliderCell {
-            slider.color = self.contentFontColor
-        }
+        self.volumeSlider.activeColor = self.activeColor
+        self.bassSlider.activeColor = self.activeColor
+        self.trebleSlider.activeColor = self.activeColor
         
         self.elements.isHidden = true
         self.elements.backgroundColor = NSColor.clear
     }
-    
     
     private func startLoading() {
         self.defaultTableSeparator.leftTitle = NSLocalizedString("Loading", comment: "")

@@ -42,7 +42,7 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eUK-JN-nav">
+                                        <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eUK-JN-nav" customClass="SHSlider" customModule="Multi_Room" customModuleProvider="target">
                                             <rect key="frame" x="47" y="-3" width="24" height="85"/>
                                             <sliderCell key="cell" continuous="YES" alignment="left" maxValue="32" doubleValue="15" tickMarkPosition="left" numberOfTickMarks="11" sliderType="linear" id="VGZ-wi-aFw" customClass="SHSliderCell" customModule="Multi_Room" customModuleProvider="target"/>
                                             <connections>
@@ -57,7 +57,7 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kgj-AM-XDm">
+                                        <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kgj-AM-XDm" customClass="SHSlider" customModule="Multi_Room" customModuleProvider="target">
                                             <rect key="frame" x="109" y="-3" width="24" height="85"/>
                                             <sliderCell key="cell" continuous="YES" alignment="left" maxValue="10" doubleValue="5" tickMarkPosition="left" numberOfTickMarks="11" allowsTickMarkValuesOnly="YES" sliderType="linear" id="1Zv-MB-0V8" customClass="SHSliderCell" customModule="Multi_Room" customModuleProvider="target"/>
                                             <connections>
@@ -72,7 +72,7 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uje-EP-7k1">
+                                        <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uje-EP-7k1" customClass="SHSlider" customModule="Multi_Room" customModuleProvider="target">
                                             <rect key="frame" x="179" y="-3" width="24" height="85"/>
                                             <sliderCell key="cell" continuous="YES" alignment="left" maxValue="10" doubleValue="5" tickMarkPosition="left" numberOfTickMarks="11" allowsTickMarkValuesOnly="YES" sliderType="linear" id="1gA-Dh-ULa" customClass="SHSliderCell" customModule="Multi_Room" customModuleProvider="target"/>
                                             <connections>

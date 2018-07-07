@@ -12,9 +12,10 @@ class ControllerSmall: SHViewController, TableSeparator {
     
     @IBOutlet weak var left: NSTextField!
     
-    @IBOutlet weak var volumeSlider: NSSlider!
+    @IBOutlet weak var volumeSlider: SHSlider!
     
-    @IBAction func volumeChanged(_ sender: NSSlider) {
+    @IBAction func volumeChanged(_ sender: SHSlider) {
+        sender.recolorTickMarks()
         self.volumeChangedHandler?(sender.doubleValue)
     }
     
@@ -40,9 +41,16 @@ class ControllerSmall: SHViewController, TableSeparator {
         willSet {
             if (viewHasLoaded) {
                 self.left.textColor = newValue
-                if let slider = self.volumeSlider.cell as? SHSliderCell {
-                    slider.color = newValue
-                }
+                self.volumeSlider.inactiveColor = newValue
+            }
+        }
+    }
+    
+    var activeColor: NSColor = NSColor.black {
+        willSet {
+            if (viewHasLoaded) {
+                self.left.textColor = newValue
+                self.volumeSlider.activeColor = newValue
             }
         }
     }
@@ -94,11 +102,8 @@ class ControllerSmall: SHViewController, TableSeparator {
         self.volumeSlider.maxValue = self.volumeSteps
         self.volumeSlider.isEnabled = self.sliderEnabled
         self.volumeSlider.isHidden = self.sliderHidden
-        
-        if let slider = self.volumeSlider.cell as? SHSliderCell {
-            slider.color = self.fontColor
-        }
-        
+        self.volumeSlider.inactiveColor = self.fontColor
+        self.volumeSlider.activeColor = self.activeColor
 
         self.viewHasLoaded = true
     }

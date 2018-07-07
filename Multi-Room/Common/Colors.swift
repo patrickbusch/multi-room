@@ -44,4 +44,10 @@ class Colors {
             return #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         }
     }
+    
+    static var active: NSColor {
+        get {
+            return #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+        }
+    }
 }

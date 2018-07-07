@@ -15,6 +15,7 @@ class MarshallViewController: SHViewController {
     let contentBackgroundColor = Colors.contentBackground
     let titleFontColor = Colors.titleFont
     let contentFontColor = Colors.contentFont
+    let activeColor = Colors.active
     
     override func viewDidLoad() {
         super.viewDidLoad()
