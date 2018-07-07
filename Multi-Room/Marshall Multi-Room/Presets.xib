@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="Presets" customModule="Multi_Room" customModuleProvider="target">
+            <connections>
+                <outlet property="elements" destination="XmW-di-YkH" id="bzV-Da-q3P"/>
+                <outlet property="view" destination="c22-O7-iKe" id="5yU-oK-hhY"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mhs-Jd-Xou">
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="80"/>
+                    <subviews>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="XmW-di-YkH">
+                            <rect key="frame" x="20" y="0.0" width="360" height="80"/>
+                            <subviews>
+                                <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FA3-vv-WKD">
+                                    <rect key="frame" x="180" y="0.0" width="0.0" height="80"/>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="FA3-vv-WKD" firstAttribute="centerY" secondItem="XmW-di-YkH" secondAttribute="centerY" id="6dj-8t-9nW"/>
+                                <constraint firstItem="FA3-vv-WKD" firstAttribute="centerY" secondItem="XmW-di-YkH" secondAttribute="centerY" id="BoY-mx-Sdo"/>
+                                <constraint firstItem="FA3-vv-WKD" firstAttribute="centerX" secondItem="XmW-di-YkH" secondAttribute="centerX" id="Zcc-jr-Sjn"/>
+                                <constraint firstAttribute="height" constant="80" id="g62-Xt-7d7"/>
+                                <constraint firstItem="FA3-vv-WKD" firstAttribute="height" secondItem="XmW-di-YkH" secondAttribute="height" id="jKz-0d-yqB"/>
+                            </constraints>
+                        </customView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="400" id="qbf-SE-jfX"/>
+                        <constraint firstItem="XmW-di-YkH" firstAttribute="width" secondItem="Mhs-Jd-Xou" secondAttribute="width" constant="-40" id="wXl-T9-m3D"/>
+                    </constraints>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Mhs-Jd-Xou" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="CPs-r3-Gnz"/>
+                <constraint firstItem="Mhs-Jd-Xou" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="YIH-Hf-Pjr"/>
+                <constraint firstItem="Mhs-Jd-Xou" firstAttribute="width" secondItem="c22-O7-iKe" secondAttribute="width" id="fEN-dT-bDm"/>
+            </constraints>
+            <point key="canvasLocation" x="140" y="173"/>
+        </customView>
+    </objects>
+</document>

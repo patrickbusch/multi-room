@@ -57,8 +57,10 @@ class MarshallModule: SHModule {
         get {
             let nowPlayingView = NowPlaying()
             let controllerView = Controller()
+            let presetsView = Presets()
             
             return [
+                MarshallPopoverView(self._identifier, vc: presetsView, api: self.api),
                 MarshallPopoverView(self._identifier, vc: nowPlayingView, api: self.api),
                 MarshallPopoverView(self._identifier, vc: controllerView, api: self.api),
             ]

@@ -35,6 +35,10 @@
 		1D9098C620A8813F00A3817F /* MarshallMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9098C520A8813F00A3817F /* MarshallMenuItem.swift */; };
 		1D9098C820A8817600A3817F /* MarshallAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9098C720A8817600A3817F /* MarshallAPI.swift */; };
 		1D91F90620D312A200B30A41 /* DefaultTableSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91F90520D312A100B30A41 /* DefaultTableSeparator.swift */; };
+		1D9E893820F0DB0100D253CC /* Presets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9E893720F0DB0100D253CC /* Presets.swift */; };
+		1D9E893A20F0DB0A00D253CC /* Presets.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D9E893920F0DB0A00D253CC /* Presets.xib */; };
+		1D9E893C20F0DB1400D253CC /* PresetsSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9E893B20F0DB1400D253CC /* PresetsSmall.swift */; };
+		1D9E893E20F0DB3500D253CC /* PresetsSmall.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D9E893D20F0DB3500D253CC /* PresetsSmall.xib */; };
 		1DA0DA7F20DFEA89000E7657 /* NSWindowExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0DA7E20DFEA89000E7657 /* NSWindowExtensions.swift */; };
 		1DA0DA8120E2E257000E7657 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0DA8020E2E257000E7657 /* TitleView.swift */; };
 		1DA0DA8320E675B8000E7657 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0DA8220E675B8000E7657 /* Colors.swift */; };
@@ -83,6 +87,10 @@
 		1D9098C720A8817600A3817F /* MarshallAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallAPI.swift; sourceTree = "<group>"; };
 		1D91F90420D3129E00B30A41 /* DefaultTableSeparator.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefaultTableSeparator.xib; sourceTree = "<group>"; };
 		1D91F90520D312A100B30A41 /* DefaultTableSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTableSeparator.swift; sourceTree = "<group>"; };
+		1D9E893720F0DB0100D253CC /* Presets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presets.swift; sourceTree = "<group>"; };
+		1D9E893920F0DB0A00D253CC /* Presets.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Presets.xib; sourceTree = "<group>"; };
+		1D9E893B20F0DB1400D253CC /* PresetsSmall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresetsSmall.swift; sourceTree = "<group>"; };
+		1D9E893D20F0DB3500D253CC /* PresetsSmall.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PresetsSmall.xib; sourceTree = "<group>"; };
 		1DA0DA7E20DFEA89000E7657 /* NSWindowExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWindowExtensions.swift; sourceTree = "<group>"; };
 		1DA0DA8020E2E257000E7657 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		1DA0DA8220E675B8000E7657 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -200,6 +208,10 @@
 				1D7CFB4420B9B3CA00489902 /* Controller.xib */,
 				1DB0282C20E9014E00408AF3 /* ControllerSmall.swift */,
 				1DB0282E20E9016700408AF3 /* ControllerSmall.xib */,
+				1D9E893720F0DB0100D253CC /* Presets.swift */,
+				1D9E893920F0DB0A00D253CC /* Presets.xib */,
+				1D9E893B20F0DB1400D253CC /* PresetsSmall.swift */,
+				1D9E893D20F0DB3500D253CC /* PresetsSmall.xib */,
 				1DE7A85720B3630D00F05395 /* MarshallPopoverView.swift */,
 				1D7CFB3520B4AA1100489902 /* MarshallViewController.swift */,
 				1D7CFB3720B93E4400489902 /* Localizable.strings */,
@@ -291,11 +303,13 @@
 				1D625311209859B3004573FD /* Main.storyboard in Resources */,
 				1D787ADA20D315D7000C7763 /* DefaultTableSeparator.xib in Resources */,
 				1DB0282F20E9016700408AF3 /* ControllerSmall.xib in Resources */,
+				1D9E893A20F0DB0A00D253CC /* Presets.xib in Resources */,
 				1DB0282920E8FD0400408AF3 /* NowPlayingSmall.xib in Resources */,
 				1D0A79DE20A4BF2B00C0DBB7 /* Playground.xib in Resources */,
 				1D7CFB4520B9B3CA00489902 /* Controller.xib in Resources */,
 				1D7CFB3820B93E4400489902 /* Localizable.strings in Resources */,
 				1DE7A85620B3614000F05395 /* NowPlaying.xib in Resources */,
+				1D9E893E20F0DB3500D253CC /* PresetsSmall.xib in Resources */,
 				1D5D98CF20A47E0D00FB58B2 /* TestView1.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,6 +374,7 @@
 				1DB0283320E9645400408AF3 /* SHSliderCell.swift in Sources */,
 				1D6253322098C33A004573FD /* TestModule.swift in Sources */,
 				1D62532D2098B7EF004573FD /* SHModuleAPI.swift in Sources */,
+				1D9E893C20F0DB1400D253CC /* PresetsSmall.swift in Sources */,
 				1DB0282B20E8FD1D00408AF3 /* NowPlayingSmall.swift in Sources */,
 				1D5D98D120A47EBF00FB58B2 /* TestView1.swift in Sources */,
 				1D9098C820A8817600A3817F /* MarshallAPI.swift in Sources */,
@@ -378,6 +393,7 @@
 				1DB10FF62098CD5100133D2B /* MenuHandler.swift in Sources */,
 				1DA0DA7F20DFEA89000E7657 /* NSWindowExtensions.swift in Sources */,
 				1DB0283120E9531A00408AF3 /* NSImageExtensions.swift in Sources */,
+				1D9E893820F0DB0100D253CC /* Presets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
