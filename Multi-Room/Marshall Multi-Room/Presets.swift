@@ -18,7 +18,7 @@ class Presets: MarshallViewController, Showable, HasTitle {
         willSet {
             print("isShown: \(newValue)")
             if (newValue) {
-                timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(self.load), userInfo: nil, repeats: true)
+                timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.load), userInfo: nil, repeats: true)
             } else {
                 timer?.invalidate()
             }
@@ -165,6 +165,13 @@ class Presets: MarshallViewController, Showable, HasTitle {
     }
     
     private func showPresets(_ presets: [Preset]) {
+        
+        if presets.count > 0 {
+            self.presetStack.subviews.forEach({ (subview) in
+                self.presetStack.removeView(subview)
+            })
+        }
+        
         presets.forEach { (preset) in
             print(preset.name ?? "")
             
