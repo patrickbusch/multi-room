@@ -198,6 +198,8 @@ class Controller: MarshallViewController, Showable, HasTitle {
                 self.controllerSmall.currentVolume = 0.0
             }
             
+            self.volumeSlider.recolorTickMarks()
+            
         case .SysCapsVolumesteps:
             let steps = Double(kv.1) ?? 33.0
             
@@ -212,6 +214,8 @@ class Controller: MarshallViewController, Showable, HasTitle {
             } else {
                 self.bassSlider.doubleValue = 0.0
             }
+            
+            self.bassSlider.recolorTickMarks()
 
         case .SysAudioEqcustomParam1:
             if let val = Double(kv.1) {
@@ -220,6 +224,8 @@ class Controller: MarshallViewController, Showable, HasTitle {
             } else {
                 self.trebleSlider.doubleValue = 0.0
             }
+            
+            self.trebleSlider.recolorTickMarks()
             
         default:
             print("Nothing to do for key \(kv.0)")

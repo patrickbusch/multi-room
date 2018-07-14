@@ -84,8 +84,8 @@ class Presets: MarshallViewController, Showable, HasTitle {
     @objc private func load() {
     
         
-//        self.api!.getList(MarshallAPIValue.NavPresets, maxItems: 7, successCallback: self.showPresets)
-        self.showPresets(fakePresets())
+        self.api!.getList(MarshallAPIValue.NavPresets, maxItems: 7, successCallback: self.showPresets)
+//        self.showPresets(fakePresets())
         
         var dataToLoad: [MarshallAPIValue]?
         
