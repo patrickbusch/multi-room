@@ -11,6 +11,7 @@ import Cocoa
 class PresetsSmall: SHViewController, TableSeparator {
     
     @IBOutlet weak var left: NSTextField!
+    @IBOutlet weak var right: NSTextField!
     
     private var viewHasLoaded = false
     
@@ -18,6 +19,14 @@ class PresetsSmall: SHViewController, TableSeparator {
         willSet {
             if (viewHasLoaded) {
                 self.left.stringValue = newValue
+            }
+        }
+    }
+    
+    var rightTitle: String = "" {
+        willSet {
+            if (viewHasLoaded) {
+                self.right.stringValue = newValue
             }
         }
     }
@@ -45,6 +54,7 @@ class PresetsSmall: SHViewController, TableSeparator {
         self.view.backgroundColor = self.background
         self.left.textColor = self.fontColor
         self.left.stringValue = self.leftTitle
+        self.right.stringValue = self.rightTitle
         
         self.viewHasLoaded = true
     }

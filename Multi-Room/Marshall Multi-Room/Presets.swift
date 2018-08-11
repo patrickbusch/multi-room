@@ -18,9 +18,11 @@ class Presets: MarshallViewController, Showable, HasTitle {
         willSet {
             print("isShown: \(newValue)")
             if (newValue) {
-                timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(self.load), userInfo: nil, repeats: true)
+                timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.load), userInfo: nil, repeats: true)
+                presetTimer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(self.checkNavAndLoad), userInfo: nil, repeats: true)
             } else {
                 timer?.invalidate()
+                presetTimer?.invalidate()
             }
         }
     }
@@ -55,43 +57,22 @@ class Presets: MarshallViewController, Showable, HasTitle {
     }
     
     private var timer: Timer?
-    
-    private func fakePresets() -> [Preset] {
-        
-        let preset1 = Preset()
-        preset1.key = 0
-        preset1.name = "Preset1"
-        preset1.type = "IR"
+    private var presetTimer: Timer?
 
-        let preset2 = Preset()
-        preset2.key = 1
-        preset2.name = "Preset2"
-        preset2.type = "IR"
-        
-        let preset3 = Preset()
-        preset3.key = 2
-        preset3.name = "Preset3"
-        preset3.type = "Spotify"
-        
-        let preset4 = Preset()
-        preset4.key = 3
-        preset4.name = "Preset4"
-        preset4.type = "Spotify"
-        
-        return [preset1, preset2, preset3, preset4]
+    @objc private func checkNavAndLoad() {
+        self.checkNavState()
     }
     
     @objc private func load() {
-    
-        self.checkNavState()
         
         var dataToLoad: [MarshallAPIValue]?
         
         if (isOpen) {
-            dataToLoad = [MarshallAPIValue.SysInfoFriendlyname
+            dataToLoad = [.SysInfoFriendlyname,
+                          .SysMode
             ]
         } else {
-            dataToLoad = []
+            dataToLoad = [.SysMode]
         }
         
         guard dataToLoad?.count ?? 0 > 0 else {
@@ -125,7 +106,6 @@ class Presets: MarshallViewController, Showable, HasTitle {
     
     private func loadPresets() {
         self.api!.getPresets(MarshallAPIValue.NavPresets, maxItems: 7, successCallback: self.showPresets)
-        //        self.showPresets(fakePresets())
     }
     
     override func viewDidLoad() {
@@ -138,6 +118,7 @@ class Presets: MarshallViewController, Showable, HasTitle {
         self.startLoading()
         
         self.load()
+        self.checkNavAndLoad()
     }
     
 //    private func send(_ apiValue: MarshallAPIValue, value: Double) {
@@ -182,6 +163,17 @@ class Presets: MarshallViewController, Showable, HasTitle {
         case .SysInfoFriendlyname:
             self.defaultTableSeparator.leftTitle = kv.1
             self.presetsSmall.leftTitle = NSLocalizedString("Presets", comment: "")
+           
+        case .SysMode:
+            let intval = Int(kv.1) ?? -1
+            
+            guard let input = self.inputHandler!.byKey(key: intval) else {
+                print("Unknown SysMode \(kv.1)")
+                return
+            }
+            
+            self.defaultTableSeparator.rightTitle = input.label ?? ""
+            self.presetsSmall.rightTitle = input.label ?? ""
             
         default:
             print("Nothing to do for key \(kv.0)")
