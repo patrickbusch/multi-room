@@ -1,5 +1,5 @@
 //
-//  PlayState.swift
+//  Enums.swift
 //  Multi-Room
 //
 //  Created by Patrick Busch on 29.05.18.
@@ -9,25 +9,28 @@ import Cocoa
 
 enum Input: Int {
     
-    // 1: Aux 2: Airplay 3: Spotify 5: Bluetooth 6: Radio-Streaming 7: RCA // 4: Chromecast?
+    // read via LIST_GET_NEXT/netremote.sys.caps.validmodes/-1?pin=1234&maxItems=20
+    //0: Audsync 1: AUXIN 2: Airplay 3: Spotify 4: Google Cast 5: Bluetooth 6: IR 7: RCA 8: Standby 9: castsetup-default
     
+    case Audsync = 0
     case AUX = 1
     case Airplay = 2
     case Spotify = 3
-    case Chromecast = 4
+    case GoogleCast = 4
     case Bluetooth = 5
     case InternetRadio = 6
     case RCA = 7
-    case Unknown = 8 //MayBe Wifi without something playing?
+    case Standby = 8
+    case castsetup = 9
     
     var playingType: PlayingType {
         get {
             switch self {
-            case .AUX, .RCA, .Unknown:
+            case .AUX, .RCA, .Standby, .castsetup, .Audsync:
                 return .None
             case .InternetRadio:
                 return .PlayStop
-            case .Airplay, .Bluetooth, .Spotify, .Chromecast:
+            case .Airplay, .Bluetooth, .Spotify, .GoogleCast:
                 return .PlayPause
             }
         }
@@ -36,9 +39,9 @@ enum Input: Int {
     var canSkip: Bool {
         get {
             switch self {
-            case .AUX, .RCA, .InternetRadio, .Unknown:
+            case .AUX, .RCA, .InternetRadio, .Audsync, .Standby, .castsetup:
                 return false
-            case .Airplay, .Bluetooth, .Spotify, .Chromecast:
+            case .Airplay, .Bluetooth, .Spotify, .GoogleCast:
                 return true
             }
         }

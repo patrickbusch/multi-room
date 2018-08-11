@@ -18,7 +18,7 @@ class Presets: MarshallViewController, Showable, HasTitle {
         willSet {
             print("isShown: \(newValue)")
             if (newValue) {
-                timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.load), userInfo: nil, repeats: true)
+                timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(self.load), userInfo: nil, repeats: true)
             } else {
                 timer?.invalidate()
             }
@@ -83,9 +83,7 @@ class Presets: MarshallViewController, Showable, HasTitle {
     
     @objc private func load() {
     
-        
-        self.api!.getList(MarshallAPIValue.NavPresets, maxItems: 7, successCallback: self.showPresets)
-//        self.showPresets(fakePresets())
+        self.checkNavState()
         
         var dataToLoad: [MarshallAPIValue]?
         
@@ -102,6 +100,32 @@ class Presets: MarshallViewController, Showable, HasTitle {
         }
         
         self.api!.getParams(dataToLoad!, successCallback: self.updateValues)
+    }
+    
+    private func checkNavState() {
+        self.api!.getParams([.NavState]) { (kvPairs) in
+            kvPairs.forEach({ (kv: (MarshallAPIValue, String)) in
+                if (kv.0 == .NavState) {
+                    if (kv.1 == "1") {
+                        self.loadPresets()
+                    }
+                    if (kv.1 == "0") {
+                        self.unlockNav()
+                    }
+                }
+            })
+        }
+    }
+    
+    private func unlockNav() {
+        self.api!.setParam(MarshallAPIValue.NavState, value: "1") {
+            self.loadPresets()
+        }
+    }
+    
+    private func loadPresets() {
+        self.api!.getList(MarshallAPIValue.NavPresets, maxItems: 7, successCallback: self.showPresets)
+        //        self.showPresets(fakePresets())
     }
     
     override func viewDidLoad() {
