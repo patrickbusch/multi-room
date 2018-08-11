@@ -124,7 +124,7 @@ class Presets: MarshallViewController, Showable, HasTitle {
     }
     
     private func loadPresets() {
-        self.api!.getList(MarshallAPIValue.NavPresets, maxItems: 7, successCallback: self.showPresets)
+        self.api!.getPresets(MarshallAPIValue.NavPresets, maxItems: 7, successCallback: self.showPresets)
         //        self.showPresets(fakePresets())
     }
     

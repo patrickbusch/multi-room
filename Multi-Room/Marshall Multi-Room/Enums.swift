@@ -7,26 +7,27 @@
 
 import Cocoa
 
-enum Input: Int {
+enum InputType2: String {
     
     // read via LIST_GET_NEXT/netremote.sys.caps.validmodes/-1?pin=1234&maxItems=20
     //0: Audsync 1: AUXIN 2: Airplay 3: Spotify 4: Google Cast 5: Bluetooth 6: IR 7: RCA 8: Standby 9: castsetup-default
     
-    case Audsync = 0
-    case AUX = 1
-    case Airplay = 2
-    case Spotify = 3
-    case GoogleCast = 4
-    case Bluetooth = 5
-    case InternetRadio = 6
-    case RCA = 7
-    case Standby = 8
-    case castsetup = 9
+    case Audsync = "Audsync"
+    case AUX = "AUXIN"
+    case Airplay = "Airplay"
+    case Spotify = "Spotify"
+    case GoogleCast = "Google Cast"
+    case Bluetooth = "Bluetooth"
+    case InternetRadio = "IR"
+    case RCA = "RCA"
+    case Standby = "Standby"
+    case castsetup = "castsetup-default"
+    case Unknown = "Unknown"
     
     var playingType: PlayingType {
         get {
             switch self {
-            case .AUX, .RCA, .Standby, .castsetup, .Audsync:
+            case .AUX, .RCA, .Standby, .castsetup, .Audsync, .Unknown:
                 return .None
             case .InternetRadio:
                 return .PlayStop
@@ -39,7 +40,7 @@ enum Input: Int {
     var canSkip: Bool {
         get {
             switch self {
-            case .AUX, .RCA, .InternetRadio, .Audsync, .Standby, .castsetup:
+            case .AUX, .RCA, .InternetRadio, .Audsync, .Standby, .castsetup, .Unknown:
                 return false
             case .Airplay, .Bluetooth, .Spotify, .GoogleCast:
                 return true

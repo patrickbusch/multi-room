@@ -96,7 +96,7 @@ class MarshallAPI {
         return getParams
     }
     
-    func getList(_ param: MarshallAPIValue,  maxItems: Int,
+    func getPresets(_ param: MarshallAPIValue,  maxItems: Int,
                    successCallback: @escaping ([Preset]) -> ()) {
         
         guard let base = self.baseUrl else {
@@ -133,7 +133,7 @@ class MarshallAPI {
                     item.children.filter({ (child) -> Bool in
                         child.element?.name == "field"
                     }).forEach({ (field) in
-//                        field.va
+
                         do {
                             preset.name = try ((field.withAttribute("name", "name").element?.children[0] as? SWXMLHash.XMLElement)?.children[0] as? TextElement)?.text ?? ""
                         } catch {
@@ -161,12 +161,115 @@ class MarshallAPI {
             }
         }
     }
+    
+    func getInputs(_ param: MarshallAPIValue,  maxItems: Int,
+                    successCallback: @escaping ([Input]) -> ()) {
+        
+        guard let base = self.baseUrl else {
+            print("Cannot continue")
+            return
+        }
+        
+        let parameters = "?pin=\(self.pin)&maxItems=\(maxItems)"
+        print("\(base)LIST_GET_NEXT/\(param.rawValue)/-1\(parameters)")
+        Alamofire.request("\(base)LIST_GET_NEXT/\(param.rawValue)/-1\(parameters)").responseString { (response) in
+            
+            if let data = response.data {
+                let xml = SWXMLHash.parse(data)
+                
+                var result = [Input]()
+                
+                let fsApiResponse = xml["fsapiResponse"]
+                
+                let state = fsApiResponse["status"].element?.text ?? ""
+                
+                guard state == self.okayState else {
+                    successCallback(result)
+                    return
+                }
+                
+                
+                fsApiResponse.children.filter({ (child) -> Bool in
+                    child.element?.name == "item"
+                }).forEach({ (item) in
+                    let input = Input()
+                    
+                    input.key = item.value(ofAttribute: "key")
+                    
+                    item.children.filter({ (child) -> Bool in
+                        child.element?.name == "field"
+                    }).forEach({ (field) in
+                        /*var key: Int?
+                        var id: String?
+                        var selectable: Boolean?
+                        var label: String?
+                        var streamable: Boolean?
+                        var modetype: Int?*/
+                        
+                        do {
+                            input.id = try ((field.withAttribute("name", "id").element?.children[0] as? SWXMLHash.XMLElement)?.children[0] as? TextElement)?.text ?? ""
+                        } catch {
+                            //do nothing
+                        }
+                        
+                        do {
+                            input.label = try ((field.withAttribute("name", "label").element?.children[0] as? SWXMLHash.XMLElement)?.children[0] as? TextElement)?.text ?? ""
+                        } catch {
+                            //do nothing
+                        }
+                        
+                        do {
+                            let text = try ((field.withAttribute("name", "selectable").element?.children[0] as? SWXMLHash.XMLElement)?.children[0] as? TextElement)?.text ?? ""
+                            input.selectable = text == "1" ? true : false
+                        } catch {
+                            //do nothing
+                        }
+                        
+                        do {
+                            let text = try ((field.withAttribute("name", "streamable").element?.children[0] as? SWXMLHash.XMLElement)?.children[0] as? TextElement)?.text ?? ""
+                            input.streamable = text == "1" ? true : false
+                        } catch {
+                            //do nothing
+                        }
+                        
+                        do {
+                            let text = try ((field.withAttribute("name", "modetype").element?.children[0] as? SWXMLHash.XMLElement)?.children[0] as? TextElement)?.text ?? ""
+                            input.modetype = Int(text)
+                        } catch {
+                            //do nothing
+                        }
+                        
+                    })
+                    
+                    input.inputType = InputType2(rawValue: input.id ?? "") ?? InputType2.Unknown
+                    
+                    result.append(input)
+                })
+                
+                
+                successCallback(result)
+            }
+        }
+    }
 }
 
 class Preset {
     
     var key: Int?
     var name: String?
-    var type: String?
+    var type: String? //Input?
     var artworkUrl: String?
 }
+
+class Input {
+    
+    var key: Int?
+    var id: String?
+    var selectable: Bool?
+    var label: String?
+    var streamable: Bool?
+    var modetype: Int?
+    var inputType: InputType2?
+}
+
+

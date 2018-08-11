@@ -10,6 +10,7 @@ import Cocoa
 class MarshallViewController: SHViewController {
 
     var api: MarshallAPI?
+    var inputHandler: InputHandler?
     
     let titleBackgroundColor = Colors.titleBackground
     let contentBackgroundColor = Colors.contentBackground

@@ -32,6 +32,7 @@
 		1D7CFB3C20B93F0400489902 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7CFB3B20B93F0400489902 /* Controller.swift */; };
 		1D7CFB4320B9809F00489902 /* NSViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7CFB4220B9809F00489902 /* NSViewExtensions.swift */; };
 		1D7CFB4520B9B3CA00489902 /* Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D7CFB4420B9B3CA00489902 /* Controller.xib */; };
+		1D8D4566211F486700702532 /* InputHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8D4565211F486700702532 /* InputHandler.swift */; };
 		1D9098C620A8813F00A3817F /* MarshallMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9098C520A8813F00A3817F /* MarshallMenuItem.swift */; };
 		1D9098C820A8817600A3817F /* MarshallAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9098C720A8817600A3817F /* MarshallAPI.swift */; };
 		1D91F90620D312A200B30A41 /* DefaultTableSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91F90520D312A100B30A41 /* DefaultTableSeparator.swift */; };
@@ -85,6 +86,7 @@
 		1D7CFB3B20B93F0400489902 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		1D7CFB4220B9809F00489902 /* NSViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewExtensions.swift; sourceTree = "<group>"; };
 		1D7CFB4420B9B3CA00489902 /* Controller.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Controller.xib; sourceTree = "<group>"; };
+		1D8D4565211F486700702532 /* InputHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputHandler.swift; sourceTree = "<group>"; };
 		1D9098C520A8813F00A3817F /* MarshallMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallMenuItem.swift; sourceTree = "<group>"; };
 		1D9098C720A8817600A3817F /* MarshallAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshallAPI.swift; sourceTree = "<group>"; };
 		1D91F90420D3129E00B30A41 /* DefaultTableSeparator.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefaultTableSeparator.xib; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				1D7CFB3520B4AA1100489902 /* MarshallViewController.swift */,
 				1D7CFB3720B93E4400489902 /* Localizable.strings */,
 				1D6BC87520BD613600AC72CB /* Enums.swift */,
+				1D8D4565211F486700702532 /* InputHandler.swift */,
 			);
 			path = "Marshall Multi-Room";
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				1DC9117F20A70E0400970616 /* MarshallModule.swift in Sources */,
 				1DB0283320E9645400408AF3 /* SHSlider.swift in Sources */,
 				1D9E894220F0F99E00D253CC /* PresetView.swift in Sources */,
+				1D8D4566211F486700702532 /* InputHandler.swift in Sources */,
 				1D6253322098C33A004573FD /* TestModule.swift in Sources */,
 				1D62532D2098B7EF004573FD /* SHModuleAPI.swift in Sources */,
 				1D9E893C20F0DB1400D253CC /* PresetsSmall.swift in Sources */,

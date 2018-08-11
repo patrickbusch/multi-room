@@ -25,15 +25,15 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
     @IBOutlet weak var playButton: NSButton!
     
     @IBAction func prevButtonPressed(_ sender: NSButton) {
-        self.send(.PlayControl, value: self.currentInput?.prevCommandValue)
+        self.send(.PlayControl, value: self.currentInput?.inputType!.prevCommandValue)
     }
     
     @IBAction func nextButtonPressed(_ sender: NSButton) {
-        self.send(.PlayControl, value: self.currentInput?.nextCommandValue)
+        self.send(.PlayControl, value: self.currentInput?.inputType!.nextCommandValue)
     }
     
     @IBAction func playButtonPressed(_ sender: NSButton) {
-        self.send(.PlayControl, value: self.currentInput?.playCommandValue)
+        self.send(.PlayControl, value: self.currentInput?.inputType!.playCommandValue)
     }
 
     private var currentInput: Input? {
@@ -198,15 +198,15 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
         self.nowPlayingSmall.playPauseButtonImage = #imageLiteral(resourceName: "Play").withTintColor(tintColor: self.titleFontColor)
         
         self.nowPlayingSmall.prevButtonPressedHandler = { () in
-            self.send(.PlayControl, value: self.currentInput?.prevCommandValue)
+            self.send(.PlayControl, value: self.currentInput?.inputType!.prevCommandValue)
         }
 
         self.nowPlayingSmall.nextButtonPressedHandler = { () in
-            self.send(.PlayControl, value: self.currentInput?.nextCommandValue)
+            self.send(.PlayControl, value: self.currentInput?.inputType!.nextCommandValue)
         }
         
         self.nowPlayingSmall.playPauseButtonPressedHandler = { () in
-            self.send(.PlayControl, value: self.currentInput?.playCommandValue)
+            self.send(.PlayControl, value: self.currentInput?.inputType!.playCommandValue)
         }
         
         self.elements.isHidden = true
@@ -246,7 +246,7 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
             return
         }
         
-        switch input.playingType {
+        switch input.inputType!.playingType {
         case .None:
             self.playButton.isHidden = true
             self.nowPlayingSmall.playPauseButtonHidden = true
@@ -266,10 +266,10 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
             self.nowPlayingSmall.playPauseButtonHidden = false
         }
         
-        self.prevButton.isHidden = !input.canSkip
-        self.nextButton.isHidden = !input.canSkip
-        self.nowPlayingSmall.prevButtonHidden = !input.canSkip
-        self.nowPlayingSmall.nextButtonHidden = !input.canSkip
+        self.prevButton.isHidden = !input.inputType!.canSkip
+        self.nextButton.isHidden = !input.inputType!.canSkip
+        self.nowPlayingSmall.prevButtonHidden = !input.inputType!.canSkip
+        self.nowPlayingSmall.nextButtonHidden = !input.inputType!.canSkip
     }
     
     private func setPlayState(_ optPlayState: PlayState?) {
@@ -284,10 +284,10 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
             self.playButton.image = #imageLiteral(resourceName: "Play").withTintColor(tintColor: self.contentFontColor)
             self.nowPlayingSmall.playPauseButtonImage = #imageLiteral(resourceName: "Play").withTintColor(tintColor: self.titleFontColor)
         case .Playing:
-            if (self.currentInput?.playingType == .PlayStop) {
+            if (self.currentInput?.inputType!.playingType == .PlayStop) {
                 self.playButton.image = #imageLiteral(resourceName: "Stop").withTintColor(tintColor: self.contentFontColor)
                 self.nowPlayingSmall.playPauseButtonImage = #imageLiteral(resourceName: "Stop").withTintColor(tintColor: self.titleFontColor)
-            } else if (self.currentInput?.playingType == .PlayPause) {
+            } else if (self.currentInput?.inputType!.playingType == .PlayPause) {
                 self.playButton.image = #imageLiteral(resourceName: "Pause").withTintColor(tintColor: self.contentFontColor)
                 self.nowPlayingSmall.playPauseButtonImage = #imageLiteral(resourceName: "Pause").withTintColor(tintColor: self.titleFontColor)
             }
@@ -329,7 +329,8 @@ class NowPlaying: MarshallViewController, Showable, HasTitle {
             
         case .SysMode:
             let intval = Int(kv.1) ?? -1
-            guard let input = Input(rawValue: intval) else {
+            
+            guard let input = self.inputHandler!.byKey(key: intval) else {
                 print("Unknown SysMode \(kv.1)")
                 return
             }            
