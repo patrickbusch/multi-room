@@ -59,6 +59,12 @@ class PresetView: SHViewController {
         }
     }
     
+    var target: (() -> ())?
+    
+    @IBAction func buttonPress(_ sender: Any) {
+        self.target?()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

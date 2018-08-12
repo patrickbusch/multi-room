@@ -14,6 +14,8 @@ class Presets: MarshallViewController, Showable, HasTitle {
 
     @IBOutlet weak var presetStack: NSStackView!
     
+    private var presetViews: [PresetView] = [PresetView]()
+    
     var isShown: Bool = false {
         willSet {
             print("isShown: \(newValue)")
@@ -186,6 +188,7 @@ class Presets: MarshallViewController, Showable, HasTitle {
             self.presetStack.subviews.forEach({ (subview) in
                 self.presetStack.removeView(subview)
             })
+            self.presetViews.removeAll()
         }
         
         presets.forEach { (preset) in
@@ -194,6 +197,11 @@ class Presets: MarshallViewController, Showable, HasTitle {
             let presetView = PresetView()
             presetView.topTitle = preset.type ?? ""
             presetView.bottomTitle = preset.name ?? ""
+            presetView.target = { () in
+                self.api!.setParam(.NavActionSelectPreset, value: "\(preset.key ?? -1)", successCallback: nil)
+            }
+            
+            self.presetViews.append(presetView)
             
             self.presetStack.addView(presetView.view, in: NSStackView.Gravity.leading)
         }
