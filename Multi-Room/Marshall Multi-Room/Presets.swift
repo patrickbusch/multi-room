@@ -198,8 +198,11 @@ class Presets: MarshallViewController, Showable, HasTitle {
             presetView.topTitle = preset.type ?? ""
             presetView.bottomTitle = preset.name ?? ""
             presetView.target = { () in
-                self.api!.setParam(.NavActionSelectPreset, value: "\(preset.key ?? -1)", successCallback: nil)
+                self.api!.setParam(.NavActionSelectPreset, value: "\(preset.key ?? -1)", successCallback: { () in
+                    self.unlockNav() // don't know why this is needed - but node needs to be unblocked...
+                })
             }
+            
             
             self.presetViews.append(presetView)
             
