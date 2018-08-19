@@ -274,6 +274,10 @@ class Preset {
         }
     }
     var image: NSImage?
+    
+    //Regarding Spotify Playlists:
+    //Decode BLOB Base64, then load via https://developer.spotify.com/console/get-playlist-images/?user_id=jmperezperez&playlist_id=3cEYpjA9oz9GiPac4AsH4n
+    //Needs User Token/Authentication. Maybe Later
 }
 
 class Input {
