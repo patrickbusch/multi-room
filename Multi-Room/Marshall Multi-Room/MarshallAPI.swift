@@ -258,7 +258,22 @@ class Preset {
     var key: Int?
     var name: String?
     var type: String? //Input?
-    var artworkUrl: String?
+    var artworkUrl: String? {
+        didSet {
+            var urlToLoad = self.artworkUrl ?? ""
+            if (urlToLoad.hasPrefix("http://")) {
+                urlToLoad = urlToLoad.replacingOccurrences(of: "http://", with: "https://")
+            }
+            if let imageUrl = URL(string: urlToLoad) {
+                let image = NSImage(byReferencing: imageUrl)
+                
+                if (image.isValid) {
+                    self.image = image
+                }
+            }
+        }
+    }
+    var image: NSImage?
 }
 
 class Input {

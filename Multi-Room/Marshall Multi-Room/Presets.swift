@@ -212,23 +212,12 @@ extension Presets: NSCollectionViewDataSource {
 
         presetView.topTitle = preset.type ?? ""
         presetView.bottomTitle = preset.name ?? ""
-        var artworkUrl = preset.artworkUrl ?? ""
-        if (artworkUrl.hasPrefix("http://")) {
-            artworkUrl = artworkUrl.replacingOccurrences(of: "http://", with: "https://")
-        }
-        if let imageUrl = URL(string: artworkUrl) {
-            let image = NSImage(byReferencing: imageUrl)
 
-            if (image.isValid) {
-                presetView.imageToShow = image
-            }
+        if let imageToShow = preset.image {
+            presetView.imageToShow = imageToShow
+        } else {
+            presetView.imageToShow = #imageLiteral(resourceName: "Audio")
         }
-        
-//        presetView.target = { () in
-//            self.api!.setParam(.NavActionSelectPreset, value: "\(preset.key ?? -1)", successCallback: { () in
-//                self.unlockNav() // don't know why this is needed - but node needs to be unblocked...
-//            })
-//        }
         
         return presetView
     }
