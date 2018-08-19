@@ -37,7 +37,7 @@
                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
-                        <button translatesAutoresizingMaskIntoConstraints="NO" id="dCy-m8-54F">
+                        <button imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dCy-m8-54F">
                             <rect key="frame" x="17" y="17" width="46" height="46"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="dCy-m8-54F" secondAttribute="height" multiplier="1:1" id="7u5-Hk-N76"/>
@@ -88,13 +88,6 @@
             </constraints>
             <point key="canvasLocation" x="27" y="61"/>
         </customView>
-        <button id="ow0-h4-tpM">
-            <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="yVT-lF-Oyg">
-                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                <font key="font" metaFont="system"/>
-            </buttonCell>
-        </button>
+        <collectionViewItem id="JlK-pY-7xC" customClass="PresetView" customModule="Multi_Room" customModuleProvider="target"/>
     </objects>
 </document>

@@ -9,8 +9,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="Presets" customModule="Multi_Room" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="jmA-GY-SEN" id="ews-V0-ZvY"/>
                 <outlet property="elements" destination="XmW-di-YkH" id="bzV-Da-q3P"/>
-                <outlet property="presetStack" destination="FA3-vv-WKD" id="lLw-wb-eOc"/>
                 <outlet property="view" destination="c22-O7-iKe" id="5yU-oK-hhY"/>
             </connections>
         </customObject>
@@ -26,16 +26,39 @@
                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="XmW-di-YkH">
                             <rect key="frame" x="20" y="0.0" width="360" height="80"/>
                             <subviews>
-                                <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FA3-vv-WKD">
-                                    <rect key="frame" x="180" y="0.0" width="0.0" height="80"/>
-                                </stackView>
+                                <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tr4-Y3-jr4">
+                                    <rect key="frame" x="0.0" y="0.0" width="360" height="80"/>
+                                    <clipView key="contentView" drawsBackground="NO" id="8yU-90-nYE">
+                                        <rect key="frame" x="0.0" y="0.0" width="360" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <collectionView id="jmA-GY-SEN">
+                                                <rect key="frame" x="0.0" y="0.0" width="360" height="158"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" scrollDirection="horizontal" id="b9l-Z2-qnq">
+                                                    <size key="itemSize" width="100" height="100"/>
+                                                </collectionViewFlowLayout>
+                                                <color key="primaryBackgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
+                                            </collectionView>
+                                        </subviews>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </clipView>
+                                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="0VG-O3-7Lm">
+                                        <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </scroller>
+                                    <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="MDk-1h-4lN">
+                                        <rect key="frame" x="344" y="0.0" width="16" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </scroller>
+                                </scrollView>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="FA3-vv-WKD" firstAttribute="centerY" secondItem="XmW-di-YkH" secondAttribute="centerY" id="6dj-8t-9nW"/>
-                                <constraint firstItem="FA3-vv-WKD" firstAttribute="centerY" secondItem="XmW-di-YkH" secondAttribute="centerY" id="BoY-mx-Sdo"/>
-                                <constraint firstItem="FA3-vv-WKD" firstAttribute="centerX" secondItem="XmW-di-YkH" secondAttribute="centerX" id="Zcc-jr-Sjn"/>
+                                <constraint firstItem="tr4-Y3-jr4" firstAttribute="centerX" secondItem="XmW-di-YkH" secondAttribute="centerX" id="EtN-fh-Jhr"/>
+                                <constraint firstItem="tr4-Y3-jr4" firstAttribute="width" secondItem="XmW-di-YkH" secondAttribute="width" id="I1g-b6-sgi"/>
+                                <constraint firstItem="tr4-Y3-jr4" firstAttribute="height" secondItem="XmW-di-YkH" secondAttribute="height" id="arE-G6-s0h"/>
                                 <constraint firstAttribute="height" constant="80" id="g62-Xt-7d7"/>
-                                <constraint firstItem="FA3-vv-WKD" firstAttribute="height" secondItem="XmW-di-YkH" secondAttribute="height" id="jKz-0d-yqB"/>
+                                <constraint firstItem="tr4-Y3-jr4" firstAttribute="centerY" secondItem="XmW-di-YkH" secondAttribute="centerY" id="uRX-OG-Pbq"/>
                             </constraints>
                         </customView>
                     </subviews>

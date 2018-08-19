@@ -8,7 +8,7 @@
 import Foundation
 import Cocoa
 
-class PresetView: SHViewController {
+class PresetView: NSCollectionViewItem {
     
     @IBOutlet weak var topLabel: NSTextField!
     

@@ -12,9 +12,10 @@ class Presets: MarshallViewController, Showable, HasTitle {
     
     @IBOutlet weak var elements: NSView!
 
-    @IBOutlet weak var presetStack: NSStackView!
-    
+    @IBOutlet weak var collectionView: NSCollectionView!
+
     private var presetViews: [PresetView] = [PresetView]()
+    private var presets: [Preset] = [Preset]()
     
     var isShown: Bool = false {
         willSet {
@@ -114,6 +115,8 @@ class Presets: MarshallViewController, Showable, HasTitle {
         super.viewDidLoad()
         
         // Do view setup here.
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
         
         self.reset()
         
@@ -183,32 +186,92 @@ class Presets: MarshallViewController, Showable, HasTitle {
     }
     
     private func showPresets(_ presets: [Preset]) {
-        
-        if presets.count > 0 {
-            self.presetStack.subviews.forEach({ (subview) in
-                self.presetStack.removeView(subview)
-            })
-            self.presetViews.removeAll()
-        }
-        
-        presets.forEach { (preset) in
-            print(preset.name ?? "")
-            
-            let presetView = PresetView()
-            presetView.topTitle = preset.type ?? ""
-            presetView.bottomTitle = preset.name ?? ""
-            presetView.target = { () in
-                self.api!.setParam(.NavActionSelectPreset, value: "\(preset.key ?? -1)", successCallback: { () in
-                    self.unlockNav() // don't know why this is needed - but node needs to be unblocked...
-                })
-            }
-            
-            
-            self.presetViews.append(presetView)
-            
-            self.presetStack.addView(presetView.view, in: NSStackView.Gravity.leading)
-        }
-        
+  
+        self.presets = presets
+        self.collectionView.reloadData()
         self.stopLoading()
+        
+//        if presets.count > 0 {
+////            self.presetStack.subviews.forEach({ (subview) in
+////                self.presetStack.removeView(subview)
+////            })
+//            self.presetViews.removeAll()
+//        }
+//
+//
+////        presets.forEach { (preset) in
+////            print(preset.name ?? "")
+////
+////            let presetView = PresetView()
+////            presetView.topTitle = preset.type ?? ""
+////            presetView.bottomTitle = preset.name ?? ""
+////            var artworkUrl = preset.artworkUrl ?? ""
+////            if (artworkUrl.hasPrefix("http://")) {
+////                artworkUrl = artworkUrl.replacingOccurrences(of: "http://", with: "https://")
+////            }
+////            if let imageUrl = URL(string: artworkUrl) {
+////                let image = NSImage(byReferencing: imageUrl)
+////
+////                if (image.isValid) {
+////                    presetView.image = image
+////                }
+////            }
+        
+//            presetView.target = { () in
+//                self.api!.setParam(.NavActionSelectPreset, value: "\(preset.key ?? -1)", successCallback: { () in
+//                    self.unlockNav() // don't know why this is needed - but node needs to be unblocked...
+//                })
+//            }
+        
+            
+//            self.presetViews.append(presetView)
+            
+//            self.presetStack.addView(presetView.view, in: NSStackView.Gravity.leading)
+//            self.collectionView.addSubview(presetView.view)
+//        }
+
     }
+
+}
+
+extension Presets: NSCollectionViewDataSource {
+    
+    public func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.presets.count
+    }
+    
+    func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
+        
+        let presetView = self.collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "PresetView"), for: indexPath
+            ) as! PresetView
+        
+        let preset = self.presets[indexPath.item]
+        
+        print(preset.name ?? "")
+
+        presetView.topTitle = preset.type ?? ""
+        presetView.bottomTitle = preset.name ?? ""
+        var artworkUrl = preset.artworkUrl ?? ""
+        if (artworkUrl.hasPrefix("http://")) {
+            artworkUrl = artworkUrl.replacingOccurrences(of: "http://", with: "https://")
+        }
+        if let imageUrl = URL(string: artworkUrl) {
+            let image = NSImage(byReferencing: imageUrl)
+
+            if (image.isValid) {
+                presetView.image = image
+            }
+        }
+        
+        presetView.target = { () in
+            self.api!.setParam(.NavActionSelectPreset, value: "\(preset.key ?? -1)", successCallback: { () in
+                self.unlockNav() // don't know why this is needed - but node needs to be unblocked...
+            })
+        }
+        
+        return presetView
+    }
+}
+
+extension Presets: NSCollectionViewDelegate {
 }
