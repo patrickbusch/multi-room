@@ -14,8 +14,7 @@ class PresetView: NSCollectionViewItem {
     
     @IBOutlet weak var bottomLabel: NSTextField!
     
-    @IBOutlet weak var imageButton: NSButton!
-    
+    @IBOutlet weak var image: NSImageView!
     private var viewHasLoaded = false
     
     var topTitle: String = "" {
@@ -34,10 +33,10 @@ class PresetView: NSCollectionViewItem {
         }
     }
     
-    var image: NSImage = #imageLiteral(resourceName: "Audio") {
+    var imageToShow: NSImage = #imageLiteral(resourceName: "Audio") {
         willSet {
             if (viewHasLoaded) {
-                self.imageButton.image = newValue
+                self.image.image = newValue
             }
         }
     }
@@ -74,7 +73,7 @@ class PresetView: NSCollectionViewItem {
         self.bottomLabel.textColor = self.fontColor
         self.topLabel.stringValue = self.topTitle
         self.bottomLabel.stringValue = self.bottomTitle
-        self.imageButton.image = self.image
+        self.image.image = self.imageToShow
         
         self.viewHasLoaded = true
     }

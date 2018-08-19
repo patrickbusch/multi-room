@@ -11,7 +11,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="PresetView" customModule="Multi_Room" customModuleProvider="target">
             <connections>
                 <outlet property="bottomLabel" destination="79H-om-whR" id="XHa-nT-K2p"/>
-                <outlet property="imageButton" destination="dCy-m8-54F" id="jYW-g1-k7s"/>
+                <outlet property="image" destination="1wS-DF-GuO" id="RJg-cy-Zh8"/>
                 <outlet property="topLabel" destination="NhI-4g-Vze" id="6Wi-5Z-ay8"/>
                 <outlet property="view" destination="c22-O7-iKe" id="5yU-oK-hhY"/>
             </connections>
@@ -37,20 +37,14 @@
                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
-                        <button imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dCy-m8-54F">
+                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1wS-DF-GuO">
                             <rect key="frame" x="17" y="17" width="46" height="46"/>
                             <constraints>
-                                <constraint firstAttribute="width" secondItem="dCy-m8-54F" secondAttribute="height" multiplier="1:1" id="7u5-Hk-N76"/>
-                                <constraint firstAttribute="height" constant="46" id="9Gd-eL-AhG"/>
+                                <constraint firstAttribute="height" constant="46" id="QVH-XR-iZx"/>
+                                <constraint firstAttribute="width" secondItem="1wS-DF-GuO" secondAttribute="height" multiplier="1:1" id="gqV-tG-Z8d"/>
                             </constraints>
-                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="0Dj-vb-JlH">
-                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system"/>
-                            </buttonCell>
-                            <connections>
-                                <action selector="buttonPress:" target="-2" id="Gru-yK-tD1"/>
-                            </connections>
-                        </button>
+                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="tpQ-fw-suc"/>
+                        </imageView>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="79H-om-whR">
                             <rect key="frame" x="-2" y="0.0" width="84" height="15"/>
                             <constraints>
