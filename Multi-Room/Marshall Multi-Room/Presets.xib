@@ -26,7 +26,7 @@
                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="XmW-di-YkH">
                             <rect key="frame" x="20" y="0.0" width="360" height="80"/>
                             <subviews>
-                                <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tr4-Y3-jr4">
+                                <scrollView wantsLayer="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" scrollerKnobStyle="dark" translatesAutoresizingMaskIntoConstraints="NO" id="tr4-Y3-jr4">
                                     <rect key="frame" x="0.0" y="0.0" width="360" height="80"/>
                                     <clipView key="contentView" drawsBackground="NO" id="8yU-90-nYE">
                                         <rect key="frame" x="0.0" y="0.0" width="360" height="80"/>
@@ -41,7 +41,7 @@
                                                 <color key="primaryBackgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                             </collectionView>
                                         </subviews>
-                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                     </clipView>
                                     <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="0VG-O3-7Lm">
                                         <rect key="frame" x="-100" y="-100" width="233" height="15"/>
