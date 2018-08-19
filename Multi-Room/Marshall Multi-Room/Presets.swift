@@ -103,7 +103,9 @@ class Presets: MarshallViewController, Showable, HasTitle {
     
     private func unlockNav() {
         self.api!.setParam(MarshallAPIValue.NavState, value: "1") {
-            self.loadPresets()
+            if (self.presets.isEmpty) {
+                self.loadPresets()
+            }
         }
     }
     
@@ -125,13 +127,6 @@ class Presets: MarshallViewController, Showable, HasTitle {
         self.load()
         self.checkNavAndLoad()
     }
-    
-//    private func send(_ apiValue: MarshallAPIValue, value: Double) {
-//        let valueToSend = "\(lround(value))"
-//        print("\(apiValue): \(valueToSend)")
-//
-//        self.api!.setParam(apiValue, value: valueToSend, successCallback: nil)
-//    }
     
     private func reset() {
         self.view.backgroundColor = self.contentBackgroundColor
@@ -187,11 +182,21 @@ class Presets: MarshallViewController, Showable, HasTitle {
     
     private func showPresets(_ presets: [Preset]) {
   
-        self.presets = presets
-        self.collectionView.reloadData()
+        
+        if (!self.presets.elementsEqual(presets)) {
+            self.presets = presets
+            self.collectionView.reloadData()
+        }
+        
         self.stopLoading()
-
     }
+    
+    
+//        
+//        //Regarding Spotify Playlists:
+//        //Decode BLOB Base64, then load via https://developer.spotify.com/console/get-playlist-images/?user_id=jmperezperez&playlist_id=3cEYpjA9oz9GiPac4AsH4n
+//        //Needs User Token/Authentication. Maybe Later
+//    }
 
 }
 
@@ -213,12 +218,15 @@ extension Presets: NSCollectionViewDataSource {
         presetView.topTitle = preset.type ?? ""
         presetView.bottomTitle = preset.name ?? ""
 
-        if let imageToShow = preset.image {
-            presetView.imageToShow = imageToShow
+        if (preset.image == nil) {
+            self.api!.loadImage(preset.artworkUrl ?? "", successCallback: { (image) in
+                preset.image = image
+                presetView.imageToShow = image
+            })
         } else {
-            presetView.imageToShow = #imageLiteral(resourceName: "Audio")
+            presetView.imageToShow = preset.image!
         }
-        
+
         return presetView
     }
 }

@@ -7,6 +7,7 @@
 
 import Cocoa
 import Alamofire
+import AlamofireImage
 import SWXMLHash
 
 class MarshallAPI {
@@ -251,6 +252,24 @@ class MarshallAPI {
             }
         }
     }
+    
+    func loadImage(_ url: String, successCallback: @escaping (Image) -> ()) {
+        
+        var urlToLoad = url
+        if (urlToLoad.hasPrefix("http://")) {
+            urlToLoad = urlToLoad.replacingOccurrences(of: "http://", with: "https://")
+        }
+        
+        Alamofire.request(urlToLoad).responseImage { response in
+            
+            if let image = response.result.value {
+                successCallback(image)
+            }
+        }
+        //Regarding Spotify Playlists:
+        //Decode BLOB Base64, then load via https://developer.spotify.com/console/get-playlist-images/?user_id=jmperezperez&playlist_id=3cEYpjA9oz9GiPac4AsH4n
+        //Needs User Token/Authentication. Maybe Later
+    }
 }
 
 class Preset {
@@ -258,26 +277,14 @@ class Preset {
     var key: Int?
     var name: String?
     var type: String? //Input?
-    var artworkUrl: String? {
-        didSet {
-            var urlToLoad = self.artworkUrl ?? ""
-            if (urlToLoad.hasPrefix("http://")) {
-                urlToLoad = urlToLoad.replacingOccurrences(of: "http://", with: "https://")
-            }
-            if let imageUrl = URL(string: urlToLoad) {
-                let image = NSImage(byReferencing: imageUrl)
-                
-                if (image.isValid) {
-                    self.image = image
-                }
-            }
-        }
+    var artworkUrl: String?
+    var image: Image?
+}
+
+extension Preset: Equatable {
+    static func == (lhs: Preset, rhs: Preset) -> Bool {
+        return lhs.key == rhs.key && lhs.name == rhs.name && lhs.type == rhs.type && lhs.artworkUrl == rhs.artworkUrl
     }
-    var image: NSImage?
-    
-    //Regarding Spotify Playlists:
-    //Decode BLOB Base64, then load via https://developer.spotify.com/console/get-playlist-images/?user_id=jmperezperez&playlist_id=3cEYpjA9oz9GiPac4AsH4n
-    //Needs User Token/Authentication. Maybe Later
 }
 
 class Input {
