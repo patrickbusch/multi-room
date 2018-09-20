@@ -6,6 +6,9 @@ Mac OSX Application for remote control of Marshall Multi-Room speakers
 Normal View:
 
 ![normal view](https://raw.githubusercontent.com/patrickbusch/multi-room/master/docs/large.png)
+
+Small View:
+
 ![small view](https://raw.githubusercontent.com/patrickbusch/multi-room/master/docs/small.png)
 
 
