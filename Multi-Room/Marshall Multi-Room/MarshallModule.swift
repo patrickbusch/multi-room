@@ -40,15 +40,15 @@ class MarshallModule: SHModule {
             return [
 //
 //                MarshallMenuItem(self._identifier, name: "Get Sysinfo", action: { () in self.api.getParams([MarshallAPIValue.SysInfoFriendlyname, .SysMode, .SysNetWlanMacaddress, .SysCapsVolumesteps], successCallback: self.printValues)}),
-//                                
+//
 //                MarshallMenuItem(self._identifier, name: "Get Mute, Volume", action: { () in self.api.getParams([MarshallAPIValue.SysAudioMute, .SysAudioVolume, .SysAudioEqcustomParam0, .SysAudioEqcustomParam1], successCallback: self.printValues)}),
-//                
+//
 //                MarshallMenuItem(self._identifier, name: "Get Play Info", action: { () in self.api.getParams([MarshallAPIValue.PlayInfoName, .PlayInfoArtist, .PlayInfoAlbum, .PlayInfoGraphicUri, .PlayStatus, .PlayRepeat, .PlayShuffle], successCallback: self.printValues)}),
-//                
+//
 //                MarshallMenuItem(self._identifier, name: "Get Spotify Info", action: { () in self.api.getParams([MarshallAPIValue.SpotifyPlaylistName, .SpotifyPlaylistName], successCallback: self.printValues)}),
-//                
+//
 //                MarshallMenuItem(self._identifier, name: "Get Duration, Position", action: { () in self.api.getParams([MarshallAPIValue.PlayInfoDuration, .PlayPosition], successCallback: self.printValues)}),
-//                
+//
 //                MarshallMenuItem(self._identifier, name: "Get Presets", action: { () in self.api.getPresets(MarshallAPIValue.NavPresets, maxItems: 7, successCallback: self.printValues)}),
 //
 //                MarshallMenuItem(self._identifier, name: "Get Inputs", action: { () in self.api.getInputs(MarshallAPIValue.SysCapsValidmodes, maxItems: 20, successCallback: self.printValues)}),
